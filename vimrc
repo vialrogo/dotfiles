@@ -112,6 +112,7 @@ set switchbuf=usetab,newtab     " This should mean switching to the existing tab
 set relativenumber              " Amazing number line conf. Provides relative number line to the possition.
 set conceallevel=2              " Set de conceal (dinamic replace of _X or \alpha caracteres).
 set concealcursor=nc            " Set the conseal cursor for full text display in normal and command mode. Other modes: v-> visual, i-> insert
+set whichwrap+=<,>,h,l,[,]      " This causes the left and right arrow keys, as well as h and l, to wrap when used at beginning or end of lines. ( < > are the cursor keys used in normal and visual mode, and [ ] are the cursor keys in insert mode).)
 
 " ########################################## KeyMaps  ############################################
 
@@ -120,11 +121,6 @@ set concealcursor=nc            " Set the conseal cursor for full text display i
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 " Close popup by <C-c>.
 inoremap <expr><C-c> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-
-" Mappings to toggle foldsEdit
-nnoremap <F8> zM
-nnoremap <F10> zR
-nnoremap <F9> za
 
 " -------------------------------------- neosnippet ---------------------------------------------
 " Expand the snippets
@@ -144,7 +140,12 @@ imap <buffer> ]] <Plug>LatexCloseCurEnv
 " It clears the search buffer when you press ,/
 nnoremap <silent> ,/ :nohlsearch<CR> 
 
-" Faster save options :D
+" Mappings to toggle foldsEdit
+nnoremap <F8> zM
+nnoremap <F10> zR
+nnoremap <F9> za
+
+" Faster windows options
 nnoremap <silent> ,w :w<CR> 
 nnoremap <silent> ,x :x<CR> 
 nnoremap <silent> ,q :q<CR> 
@@ -152,7 +153,7 @@ nnoremap <silent> ,q :q<CR>
 " Set W to sudo save
 command W w !sudo tee % >/dev/null
 
-" The fastest :D
+" Easy and fast scape shortcut
 inoremap jk <ESC>
 
 " Tabs options. In MY configuration, tab == ctrl
@@ -194,15 +195,19 @@ autocmd BufNewFile,BufReadPost,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.md set 
 autocmd Syntax c,cpp,vim,xml,html,xhtml setlocal foldmethod=syntax  
 autocmd Syntax c,cpp,vim,xml,html,xhtml,perl normal zR 
 
+" --------------------------------- Look and feel options --------------------------------------
 " Remove all bars in GVim
 set go-=m
 set go-=T
 set go-=L
 set go-=r
 
-" --------------------------------- Look and feel options --------------------------------------
-set t_Co=256                    " Set the full colors to the shell if possible, for full theme suport
-set laststatus=2                " Vim line always
+" Set the full colors to the shell for full theme suport
+set t_Co=256
+
+" Vim airline always
+set laststatus=2
+
 "set guifont=Inconsolata\ for\ Powerline\ 13
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 
@@ -216,4 +221,3 @@ endif
 
 " Link the Conceal highlight configuration to the Normal configuration. It's a full clone of ALL in the class
 highlight! link Conceal Normal 
-
