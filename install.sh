@@ -8,3 +8,4 @@ ln -s ${PWD}/bashrc   ~/.bashrc
 ln -s ${PWD}/bin      ~/bin
 ln -s ${PWD}/vim      ~/.vim
 ln -s ${PWD}/vimrc    ~/.vimrc
+ln -s ${PWD}/chktexrc ~/.chktexrc
