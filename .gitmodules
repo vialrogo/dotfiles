@@ -52,3 +52,4 @@
 [submodule ".vim/bundle/clighter"]
 	path = .vim/bundle/clighter
 	url = https://github.com/bbchung/clighter
+  ignore = dirty
