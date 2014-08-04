@@ -4,8 +4,8 @@
 git submodule update -i
 
 # Symbolic links
-ln -s ${PWD}/bashrc   ~/.bashrc
-ln -s ${PWD}/bin      ~/bin
-ln -s ${PWD}/vim      ~/.vim
-ln -s ${PWD}/vimrc    ~/.vimrc
-ln -s ${PWD}/chktexrc ~/.chktexrc
+ln -sf ${PWD}/.bashrc   ~/
+ln -sf ${PWD}/bin       ~/
+ln -sf ${PWD}/.vim      ~/
+ln -sf ${PWD}/.vimrc    ~/
+ln -sf ${PWD}/.chktexrc ~/
