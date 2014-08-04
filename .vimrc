@@ -12,6 +12,7 @@ call vundle#rc()
 Plugin 'gmarik/vundle'
 Plugin 'Raimondi/delimitMate'
 Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'bbchung/clighter'
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'kien/ctrlp.vim'
 Plugin 'flazz/vim-colorschemes'
@@ -59,6 +60,9 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1 
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
+
+" ---------------------------------------- clighter -------------------------------------------------
+let g:clighter_clang_options = ['-std=c++', '-DLinux']
 
 " ---------------------------------------------- Core options -------------------------------------- 
 " Define latex by default for any *.tex file
