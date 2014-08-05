@@ -53,3 +53,6 @@
 	path = .vim/bundle/clighter
 	url = https://github.com/bbchung/clighter
   ignore = dirty
+[submodule ".vim/bundle/vim-exchange"]
+	path = .vim/bundle/vim-exchange
+	url = https://github.com/tommcdo/vim-exchange
