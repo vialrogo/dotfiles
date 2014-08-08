@@ -56,3 +56,9 @@
 [submodule ".vim/bundle/vim-exchange"]
 	path = .vim/bundle/vim-exchange
 	url = https://github.com/tommcdo/vim-exchange
+[submodule ".vim/bundle/neobundle.vim"]
+	path = .vim/bundle/neobundle.vim
+	url = https://github.com/shougo/neobundle.vim
+[submodule ".vim/bundle/vim-polyglot"]
+	path = .vim/bundle/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot

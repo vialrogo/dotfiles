@@ -1,33 +1,63 @@
-" .vimrc
-" ############################################ Vundle  #############################################
+"*****************************************************************************
+"" NeoBundle core
+"*****************************************************************************
+if has('vim_starting')
+  set nocompatible               " Be iMproved
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
+  " Required:
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+let vundle_readme=expand('~/.vim/bundle/neobundle.vim/README.md')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/vundle'
-Plugin 'Raimondi/delimitMate'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'bbchung/clighter'
-Plugin 'LaTeX-Box-Team/LaTeX-Box'
-Plugin 'kien/ctrlp.vim'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'bling/vim-airline'
-Plugin 'tommcdo/vim-exchange'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-repeat'
+if !filereadable(vundle_readme)
+  echo "Installing NeoBundle..."
+  echo ""
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim/
+endif
+
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+"*****************************************************************************
+"" NeoBundle install packages
+"*****************************************************************************
+NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'bbchung/clighter'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'tommcdo/vim-exchange'
+NeoBundle 'sheerun/vim-polyglot'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-commentary'
+NeoBundle 'tpope/vim-repeat'
+" NeoBundle 'vim-scripts/CSApprox'
+
+"" Snippets
+" NeoBundle 'MarcWeber/vim-addon-mw-utils'
+" NeoBundle 'tomtom/tlib_vim'
+" NeoBundle 'honza/vim-snippets'
+" NeoBundle 'garbas/vim-snipmate'
+
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup, this will conveniently prompt you to install them.
+NeoBundleCheck
 
 " ----------------------------------------- neocomplete -------------------------------------------
 " For newocomplete instalation
@@ -61,9 +91,32 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1 
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_enable_syntastic = 1
+let g:airline_enable_branch = 1
 
 " ---------------------------------------- clighter -------------------------------------------------
 let g:clighter_clang_options = ['-std=c++', '-DLinux']
+
+" ---------------------------------------- NERDTree -------------------------------------------------
+let NERDTreeShowBookmarks=1
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
+
+" ---------------------------------------- ctrlp.vim -------------------------------------------------
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,.pyc,__pycache__
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|tox)$'
+let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore +"'"
+let g:ctrlp_use_caching = 0
+let g:ctrlp_map = ',e'
+
+" ---------------------------------------- syntastic -------------------------------------------------
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_style_error_symbol = '✗'
+let g:syntastic_style_warning_symbol = '⚠'
+let g:syntastic_auto_loc_list=1
+let g:syntastic_aggregate_errors = 1
 
 " ---------------------------------------------- Core options -------------------------------------- 
 " Define latex by default for any *.tex file
@@ -82,7 +135,7 @@ set smarttab                    " When on, a <Tab> in front of a line inserts bl
 set showcmd                     " Show (partial) command in status line.
 set number                      " Show line numbers.
 set showmatch                   " When a bracket is inserted, briefly jump to the matching one. The jump is only done if the match can be seen on  screen. The time to show the match can be set with 'matchtime'.
-set hlsearch                    " When there is a previous search pattern, highlight all its matches.
+" set hlsearch                    " When there is a previous search pattern, highlight all its matches.
 set incsearch                   " While typing a search command, show immediately where the so far typed pattern matches.
 set ignorecase                  " Ignore case in search patterns.
 set smartcase                   " Override the 'ignorecase' option if the search pattern contains upper case characters.
@@ -109,6 +162,8 @@ set noswapfile                  " Use modern ways for tracking your changes, for
 set pastetoggle=<F2>            " Then, when in insert mode, ready to paste, press <F2>, Vim will switch to paste mode, disabling all kinds of smartness
 set autochdir                   " Set working directory as the current directory"
 set encoding=utf-8              " Set the codification
+set fileencoding=utf-8
+set fileencodings=utf-8
 " set spell                       " Set the spell revision
 set spelllang=en_us             " Set the spell language
 set nocp                        " This changes the values of a LOT of options, enabling features which are not Vi compatible but really really nice. 
@@ -140,6 +195,9 @@ xmap <C-@> <C-Space>
 " LatexBox key maps. I really dont know why but if you use inoremap dont work!!!
 imap <buffer> [[     \begin{
 imap <buffer> ]] <Plug>LatexCloseCurEnv
+
+" ---------------------------------------- NERDTree -------------------------------------------------
+noremap <F3> :NERDTreeToggle<CR>
 
 " --------------------------------------- Otheres ---------------------------------------------
 " It clears the search buffer when you press ,/
@@ -184,14 +242,17 @@ vnoremap <C-y> "+y
 nnoremap <C-y> "+y
 vnoremap <C-d> "+d
 nnoremap <C-d> "+d
-vnoremap <C-p> "+p
-nnoremap <C-p> "+p
-inoremap <C-P> <C-o>"+p
+vnoremap <C-p> "+gp
+nnoremap <C-p> "+gp
+inoremap <C-P> <C-o>"+gp
+
+"" Vmap for maintain Visual Mode after shifting > and <
+vmap < <gv
+vmap > >gv
 
 " ################################### Config stuff  ###########################################
 
 syntax on                       " Set the sintax for all files
-filetype plugin indent on       " Correct ident
 
 " Force all *.md files to be markdown
 autocmd BufNewFile,BufReadPost,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.md set filetype=markdown

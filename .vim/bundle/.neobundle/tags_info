@@ -1,0 +1,17 @@
+clighter
+ctrlp.vim
+delimitMate
+neobundle.vim
+neocomplete.vim
+neosnippet
+neosnippet-snippets
+nerdtree
+syntastic
+vim-airline
+vim-colorschemes
+vim-commentary
+vim-exchange
+vim-fugitive
+vim-polyglot
+vim-repeat
+vim-surround
