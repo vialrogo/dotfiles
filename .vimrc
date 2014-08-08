@@ -3,8 +3,6 @@
 "*****************************************************************************
 if has('vim_starting')
   set nocompatible               " Be iMproved
-
-  " Required:
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
@@ -17,11 +15,9 @@ if !filereadable(vundle_readme)
   silent !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim/
 endif
 
-" Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
 
 " Let NeoBundle manage NeoBundle
-" Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 "*****************************************************************************
@@ -43,13 +39,6 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-repeat'
-" NeoBundle 'vim-scripts/CSApprox'
-
-"" Snippets
-" NeoBundle 'MarcWeber/vim-addon-mw-utils'
-" NeoBundle 'tomtom/tlib_vim'
-" NeoBundle 'honza/vim-snippets'
-" NeoBundle 'garbas/vim-snipmate'
 
 call neobundle#end()
 
