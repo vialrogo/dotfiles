@@ -208,15 +208,21 @@ command W w !sudo tee % >/dev/null
 " Easy and fast scape shortcut
 inoremap jk <ESC>
 
-" Tabs options. In MY configuration, tab == ctrl
-nnoremap <C-h> :tabprevious<CR>
-nnoremap <C-l> :tabnext<CR>
-nnoremap <silent> <C-S-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
-nnoremap <silent> <C-S-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
+" Tab options. Tab == Ctrl + Alt
+nnoremap <C-A-h> :tabprevious<CR>
+nnoremap <C-A-l> :tabnext<CR>
+nnoremap <silent> <C-A-j> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> <C-A-k> :execute 'silent! tabmove ' . tabpagenr()<CR>
 
-" Buffer stuff. In MY configuration, buffer == Alt
-nnoremap <A-h>  :bp<CR>
-nnoremap <A-l> :bn<CR>
+" Windows options. Window == Alt
+noremap <A-j> <C-W>w
+noremap <A-k> <C-W>W
+noremap <A-l> <C-W>l
+noremap <A-h> <C-W>h
+
+" Buffer stuff. Buffer == Ctrl
+nnoremap <C-h>  :bp<CR>
+nnoremap <C-l> :bn<CR>
 " Close the current buffer but not the window. Put inside the window the next buffer
 nnoremap <silent> ,bd :bp <BAR> bd #<CR>
 
@@ -233,7 +239,7 @@ vnoremap <C-d> "+d
 nnoremap <C-d> "+d
 vnoremap <C-p> "+gp
 nnoremap <C-p> "+gp
-inoremap <C-P> <C-o>"+gp
+inoremap <C-p> <C-o>"+gp
 
 "" Vmap for maintain Visual Mode after shifting > and <
 vmap < <gv
