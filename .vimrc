@@ -30,6 +30,7 @@ NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'tommcdo/vim-exchange'
 NeoBundle 'sheerun/vim-polyglot'
+NeoBundle 'mileszs/ack.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Shougo/neocomplete.vim'
@@ -96,7 +97,7 @@ set wildignore+=*.o,*.obj,.git,*.rbc,.pyc,__pycache__
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|tox)$'
 let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore +"'"
 let g:ctrlp_use_caching = 0
-let g:ctrlp_map = ',e'
+let g:ctrlp_map = '<leader>e'
 
 " ---------------------------------------- syntastic -------------------------------------------------
 let g:syntastic_error_symbol='✗'
@@ -186,8 +187,10 @@ imap <buffer> ]] <Plug>LatexCloseCurEnv
 noremap <F3> :NERDTreeToggle<CR>
 
 " --------------------------------------- Otheres ---------------------------------------------
-" It clears the search buffer when you press ,/
-nnoremap <silent> ,/ :nohlsearch<CR> 
+let mapleader = "\<Space>"
+
+" It clears the search buffer when you press <leader>/
+nnoremap <silent> <Leader>/ :nohlsearch<CR> 
 
 " Mappings to toggle foldsEdit
 nnoremap <F8> zM
@@ -195,9 +198,9 @@ nnoremap <F10> zR
 nnoremap <F9> za
 
 " Faster windows options
-nnoremap <silent> ,w :w<CR> 
-nnoremap <silent> ,x :x<CR> 
-nnoremap <silent> ,q :q<CR> 
+nnoremap <silent> <Leader>w :w<CR> 
+nnoremap <silent> <Leader>x :x<CR> 
+nnoremap <silent> <Leader>q :q<CR> 
 
 " Set W to sudo save
 command W w !sudo tee % >/dev/null
@@ -221,7 +224,7 @@ noremap <A-h> <C-W>h
 nnoremap <C-h>  :bp<CR>
 nnoremap <C-l> :bn<CR>
 " Close the current buffer but not the window. Put inside the window the next buffer
-nnoremap <silent> ,bd :bp <BAR> bd #<CR>
+nnoremap <silent> <Leader>bd :bp <BAR> bd #<CR>
 
 " GVim GUI hide-show options
 nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
