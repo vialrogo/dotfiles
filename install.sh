@@ -11,3 +11,4 @@ ln -sf ${PWD}/.vimrc      ~/
 ln -sf ${PWD}/.chktexrc   ~/
 ln -sf ${PWD}/.oh-my-zsh  ~/
 ln -sf ${PWD}/.zshrc      ~/
+ln -sf ${PWD}/.bash_git   ~/

@@ -9,6 +9,7 @@ export _USER=$(id -u -n)
 complete -cf sudo
 
 # Load auto-completation of git
+source ~/.bash_git
 if [ -e  /usr/share/git/completion/git-completion.bash ]; then
   source /usr/share/git/completion/git-completion.bash
 fi
