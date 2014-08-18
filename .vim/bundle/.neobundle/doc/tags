@@ -763,6 +763,7 @@ neocomplete-unite-sources	neocomplete.txt	/*neocomplete-unite-sources*
 neocomplete-user-sources	neocomplete.txt	/*neocomplete-user-sources*
 neocomplete-variables	neocomplete.txt	/*neocomplete-variables*
 neocomplete.txt	neocomplete.txt	/*neocomplete.txt*
+neosnippet	neosnippet.txt	/*neosnippet*
 neosnippet#expandable()	neosnippet.txt	/*neosnippet#expandable()*
 neosnippet#expandable_or_jumpable()	neosnippet.txt	/*neosnippet#expandable_or_jumpable()*
 neosnippet#get_snippets_directory()	neosnippet.txt	/*neosnippet#get_snippets_directory()*
