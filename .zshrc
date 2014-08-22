@@ -78,3 +78,4 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ssh_ime='ssh -AXt -L 3128:ime.usp.br:3128 -L 3125:smtp.ime.usp.br:25 ime.usp.br'
