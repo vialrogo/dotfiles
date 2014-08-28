@@ -151,8 +151,8 @@ set autochdir                   " Set working directory as the current directory
 set encoding=utf-8              " Set the codification
 set fileencoding=utf-8
 set fileencodings=utf-8
-" set spell                       " Set the spell revision
-set spelllang=en_us             " Set the spell language
+set spell                       " Set the spell revision
+set spelllang=pt                " Set the spell language
 set nocp                        " This changes the values of a LOT of options, enabling features which are not Vi compatible but really really nice. 
 set cursorline                  " Set the current cursorline highlight
 set switchbuf=usetab,newtab     " This should mean switching to the existing tab if the buffer is open, or creating a new one if not.
