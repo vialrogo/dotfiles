@@ -128,6 +128,7 @@
 'syntastic_enable_highlighting'	syntastic.txt	/*'syntastic_enable_highlighting'*
 'syntastic_enable_signs'	syntastic.txt	/*'syntastic_enable_signs'*
 'syntastic_error_symbol'	syntastic.txt	/*'syntastic_error_symbol'*
+'syntastic_exit_checks'	syntastic.txt	/*'syntastic_exit_checks'*
 'syntastic_extra_filetypes'	syntastic.txt	/*'syntastic_extra_filetypes'*
 'syntastic_filetype_map'	syntastic.txt	/*'syntastic_filetype_map'*
 'syntastic_full_redraws'	syntastic.txt	/*'syntastic_full_redraws'*
@@ -517,6 +518,7 @@ g:neobundle#types#git#clone_depth	neobundle.txt	/*g:neobundle#types#git#clone_de
 g:neobundle#types#git#command_path	neobundle.txt	/*g:neobundle#types#git#command_path*
 g:neobundle#types#git#default_protocol	neobundle.txt	/*g:neobundle#types#git#default_protocol*
 g:neobundle#types#git#enable_submodule	neobundle.txt	/*g:neobundle#types#git#enable_submodule*
+g:neobundle#types#git#pull_command	neobundle.txt	/*g:neobundle#types#git#pull_command*
 g:neobundle#types#hg#command_path	neobundle.txt	/*g:neobundle#types#hg#command_path*
 g:neobundle#types#hg#default_protocol	neobundle.txt	/*g:neobundle#types#hg#default_protocol*
 g:neobundle#types#raw#calc_hash_command	neobundle.txt	/*g:neobundle#types#raw#calc_hash_command*
@@ -542,6 +544,7 @@ g:neocomplete#enable_cursor_hold_i	neocomplete.txt	/*g:neocomplete#enable_cursor
 g:neocomplete#enable_fuzzy_completion	neocomplete.txt	/*g:neocomplete#enable_fuzzy_completion*
 g:neocomplete#enable_ignore_case	neocomplete.txt	/*g:neocomplete#enable_ignore_case*
 g:neocomplete#enable_insert_char_pre	neocomplete.txt	/*g:neocomplete#enable_insert_char_pre*
+g:neocomplete#enable_omni_fallback	neocomplete.txt	/*g:neocomplete#enable_omni_fallback*
 g:neocomplete#enable_prefetch	neocomplete.txt	/*g:neocomplete#enable_prefetch*
 g:neocomplete#enable_refresh_always	neocomplete.txt	/*g:neocomplete#enable_refresh_always*
 g:neocomplete#enable_smart_case	neocomplete.txt	/*g:neocomplete#enable_smart_case*
