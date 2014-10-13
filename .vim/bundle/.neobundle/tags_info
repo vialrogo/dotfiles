@@ -7,6 +7,7 @@ neocomplete.vim
 neosnippet
 neosnippet-snippets
 nerdtree
+smartpairs.vim
 syntastic
 vim-airline
 vim-colorschemes

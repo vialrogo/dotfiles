@@ -34,7 +34,9 @@
 'b:delimitMate_smart_matchpairs'	delimitMate.txt	/*'b:delimitMate_smart_matchpairs'*
 'b:delimitMate_smart_quotes'	delimitMate.txt	/*'b:delimitMate_smart_quotes'*
 'b:loaded_delimitMate'	delimitMate.txt	/*'b:loaded_delimitMate'*
+'b:syntastic_<checker>_exec'	syntastic.txt	/*'b:syntastic_<checker>_exec'*
 'b:syntastic_checkers'	syntastic.txt	/*'b:syntastic_checkers'*
+'b:syntastic_skip_checks'	syntastic.txt	/*'b:syntastic_skip_checks'*
 'clighter_autostart'	clighter.txt	/*'clighter_autostart'*
 'clighter_clang_options'	clighter.txt	/*'clighter_clang_options'*
 'clighter_libclang_file'	clighter.txt	/*'clighter_libclang_file'*
@@ -110,6 +112,12 @@
 'g:syntastic_<filetype>_checkers'	syntastic.txt	/*'g:syntastic_<filetype>_checkers'*
 'loaded_delimitMate'	delimitMate.txt	/*'loaded_delimitMate'*
 'loaded_nerd_tree'	NERD_tree.txt	/*'loaded_nerd_tree'*
+'smartpairs_key'	smartpairs.txt	/*'smartpairs_key'*
+'smartpairs_maxdepth'	smartpairs.txt	/*'smartpairs_maxdepth'*
+'smartpairs_nextpairs_key'	smartpairs.txt	/*'smartpairs_nextpairs_key'*
+'smartpairs_nextpairs_key_a'	smartpairs.txt	/*'smartpairs_nextpairs_key_a'*
+'smartpairs_nextpairs_key_i'	smartpairs.txt	/*'smartpairs_nextpairs_key_i'*
+'smartpairs_uber_mode'	smartpairs.txt	/*'smartpairs_uber_mode'*
 'syntastic_<filetype>_<checker>_<option>'	syntastic.txt	/*'syntastic_<filetype>_<checker>_<option>'*
 'syntastic_<filetype>_<checker>_exe'	syntastic.txt	/*'syntastic_<filetype>_<checker>_exe'*
 'syntastic_<filetype>_<checker>_exec'	syntastic.txt	/*'syntastic_<filetype>_<checker>_exec'*
@@ -232,7 +240,6 @@
 :NeoSnippetMakeCache	neosnippet.txt	/*:NeoSnippetMakeCache*
 :NeoSnippetSource	neosnippet.txt	/*:NeoSnippetSource*
 :SyntasticCheck	syntastic.txt	/*:SyntasticCheck*
-:SyntasticErrors	syntastic.txt	/*:SyntasticErrors*
 :SyntasticInfo	syntastic.txt	/*:SyntasticInfo*
 :SyntasticReset	syntastic.txt	/*:SyntasticReset*
 :SyntasticSetLoclist	syntastic.txt	/*:SyntasticSetLoclist*
@@ -356,6 +363,7 @@ airline-tmuxline	airline.txt	/*airline-tmuxline*
 airline-troubleshooting	airline.txt	/*airline-troubleshooting*
 airline-virtualenv	airline.txt	/*airline-virtualenv*
 airline-whitespace	airline.txt	/*airline-whitespace*
+airline-windowswap	airline.txt	/*airline-windowswap*
 airline-writing-extensions	airline.txt	/*airline-writing-extensions*
 airline.txt	airline.txt	/*airline.txt*
 b:neocomplete_sources	neocomplete.txt	/*b:neocomplete_sources*
@@ -364,6 +372,7 @@ clighter-colors	clighter.txt	/*clighter-colors*
 clighter-commands	clighter.txt	/*clighter-commands*
 clighter-contents	clighter.txt	/*clighter-contents*
 clighter-faq	clighter.txt	/*clighter-faq*
+clighter-installation	clighter.txt	/*clighter-installation*
 clighter-internet	clighter.txt	/*clighter-internet*
 clighter-intro	clighter.txt	/*clighter-intro*
 clighter-options	clighter.txt	/*clighter-options*
@@ -544,10 +553,10 @@ g:neocomplete#enable_cursor_hold_i	neocomplete.txt	/*g:neocomplete#enable_cursor
 g:neocomplete#enable_fuzzy_completion	neocomplete.txt	/*g:neocomplete#enable_fuzzy_completion*
 g:neocomplete#enable_ignore_case	neocomplete.txt	/*g:neocomplete#enable_ignore_case*
 g:neocomplete#enable_insert_char_pre	neocomplete.txt	/*g:neocomplete#enable_insert_char_pre*
-g:neocomplete#enable_omni_fallback	neocomplete.txt	/*g:neocomplete#enable_omni_fallback*
 g:neocomplete#enable_prefetch	neocomplete.txt	/*g:neocomplete#enable_prefetch*
 g:neocomplete#enable_refresh_always	neocomplete.txt	/*g:neocomplete#enable_refresh_always*
 g:neocomplete#enable_smart_case	neocomplete.txt	/*g:neocomplete#enable_smart_case*
+g:neocomplete#fallback_mappings	neocomplete.txt	/*g:neocomplete#fallback_mappings*
 g:neocomplete#force_omni_input_patterns	neocomplete.txt	/*g:neocomplete#force_omni_input_patterns*
 g:neocomplete#force_overwrite_completefunc	neocomplete.txt	/*g:neocomplete#force_overwrite_completefunc*
 g:neocomplete#ignore_composite_filetypes	neocomplete.txt	/*g:neocomplete#ignore_composite_filetypes*
@@ -800,6 +809,14 @@ s_<Plug>(neosnippet_expand)	neosnippet.txt	/*s_<Plug>(neosnippet_expand)*
 s_<Plug>(neosnippet_expand_or_jump)	neosnippet.txt	/*s_<Plug>(neosnippet_expand_or_jump)*
 s_<Plug>(neosnippet_jump)	neosnippet.txt	/*s_<Plug>(neosnippet_jump)*
 s_<Plug>(neosnippet_jump_or_expand)	neosnippet.txt	/*s_<Plug>(neosnippet_jump_or_expand)*
+smartpairs	smartpairs.txt	/*smartpairs*
+smartpairs-contents	smartpairs.txt	/*smartpairs-contents*
+smartpairs-introduction	smartpairs.txt	/*smartpairs-introduction*
+smartpairs-license	smartpairs.txt	/*smartpairs-license*
+smartpairs-mappings	smartpairs.txt	/*smartpairs-mappings*
+smartpairs-options	smartpairs.txt	/*smartpairs-options*
+smartpairs-uber-mode	smartpairs.txt	/*smartpairs-uber-mode*
+smartpairs.txt	smartpairs.txt	/*smartpairs.txt*
 surround	surround.txt	/*surround*
 surround-customizing	surround.txt	/*surround-customizing*
 surround-issues	surround.txt	/*surround-issues*

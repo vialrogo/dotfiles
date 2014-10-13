@@ -24,6 +24,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 "" NeoBundle install packages
 "*****************************************************************************
 NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'gorkunov/smartpairs.vim'
 NeoBundle 'bbchung/clighter'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
@@ -150,8 +151,8 @@ set pastetoggle=<F2>            " Then, when in insert mode, ready to paste, pre
 set autochdir                   " Set working directory as the current directory"
 set encoding=utf-8              " Set the codification
 set fileencoding=utf-8
-set fileencodings=utf-8
-set spell                       " Set the spell revision
+set fileencodings=utf-8,latin1,latin2
+" set spell                       " Set the spell revision
 set spelllang=pt                " Set the spell language
 set nocp                        " This changes the values of a LOT of options, enabling features which are not Vi compatible but really really nice. 
 set cursorline                  " Set the current cursorline highlight

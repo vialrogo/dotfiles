@@ -90,3 +90,7 @@
 	path = .vim/bundle/ack.vim
 	url = https://github.com/mileszs/ack.vim
   ignore = dirty
+[submodule ".vim/bundle/smartpairs.vim"]
+	path = .vim/bundle/smartpairs.vim
+	url = http://www.github.com/gorkunov/smartpairs.vim
+  ignore = dirty
