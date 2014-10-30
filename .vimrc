@@ -137,8 +137,6 @@ set textwidth=0                 " This turns off physical line wrapping (ie: aut
 set ruler                       " Show the line and column number of the cursor position, separated by a comma.
 set background=dark             " When set to "dark", will try to use colors that look good on a dark background. When set to "light" try to use colors that look good on a light background. Any other value is illegal.
 set mouse=a                     " Enable the use of the mouse.
-set foldmethod=syntax           " Define folding method
-set foldlevelstart=20           " For open the folds on starup
 set history=1000                " remember more commands and search history
 set undolevels=1000             " use many muchos levels of undo
 set wildignore=*.swp,*.bak      "Ignore this extensions to auto-complete
@@ -196,7 +194,6 @@ nnoremap <silent> <Leader>/ :nohlsearch<CR>
 " Mappings to toggle foldsEdit
 nnoremap <F8> zM
 nnoremap <F10> zR
-nnoremap <F9> za
 
 " Faster windows options
 nnoremap <silent> <Leader>w :w<CR> 
@@ -253,9 +250,15 @@ syntax on                       " Set the sintax for all files
 " Force all *.md files to be markdown
 autocmd BufNewFile,BufReadPost,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.md set filetype=markdown
 
-" To fix folding
-autocmd Syntax c,cpp,vim,xml,html,xhtml setlocal foldmethod=syntax  
-autocmd Syntax c,cpp,vim,xml,html,xhtml,perl normal zR 
+" Folding
+" Indent languages
+autocmd Syntax python setlocal foldmethod=indent  
+autocmd Syntax python nnoremap <F9> :set foldmethod=indent<CR>
+" Syntax languages
+autocmd Syntax c,cpp,vim,xml,html,xhtml,perl setlocal foldmethod=syntax  
+autocmd Syntax c,cpp,vim,xml,html,xhtml,perl nnoremap <F9> :set foldmethod=syntax<CR>
+" Starup status
+autocmd Syntax c,cpp,vim,xml,html,xhtml,perl,python normal zR 
 
 " --------------------------------- Look and feel options --------------------------------------
 " Remove all bars in GVim
@@ -274,8 +277,8 @@ set laststatus=2
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 
 if has("gui_running")  
-  " Others Very, very good are: jellybeans, railscasts, mustang, molokai, tango2, wombat, bensday, desertEx, busybee 
-  colorscheme railscasts
+  " Others Very, very good are: jellybeans, railscasts, mustang, molokai, tango2, wombat, bensday, desertEx, busybee, gruvbox, grb256
+  colorscheme gruvbox
 else 
   " Others Very, very good are: jellybeans, railscasts, mustang, molokai, busybee
   colorscheme railscasts

@@ -117,11 +117,13 @@
 'smartpairs_nextpairs_key'	smartpairs.txt	/*'smartpairs_nextpairs_key'*
 'smartpairs_nextpairs_key_a'	smartpairs.txt	/*'smartpairs_nextpairs_key_a'*
 'smartpairs_nextpairs_key_i'	smartpairs.txt	/*'smartpairs_nextpairs_key_i'*
+'smartpairs_revert_key'	smartpairs.txt	/*'smartpairs_revert_key'*
 'smartpairs_uber_mode'	smartpairs.txt	/*'smartpairs_uber_mode'*
 'syntastic_<filetype>_<checker>_<option>'	syntastic.txt	/*'syntastic_<filetype>_<checker>_<option>'*
 'syntastic_<filetype>_<checker>_exe'	syntastic.txt	/*'syntastic_<filetype>_<checker>_exe'*
 'syntastic_<filetype>_<checker>_exec'	syntastic.txt	/*'syntastic_<filetype>_<checker>_exec'*
 'syntastic_<filetype>_<checker>_quiet_messages'	syntastic.txt	/*'syntastic_<filetype>_<checker>_quiet_messages'*
+'syntastic_<filetype>_<checker>_sort'	syntastic.txt	/*'syntastic_<filetype>_<checker>_sort'*
 'syntastic_aggregate_errors'	syntastic.txt	/*'syntastic_aggregate_errors'*
 'syntastic_always_populate_loc_list'	syntastic.txt	/*'syntastic_always_populate_loc_list'*
 'syntastic_auto_jump'	syntastic.txt	/*'syntastic_auto_jump'*
@@ -832,6 +834,7 @@ syntastic-commands	syntastic.txt	/*syntastic-commands*
 syntastic-composite	syntastic.txt	/*syntastic-composite*
 syntastic-config-exec	syntastic.txt	/*syntastic-config-exec*
 syntastic-config-makeprg	syntastic.txt	/*syntastic-config-makeprg*
+syntastic-config-sort	syntastic.txt	/*syntastic-config-sort*
 syntastic-contents	syntastic.txt	/*syntastic-contents*
 syntastic-eclim	syntastic.txt	/*syntastic-eclim*
 syntastic-error-signs	syntastic.txt	/*syntastic-error-signs*
@@ -851,6 +854,7 @@ syntastic-powershell	syntastic.txt	/*syntastic-powershell*
 syntastic-pymode	syntastic.txt	/*syntastic-pymode*
 syntastic-quickstart	syntastic.txt	/*syntastic-quickstart*
 syntastic-statusline-flag	syntastic.txt	/*syntastic-statusline-flag*
+syntastic-vim-auto-save	syntastic.txt	/*syntastic-vim-auto-save*
 syntastic-vim-virtualenv	syntastic.txt	/*syntastic-vim-virtualenv*
 syntastic-ycm	syntastic.txt	/*syntastic-ycm*
 syntastic.txt	syntastic.txt	/*syntastic.txt*
@@ -865,7 +869,6 @@ v_gc	commentary.txt	/*v_gc*
 vgS	surround.txt	/*vgS*
 x_<Plug>(neosnippet_expand_target)	neosnippet.txt	/*x_<Plug>(neosnippet_expand_target)*
 x_<Plug>(neosnippet_register_oneshot_snippet)	neosnippet.txt	/*x_<Plug>(neosnippet_register_oneshot_snippet)*
-x_<Plug>(neosnippet_start_unite_snippet_target)	neosnippet.txt	/*x_<Plug>(neosnippet_start_unite_snippet_target)*
 yS	surround.txt	/*yS*
 ySS	surround.txt	/*ySS*
 ys	surround.txt	/*ys*

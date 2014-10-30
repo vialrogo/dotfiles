@@ -98,11 +98,12 @@ Default: `1`
 						*'clighter_clang_options'*
 g:clighter_clang_options~
 The compiler options for Clang. Clighter will pass these options to libclang
-to parse the code.
+to parse the code. Notice that bad options will cause clighter not working
+even crashing.
 
-Default: `[-Iinclude]`
+Default: ['-Iinclude', '-x', 'c++']
 >
-	let g:clighter_clang_options = ['-std=c++', '-DLinux']
+	let g:clighter_clang_options = ['-x', 'c++', '-std=c++', '-DLinux']
 <
 						*'clighter_libclang_file'*
 g:clighter_libclang_file~
@@ -144,10 +145,18 @@ Default: `1`
 	let g:clighter_enable_cross_rename = 1
 <
 
+g:clighter_highlight_groups~
+Define the token type to highlight.
+
+
+Default:
+>
+	['clighterMacroInstantiation', 'clighterStructDecl', 'clighterClassDecl', 'clighterEnumDecl', 'clighterEnumConstantDecl', 'clighterTypeRef', 'clighterDeclRefExprEnum']
+<
 
 ==============================================================================
 						*clighter-commands*
-6. Commands~
+6. Commands ~
 Clighter provides these commands and functions.
 
 Enable Clighter~
@@ -176,7 +185,10 @@ Rename-refactor~
 >
     	nmap <silent> <Leader>r :call clighter#Rename()<CR>
 >
-
+Set clang compile options in runtime~
+>
+    	call clighter#SetClangOptions()
+>
 
 ==============================================================================
 						*clighter-colors*
@@ -220,10 +232,25 @@ clighterDeclRefExprEnum~
 
 clighterCursorDefRef~
 >
-	hi link clighterCursorDefRef Search
+	hi link clighterCursorDefRef IncSearch
+
+clighterFunctionDecl~
+>
+	hi link clighterFunctionDecl None
+
+clighterDeclRefExprCall~
+>
+	hi link clighterDeclRefExprCall None
+
+clighterMemberRefExpr~
+>
+	hi link clighterMemberRefExpr None
+
+clighterNamespace~
+>
+	hi link clighterNamespace None
 
 >
-
 You can customize these colors in your colorscheme, for example:
 >
 	hi clighterTypeRef term=NONE cterm=NONE ctermbg=232 ctermfg=255 gui=NONE
