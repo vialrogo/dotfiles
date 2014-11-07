@@ -41,7 +41,6 @@
 'clighter_clang_options'	clighter.txt	/*'clighter_clang_options'*
 'clighter_libclang_file'	clighter.txt	/*'clighter_libclang_file'*
 'clighter_realtime'	clighter.txt	/*'clighter_realtime'*
-'clighter_window_size'	clighter.txt	/*'clighter_window_size'*
 'ctrl-p'	ctrlp.txt	/*'ctrl-p'*
 'ctrlp'	ctrlp.txt	/*'ctrlp'*
 'ctrlp-<c-p>'	ctrlp.txt	/*'ctrlp-<c-p>'*

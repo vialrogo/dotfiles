@@ -189,7 +189,7 @@ noremap <F3> :NERDTreeToggle<CR>
 let mapleader = "\<Space>"
 
 " It clears the search buffer when you press <leader>/
-nnoremap <silent> <Leader>/ :nohlsearch<CR> 
+nnoremap <silent> <Leader>/ :set hlsearch!<CR> 
 
 " Mappings to toggle foldsEdit
 nnoremap <F8> zM
