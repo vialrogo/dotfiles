@@ -1,4 +1,5 @@
 ack.vim
+argtextobj.vim
 clighter
 ctrlp.vim
 delimitMate
@@ -14,6 +15,7 @@ vim-colorschemes
 vim-commentary
 vim-exchange
 vim-fugitive
+vim-indent-object
 vim-polyglot
 vim-repeat
 vim-surround

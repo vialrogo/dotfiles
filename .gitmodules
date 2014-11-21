@@ -94,3 +94,11 @@
 	path = .vim/bundle/smartpairs.vim
 	url = http://www.github.com/gorkunov/smartpairs.vim
   ignore = dirty
+[submodule ".vim/bundle/argtextobj.vim"]
+	path = .vim/bundle/argtextobj.vim
+	url = https://github.com/vim-scripts/argtextobj.vim
+  ignore = dirty
+[submodule ".vim/bundle/vim-indent-object"]
+	path = .vim/bundle/vim-indent-object
+	url = https://github.com/michaeljsmith/vim-indent-object
+  ignore = dirty

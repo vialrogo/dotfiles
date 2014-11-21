@@ -1,3 +1,4 @@
+'ClighterCompileArgs'	clighter.txt	/*'ClighterCompileArgs'*
 'NERDTreeAutoCenter'	NERD_tree.txt	/*'NERDTreeAutoCenter'*
 'NERDTreeAutoCenterThreshold'	NERD_tree.txt	/*'NERDTreeAutoCenterThreshold'*
 'NERDTreeAutoDeleteBuffer'	NERD_tree.txt	/*'NERDTreeAutoDeleteBuffer'*
@@ -38,7 +39,6 @@
 'b:syntastic_checkers'	syntastic.txt	/*'b:syntastic_checkers'*
 'b:syntastic_skip_checks'	syntastic.txt	/*'b:syntastic_skip_checks'*
 'clighter_autostart'	clighter.txt	/*'clighter_autostart'*
-'clighter_clang_options'	clighter.txt	/*'clighter_clang_options'*
 'clighter_libclang_file'	clighter.txt	/*'clighter_libclang_file'*
 'clighter_realtime'	clighter.txt	/*'clighter_realtime'*
 'ctrl-p'	ctrlp.txt	/*'ctrl-p'*
@@ -320,12 +320,14 @@ NERD_tree.txt	NERD_tree.txt	/*NERD_tree.txt*
 O:	ack_quick_help.txt	/*O:*
 ResetCtrlP	ctrlp.txt	/*ResetCtrlP*
 T:	ack_quick_help.txt	/*T:*
+aI	indent-object.txt	/*aI*
 ack	ack.txt	/*ack*
 ack-author	ack.txt	/*ack-author*
 ack-configuration	ack.txt	/*ack-configuration*
 ack-mappings	ack.txt	/*ack-mappings*
 ack.txt	ack.txt	/*ack.txt*
 add_statusline_func	airline.txt	/*add_statusline_func*
+ai	indent-object.txt	/*ai*
 airline	airline.txt	/*airline*
 airline-accents	airline.txt	/*airline-accents*
 airline-advanced-customization	airline.txt	/*airline-advanced-customization*
@@ -603,9 +605,16 @@ gcu	commentary.txt	/*gcu*
 go:	ack_quick_help.txt	/*go:*
 gv:	ack_quick_help.txt	/*gv:*
 h:	ack_quick_help.txt	/*h:*
+iI	indent-object.txt	/*iI*
 i_<Plug>(neosnippet_start_unite_snippet)	neosnippet.txt	/*i_<Plug>(neosnippet_start_unite_snippet)*
 i_CTRL-G_S	surround.txt	/*i_CTRL-G_S*
 i_CTRL-G_s	surround.txt	/*i_CTRL-G_s*
+idntobj-about	indent-object.txt	/*idntobj-about*
+idntobj-blanklines	indent-object.txt	/*idntobj-blanklines*
+idntobj-introduction	indent-object.txt	/*idntobj-introduction*
+idntobj-objects	indent-object.txt	/*idntobj-objects*
+ii	indent-object.txt	/*ii*
+indent-object.txt	indent-object.txt	/*indent-object.txt*
 neobundle	neobundle.txt	/*neobundle*
 neobundle#begin()	neobundle.txt	/*neobundle#begin()*
 neobundle#bundle()	neobundle.txt	/*neobundle#bundle()*
@@ -621,6 +630,7 @@ neobundle#has_fresh_cache()	neobundle.txt	/*neobundle#has_fresh_cache()*
 neobundle#hooks	neobundle.txt	/*neobundle#hooks*
 neobundle#is_installed()	neobundle.txt	/*neobundle#is_installed()*
 neobundle#is_sourced()	neobundle.txt	/*neobundle#is_sourced()*
+neobundle#load_toml()	neobundle.txt	/*neobundle#load_toml()*
 neobundle#local()	neobundle.txt	/*neobundle#local()*
 neobundle#rc()	neobundle.txt	/*neobundle#rc()*
 neobundle#source()	neobundle.txt	/*neobundle#source()*
