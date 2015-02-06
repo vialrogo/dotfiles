@@ -70,9 +70,9 @@ let g:neocomplete#sources#dictionary#dictionaries = {
 if !exists('g:neocomplete#keyword_patterns')
     let g:neocomplete#keyword_patterns = {}
 endif
-let g:neocomplete#keyword_patterns['default']  = '\h\w*'
-let g:neocomplete#keyword_patterns['markdown'] = '[À-ú[:alpha:]_][À-ú[:alnum:]_]*'
-let g:neocomplete#keyword_patterns['tex']      = '[À-ú[:alpha:]_:][À-ú[:alnum:]_:]*'
+let g:neocomplete#keyword_patterns['default']  = "\h\w*"
+let g:neocomplete#keyword_patterns['markdown'] = "[À-ú[:alpha:]_'][À-ú[:alnum:]_']*"
+let g:neocomplete#keyword_patterns['tex']      = "[À-ú[:alpha:]_:'][À-ú[:alnum:]_:']*"
 
 " ------------------------------------------ LatexBox ---------------------------------------------
 let g:LatexBox_Folding = 1
