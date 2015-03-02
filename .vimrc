@@ -280,10 +280,10 @@ set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 
 if has("gui_running")  
   " Others Very, very good are: jellybeans, railscasts, mustang, molokai, tango2, wombat, bensday, desertEx, busybee, gruvbox, grb256
-  colorscheme gruvbox
+  colorscheme jellybeans
 else 
   " Others Very, very good are: jellybeans, railscasts, mustang, molokai, busybee
-  colorscheme railscasts
+  colorscheme jellybeans
 endif 
 
 " Link the Conceal highlight configuration to the Normal configuration. It's a full clone of ALL in the class

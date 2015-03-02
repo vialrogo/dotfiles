@@ -335,6 +335,7 @@ ai	indent-object.txt	/*ai*
 airline	airline.txt	/*airline*
 airline-accents	airline.txt	/*airline-accents*
 airline-advanced-customization	airline.txt	/*airline-advanced-customization*
+airline-autocommands	airline.txt	/*airline-autocommands*
 airline-branch	airline.txt	/*airline-branch*
 airline-bufferline	airline.txt	/*airline-bufferline*
 airline-capslock	airline.txt	/*airline-capslock*
@@ -344,6 +345,7 @@ airline-contents	airline.txt	/*airline-contents*
 airline-contributions	airline.txt	/*airline-contributions*
 airline-csv	airline.txt	/*airline-csv*
 airline-ctrlp	airline.txt	/*airline-ctrlp*
+airline-ctrlspace	airline.txt	/*airline-ctrlspace*
 airline-customization	airline.txt	/*airline-customization*
 airline-default	airline.txt	/*airline-default*
 airline-eclim	airline.txt	/*airline-eclim*
@@ -364,6 +366,7 @@ airline-quickfix	airline.txt	/*airline-quickfix*
 airline-sections	airline.txt	/*airline-sections*
 airline-syntastic	airline.txt	/*airline-syntastic*
 airline-tabline	airline.txt	/*airline-tabline*
+airline-taboo	airline.txt	/*airline-taboo*
 airline-tagbar	airline.txt	/*airline-tagbar*
 airline-themes	airline.txt	/*airline-themes*
 airline-tmuxline	airline.txt	/*airline-tmuxline*
@@ -377,8 +380,8 @@ b:neocomplete_sources	neocomplete.txt	/*b:neocomplete_sources*
 cS	surround.txt	/*cS*
 clighter	clighter.txt	/*clighter*
 clighter#Rename()	clighter.txt	/*clighter#Rename()*
-clighter#SetCompileArgs()	clighter.txt	/*clighter#SetCompileArgs()*
 clighter-commands-and-functions	clighter.txt	/*clighter-commands-and-functions*
+clighter-compilation-database	clighter.txt	/*clighter-compilation-database*
 clighter-contents	clighter.txt	/*clighter-contents*
 clighter-faq	clighter.txt	/*clighter-faq*
 clighter-installation	clighter.txt	/*clighter-installation*
@@ -517,7 +520,6 @@ fugitive-statusline	fugitive.txt	/*fugitive-statusline*
 fugitive-y_CTRL-G	fugitive.txt	/*fugitive-y_CTRL-G*
 fugitive-~	fugitive.txt	/*fugitive-~*
 fugitive.txt	fugitive.txt	/*fugitive.txt*
-g:ClighterCompileArgs	clighter.txt	/*g:ClighterCompileArgs*
 g:ack_apply_lmappings	ack.txt	/*g:ack_apply_lmappings*
 g:ack_apply_qmappings	ack.txt	/*g:ack_apply_qmappings*
 g:ack_autoclose	ack.txt	/*g:ack_autoclose*
