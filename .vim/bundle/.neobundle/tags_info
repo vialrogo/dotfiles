@@ -11,6 +11,7 @@ nerdtree
 smartpairs.vim
 syntastic
 vim-airline
+vim-colors_atelier-schemes
 vim-colorschemes
 vim-commentary
 vim-exchange

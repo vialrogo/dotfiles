@@ -102,3 +102,7 @@
 	path = .vim/bundle/vim-indent-object
 	url = https://github.com/michaeljsmith/vim-indent-object
   ignore = dirty
+[submodule ".vim/bundle/vim-colors_atelier-schemes"]
+	path = .vim/bundle/vim-colors_atelier-schemes
+	url = https://github.com/atelierbram/vim-colors_atelier-schemes.git
+  ignore = dirty

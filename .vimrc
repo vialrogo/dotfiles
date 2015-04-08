@@ -28,6 +28,7 @@ NeoBundle 'gorkunov/smartpairs.vim'
 NeoBundle 'bbchung/clighter'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'atelierbram/vim-colors_atelier-schemes'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'tommcdo/vim-exchange'
 NeoBundle 'sheerun/vim-polyglot'
@@ -84,8 +85,8 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1 
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_enable_syntastic = 1
-let g:airline_enable_branch = 1
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#branch#enabled = 1
 
 " ---------------------------------------- clighter -------------------------------------------------
 let g:clighter_clang_options = ['-std=c++', '-DLinux']
@@ -157,7 +158,7 @@ set spelllang=pt                " Set the spell language
 set nocp                        " This changes the values of a LOT of options, enabling features which are not Vi compatible but really really nice. 
 set cursorline                  " Set the current cursorline highlight
 set switchbuf=usetab,newtab     " This should mean switching to the existing tab if the buffer is open, or creating a new one if not.
-set relativenumber              " Amazing number line conf. Provides relative number line to the possition.
+" set relativenumber              " Amazing number line conf. Provides relative number line to the possition.
 set conceallevel=2              " Set de conceal (dinamic replace of _X or \alpha caracteres).
 set concealcursor=nc            " Set the conseal cursor for full text display in normal and command mode. Other modes: v-> visual, i-> insert
 set whichwrap+=<,>,h,l,[,]      " This causes the left and right arrow keys, as well as h and l, to wrap when used at beginning or end of lines. ( < > are the cursor keys used in normal and visual mode, and [ ] are the cursor keys in insert mode).)
@@ -279,12 +280,14 @@ set laststatus=2
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 
 if has("gui_running")  
-  " Others Very, very good are: jellybeans, railscasts, mustang, molokai, tango2, wombat, bensday, desertEx, busybee, gruvbox, grb256
-  colorscheme jellybeans
+  " Others Very, very good are: jellybeans, railscasts, mustang, molokai, tango2, wombat, bensday, desertEx, busybee, gruvbox, grb256, base16-atelierforest, base16-atelierdune
+  colorscheme base16-atelierforest
 else 
   " Others Very, very good are: jellybeans, railscasts, mustang, molokai, busybee
   colorscheme jellybeans
 endif 
+
+
 
 " Link the Conceal highlight configuration to the Normal configuration. It's a full clone of ALL in the class
 highlight! link Conceal Normal 
