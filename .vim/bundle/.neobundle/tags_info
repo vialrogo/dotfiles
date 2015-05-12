@@ -1,8 +1,8 @@
-ack.vim
-argtextobj.vim
-clighter
+Spink
 ctrlp.vim
 delimitMate
+flattown
+lumberjack.vim
 neobundle.vim
 neocomplete.vim
 neosnippet
@@ -15,8 +15,6 @@ vim-colors_atelier-schemes
 vim-colorschemes
 vim-commentary
 vim-exchange
-vim-fugitive
-vim-indent-object
 vim-polyglot
 vim-repeat
 vim-surround

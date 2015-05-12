@@ -106,3 +106,15 @@
 	path = .vim/bundle/vim-colors_atelier-schemes
 	url = https://github.com/atelierbram/vim-colors_atelier-schemes.git
   ignore = dirty
+[submodule ".vim/bundle/Spink"]
+	path = .vim/bundle/Spink
+	url = https://github.com/EHartC/Spink
+  ignore = dirty
+[submodule ".vim/bundle/flattown"]
+	path = .vim/bundle/flattown
+	url = https://github.com/blerins/flattown
+  ignore = dirty
+[submodule ".vim/bundle/lumberjack.vim"]
+	path = .vim/bundle/lumberjack.vim
+	url = https://github.com/yamafaktory/lumberjack.vim
+  ignore = dirty

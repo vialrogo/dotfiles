@@ -23,24 +23,24 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 "*****************************************************************************
 "" NeoBundle install packages
 "*****************************************************************************
-NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'gorkunov/smartpairs.vim'
-NeoBundle 'bbchung/clighter'
-NeoBundle 'kien/ctrlp.vim'
+"themes
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'atelierbram/vim-colors_atelier-schemes'
+NeoBundle 'Junza/Spink'
+NeoBundle 'yamafaktory/lumberjack.vim'
+NeoBundle 'blerins/flattown'
+"functions
+NeoBundle 'sheerun/vim-polyglot'
+NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'gorkunov/smartpairs.vim'
+NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'tommcdo/vim-exchange'
-NeoBundle 'sheerun/vim-polyglot'
-NeoBundle 'mileszs/ack.vim'
-NeoBundle 'vim-scripts/argtextobj.vim'
-NeoBundle 'michaeljsmith/vim-indent-object'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-repeat'
@@ -54,10 +54,14 @@ filetype plugin indent on
 NeoBundleCheck
 
 " ----------------------------------------- neocomplete -------------------------------------------
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
 " For newocomplete instalation
 let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
+" Automatic close the preview window
+let g:neocomplete#enable_auto_close_preview = 1
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
@@ -88,9 +92,6 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 
-" ---------------------------------------- clighter -------------------------------------------------
-let g:clighter_clang_options = ['-std=c++', '-DLinux']
-
 " ---------------------------------------- NERDTree -------------------------------------------------
 let NERDTreeShowBookmarks=1
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
@@ -108,7 +109,9 @@ let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '⚠'
-
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++ -lc++abi '
+ 
 " ---------------------------------------------- Core options -------------------------------------- 
 " Define latex by default for any *.tex file
 let g:tex_flavor = "latex"
@@ -255,7 +258,7 @@ autocmd BufNewFile,BufReadPost,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.md set 
 
 " Folding
 " Indent languages
-autocmd Syntax python setlocal foldmethod=indent  
+autocmd Syntax python setlocal foldmethod=indent 
 autocmd Syntax python nnoremap <F9> :set foldmethod=indent<CR>
 " Syntax languages
 autocmd Syntax c,cpp,vim,xml,html,xhtml,perl setlocal foldmethod=syntax  
@@ -280,14 +283,12 @@ set laststatus=2
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 
 if has("gui_running")  
-  " Others Very, very good are: jellybeans, railscasts, mustang, molokai, tango2, wombat, bensday, desertEx, busybee, gruvbox, grb256, base16-atelierforest, base16-atelierdune
-  colorscheme base16-atelierforest
+  " Others Very, very good are: jellybeans, railscasts, mustang, molokai, tango2, wombat, bensday, desertEx, busybee, grb256, base16-atelierforest, base16-atelierdune, Spink, flattown, mopkai, gruvbox, Monokai
+  colorscheme gruvbox
 else 
-  " Others Very, very good are: jellybeans, railscasts, mustang, molokai, busybee
-  colorscheme jellybeans
+  " Others Very, very good are: jellybeans, railscasts, mustang, molokai, busybee, neverland, mopkai, Monokai
+  colorscheme neverland
 endif 
-
-
 
 " Link the Conceal highlight configuration to the Normal configuration. It's a full clone of ALL in the class
 highlight! link Conceal Normal 
