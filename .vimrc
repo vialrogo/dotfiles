@@ -292,4 +292,3 @@ endif
 
 " Link the Conceal highlight configuration to the Normal configuration. It's a full clone of ALL in the class
 highlight! link Conceal Normal 
-
