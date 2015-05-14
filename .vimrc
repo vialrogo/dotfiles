@@ -243,7 +243,7 @@ vnoremap <C-d> "+d
 nnoremap <C-d> "+d
 vnoremap <C-p> "+gp
 nnoremap <C-p> "+gp
-inoremap <C-p> <C-o>"+gp
+inoremap <C-p> <C-r><C-p>+
 
 "" Vmap for maintain Visual Mode after shifting > and <
 vmap < <gv
