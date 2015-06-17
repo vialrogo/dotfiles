@@ -41,6 +41,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-repeat'
@@ -52,6 +53,9 @@ filetype plugin indent on
 
 " If there are uninstalled bundles found on startup, this will conveniently prompt you to install them.
 NeoBundleCheck
+
+let g:tablabel =
+  \ "%N%{flagship#tabmodified()} %{flagship#tabcwds('shorten',',')}"
 
 " ----------------------------------------- neocomplete -------------------------------------------
 " Disable AutoComplPop.
