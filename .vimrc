@@ -30,6 +30,7 @@ NeoBundle 'Junza/Spink'
 NeoBundle 'yamafaktory/lumberjack.vim'
 NeoBundle 'blerins/flattown'
 "functions
+NeoBundle 'embear/vim-localvimrc'
 NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'gorkunov/smartpairs.vim'
@@ -53,9 +54,6 @@ filetype plugin indent on
 
 " If there are uninstalled bundles found on startup, this will conveniently prompt you to install them.
 NeoBundleCheck
-
-let g:tablabel =
-  \ "%N%{flagship#tabmodified()} %{flagship#tabcwds('shorten',',')}"
 
 " ----------------------------------------- neocomplete -------------------------------------------
 " Disable AutoComplPop.
@@ -116,6 +114,9 @@ let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++ -lc++abi '
  
+" --------------------------------------- localvimrc ------------------------------------------------
+let g:localvimrc_whitelist='/home/vialrogo/Projects/*'
+
 " ---------------------------------------------- Core options -------------------------------------- 
 " Define latex by default for any *.tex file
 let g:tex_flavor = "latex"

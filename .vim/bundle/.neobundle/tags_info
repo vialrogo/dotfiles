@@ -16,6 +16,7 @@ vim-colorschemes
 vim-commentary
 vim-exchange
 vim-fugitive
+vim-localvimrc
 vim-polyglot
 vim-repeat
 vim-surround
