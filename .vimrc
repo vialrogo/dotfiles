@@ -168,8 +168,9 @@ set cursorline                  " Set the current cursorline highlight
 set switchbuf=usetab,newtab     " This should mean switching to the existing tab if the buffer is open, or creating a new one if not.
 " set relativenumber              " Amazing number line conf. Provides relative number line to the possition.
 set conceallevel=2              " Set de conceal (dinamic replace of _X or \alpha caracteres).
-set concealcursor=nc            " Set the conseal cursor for full text display in normal and command mode. Other modes: v-> visual, i-> insert
+set concealcursor=c             " Set the conseal cursor for full text display in normal and command mode. Other modes: n-> normal, c-> command, v-> visual, i-> insert
 set whichwrap+=<,>,h,l,[,]      " This causes the left and right arrow keys, as well as h and l, to wrap when used at beginning or end of lines. ( < > are the cursor keys used in normal and visual mode, and [ ] are the cursor keys in insert mode).)
+set scrolloff=2                 " The number of lines before and after of the cursor possition. If is a big number, the cursor is always in the center of the screen.
 
 " ########################################## KeyMaps  ############################################
 
@@ -289,10 +290,11 @@ set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 
 if has("gui_running")  
   " Others Very, very good are: jellybeans, railscasts, mustang, molokai, tango2, wombat, bensday, desertEx, busybee, grb256, base16-atelierforest, base16-atelierdune, Spink, flattown, mopkai, gruvbox, Monokai
-  colorscheme gruvbox
+  colorscheme base16-atelierdune
+  set lines=999 columns=999 " Maximize Gvim at startup
 else 
   " Others Very, very good are: jellybeans, railscasts, mustang, molokai, busybee, neverland, mopkai, Monokai
-  colorscheme neverland
+  colorscheme mustang
 endif 
 
 " Link the Conceal highlight configuration to the Normal configuration. It's a full clone of ALL in the class

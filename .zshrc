@@ -5,11 +5,11 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-## Interesting: intheloop bira crcandy mh
+## Interesting: kolo mh miloshadzic agnoster alanpeabody daveverwer
 if [ -z "$SSH_CLIENT" ]; then
-  ZSH_THEME="mh"   
+  ZSH_THEME="kolo"   
 else
-  ZSH_THEME="crcandy"
+  ZSH_THEME="mh"
 fi
 
 # Uncomment the following line to use case-sensitive completion.
@@ -92,6 +92,6 @@ man() {
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-alias ssh_ime='ssh -AXt -L 3128:ime.usp.br:3128 -L 3125:smtp.ime.usp.br:25 ime.usp.br'
+alias ssh_ime='ssh -AXt -L 3128:proxy:3128 -L 3125:smtp.ime.usp.br:25 vialrogo@ime.usp.br'
 alias c++='clang++ -std=c++14 -stdlib=libc++ -lc++abi'
 eval "$(hub alias -s)"
