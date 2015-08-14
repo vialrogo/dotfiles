@@ -211,6 +211,7 @@ nnoremap <F10> zR
 nnoremap <silent> <Leader>w :w<CR> 
 nnoremap <silent> <Leader>x :x<CR> 
 nnoremap <silent> <Leader>q :q<CR> 
+nnoremap <silent> <Leader>o :only<CR> 
 
 " Set W to sudo save
 command W w !sudo tee % >/dev/null
