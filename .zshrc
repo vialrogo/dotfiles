@@ -9,7 +9,7 @@ export ZSH=$HOME/.oh-my-zsh
 if [ -z "$SSH_CLIENT" ]; then
   ZSH_THEME="kolo"   
 else
-  ZSH_THEME="mh"
+  ZSH_THEME="ys"
 fi
 
 # Uncomment the following line to use case-sensitive completion.

@@ -126,8 +126,8 @@ let g:tex_conceal = "abdmgs"
 " ######################################### Sets  ##################################################
 
 set hidden                      " It hides buffers instead of closing them. This means that you can have unwritten changes to a file and open a new file
-set tabstop=2                   " Number of spaces that a <Tab> in the file counts for. 
-set shiftwidth=2                " Number of spaces to use for each step of (auto)indent.
+set tabstop=4                   " Number of spaces that a <Tab> in the file counts for. 
+set shiftwidth=4                " Number of spaces to use for each step of (auto)indent.
 set shiftround                  " use multiple of shiftwidth when indenting with '<' and '>'
 set expandtab                   " Use the appropriate number of spaces to insert a <Tab>. Spaces are used in indents with the '>' and '<' commands and when 'autoindent' is on. To insert a real tab when 'expandtab' is on, use CTRL-V <Tab>.
 set smarttab                    " When on, a <Tab> in front of a line inserts blanks according to 'shiftwidth'. 'tabstop' is used in other places. A <BS> will delete a 'shiftwidth' worth of space at the start of the line.
