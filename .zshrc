@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-## Interesting: kolo mh miloshadzic agnoster alanpeabody daveverwer
+## Interesting: kolo mh miloshadzic wedisagree bureau powerlevel9k
 if [ -z "$SSH_CLIENT" ]; then
   ZSH_THEME="kolo"   
 else
@@ -50,7 +50,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git,sudo)
 
 source $ZSH/oh-my-zsh.sh
 
