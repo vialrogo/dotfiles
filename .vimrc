@@ -207,11 +207,39 @@ nnoremap <silent> <Leader>/ :set hlsearch!<CR>
 nnoremap <F8> zM
 nnoremap <F10> zR
 
+" """""""""""""""""""""""""""""""""""""""""""""""""
 " Faster windows options
+"
+" First, the ConfirmQuit function
+function! ConfirmQuit(writeFile)
+    if (a:writeFile)
+        if (expand('%:t')=="")
+            echo "Can't save a file with no name."
+            return
+        endif
+        :write
+    endif
+
+    if (winnr('$')==1 && tabpagenr('$')==1) " It's the last window/tab?
+        if (confirm("Do you really want to quit?", "&Yes\n&No", 2)==1)  " Confirm dialog. When No answer, return 2. When cancel, return 0.
+            :quit
+        endif
+    else " Wasn't the last. Close without problems
+        :quit
+    endif
+endfu
+
+" Next, the regular commands map
+cnoremap <silent> q<CR>  :call ConfirmQuit(0)<CR>
+cnoremap <silent> x<CR>  :call ConfirmQuit(1)<CR>
+
+" And finaly, the speed maps
 nnoremap <silent> <Leader>w :w<CR> 
-nnoremap <silent> <Leader>x :x<CR> 
-nnoremap <silent> <Leader>q :q<CR> 
+nnoremap <silent> <Leader>x :call ConfirmQuit(1)<CR>
+nnoremap <silent> <Leader>q :call ConfirmQuit(0)<CR>
 nnoremap <silent> <Leader>o :only<CR> 
+
+" """""""""""""""""""""""""""""""""""""""""""""""""
 
 " Set W to sudo save
 command W w !sudo tee % >/dev/null
