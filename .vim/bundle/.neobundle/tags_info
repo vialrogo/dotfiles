@@ -1,4 +1,5 @@
 Spink
+ack.vim
 ctrlp.vim
 delimitMate
 flattown
@@ -8,6 +9,7 @@ neocomplete.vim
 neosnippet
 neosnippet-snippets
 nerdtree
+rename.vim
 smartpairs.vim
 syntastic
 vim-airline
@@ -20,3 +22,5 @@ vim-localvimrc
 vim-polyglot
 vim-repeat
 vim-surround
+vim-unimpaired
+yowish.vim

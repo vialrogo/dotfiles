@@ -29,7 +29,11 @@ NeoBundle 'atelierbram/vim-colors_atelier-schemes'
 NeoBundle 'Junza/Spink'
 NeoBundle 'yamafaktory/lumberjack.vim'
 NeoBundle 'blerins/flattown'
+NeoBundle 'KabbAmine/yowish.vim'
 "functions
+NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'mileszs/ack.vim'
+NeoBundle 'danro/rename.vim'
 NeoBundle 'embear/vim-localvimrc'
 NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'Raimondi/delimitMate'
@@ -319,11 +323,11 @@ set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 
 if has("gui_running")  
   " Others Very, very good are: jellybeans, railscasts, mustang, molokai, tango2, wombat, bensday, desertEx, busybee, grb256, base16-atelierforest, base16-atelierdune, Spink, flattown, mopkai, gruvbox, Monokai
-  colorscheme base16-atelierdune
+  colorscheme base16-atelierforest
   set lines=999 columns=999 " Maximize Gvim at startup
 else 
   " Others Very, very good are: jellybeans, railscasts, mustang, molokai, busybee, neverland, mopkai, Monokai
-  colorscheme mustang
+  colorscheme jellybeans
 endif 
 
 " Link the Conceal highlight configuration to the Normal configuration. It's a full clone of ALL in the class
