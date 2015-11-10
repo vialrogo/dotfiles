@@ -91,12 +91,9 @@
 [submodule ".vim/bundle/vim-localvimrc"]
 	path = .vim/bundle/vim-localvimrc
 	url = https://github.com/embear/vim-localvimrc
-[submodule ".vim/bundle/colorschemes"]
-	path = .vim/bundle/colorschemes
-	url = https://github.com/flazz/vim-colorschemes.git
 [submodule ".vim/bundle/rename.vim"]
 	path = .vim/bundle/rename.vim
 	url = https://github.com/danro/rename.vim
-[submodule ".vim/bundle/colorschemes"]
-	path = .vim/bundle/colorschemes
-	url = https://github.com/flazz/vim-colorschemes.git
+[submodule ".vim/bundle/yowish.vim"]
+	path = .vim/bundle/yowish.vim
+	url = git@github.com:KabbAmine/yowish.vim
