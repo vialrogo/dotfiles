@@ -323,11 +323,11 @@ set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 
 if has("gui_running")  
   " Others Very, very good are: jellybeans, railscasts, mustang, molokai, tango2, wombat, bensday, desertEx, busybee, grb256, base16-atelierforest, base16-atelierdune, Spink, flattown, mopkai, gruvbox, Monokai
-  colorscheme base16-atelierforest
+  colorscheme gruvbox
   set lines=999 columns=999 " Maximize Gvim at startup
 else 
-  " Others Very, very good are: jellybeans, railscasts, mustang, molokai, busybee, neverland, mopkai, Monokai
-  colorscheme jellybeans
+  " Others Very, very good are: jellybeans, railscasts, mustang, molokai, busybee, neverland, mopkai, Monokai, gruvbox
+  colorscheme gruvbox
 endif 
 
 " Link the Conceal highlight configuration to the Normal configuration. It's a full clone of ALL in the class
