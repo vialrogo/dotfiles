@@ -326,8 +326,13 @@ if has("gui_running")
   colorscheme gruvbox
   set lines=999 columns=999 " Maximize Gvim at startup
 else 
+<<<<<<< HEAD
   " Others Very, very good are: jellybeans, railscasts, mustang, molokai, busybee, neverland, mopkai, Monokai, gruvbox
   colorscheme gruvbox
+=======
+  " Others Very, very good are: jellybeans, railscasts, mustang, molokai, busybee, neverland, mopkai, Monokai
+  colorscheme railscasts
+>>>>>>> 489c1a7d808dfa06c3bfbd481c8966f0237bc1d6
 endif 
 
 " Link the Conceal highlight configuration to the Normal configuration. It's a full clone of ALL in the class
