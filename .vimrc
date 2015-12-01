@@ -31,6 +31,7 @@ NeoBundle 'yamafaktory/lumberjack.vim'
 NeoBundle 'blerins/flattown'
 NeoBundle 'KabbAmine/yowish.vim'
 "functions
+NeoBundle 'tmhedberg/SimpylFold'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'mileszs/ack.vim'
 NeoBundle 'danro/rename.vim'
@@ -119,7 +120,7 @@ let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++ -lc++abi '
  
 " --------------------------------------- localvimrc ------------------------------------------------
-let g:localvimrc_whitelist='/home/vialrogo/Projects/*'
+let g:localvimrc_ask=0
 
 " ---------------------------------------------- Core options -------------------------------------- 
 " Define latex by default for any *.tex file
@@ -298,8 +299,8 @@ autocmd BufNewFile,BufReadPost,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.md set 
 
 " Folding
 " Indent languages
-autocmd Syntax python setlocal foldmethod=indent 
-autocmd Syntax python nnoremap <F9> :set foldmethod=indent<CR>
+autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
+autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
 " Syntax languages
 autocmd Syntax c,cpp,vim,xml,html,xhtml,perl setlocal foldmethod=syntax  
 autocmd Syntax c,cpp,vim,xml,html,xhtml,perl nnoremap <F9> :set foldmethod=syntax<CR>

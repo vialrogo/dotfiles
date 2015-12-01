@@ -330,6 +330,11 @@ NERDTreeRender()	NERD_tree.txt	/*NERDTreeRender()*
 NERD_tree.txt	NERD_tree.txt	/*NERD_tree.txt*
 O:	ack_quick_help.txt	/*O:*
 ResetCtrlP	ctrlp.txt	/*ResetCtrlP*
+SimpylFold	SimpylFold.txt	/*SimpylFold*
+SimpylFold-bugs	SimpylFold.txt	/*SimpylFold-bugs*
+SimpylFold-config	SimpylFold.txt	/*SimpylFold-config*
+SimpylFold.txt	SimpylFold.txt	/*SimpylFold.txt*
+SimpylFold_docstring_preview	SimpylFold.txt	/*SimpylFold_docstring_preview*
 T:	ack_quick_help.txt	/*T:*
 [<C-L>	unimpaired.txt	/*[<C-L>*
 [<C-Q>	unimpaired.txt	/*[<C-Q>*
