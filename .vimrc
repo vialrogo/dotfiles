@@ -247,8 +247,8 @@ nnoremap <silent> <Leader>o :only<CR>
 
 " """""""""""""""""""""""""""""""""""""""""""""""""
 
-" Set W to sudo save
-command W w !sudo tee % >/dev/null
+" Set W to sudo save and silent reload the file
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 " Easy and fast scape shortcut
 inoremap jk <ESC>
@@ -320,8 +320,8 @@ set t_Co=256
 " Vim airline always
 set laststatus=2
 
-"set guifont=Inconsolata\ for\ Powerline\ 13
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
+set guifont=Inconsolata\ for\ Powerline\ 13
+" set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 
 if has("gui_running")  
   " Others Very, very good are: jellybeans, railscasts, mustang, molokai, tango2, wombat, bensday, desertEx, busybee, grb256, base16-atelierforest, base16-atelierdune, Spink, flattown, mopkai, gruvbox, Monokai
