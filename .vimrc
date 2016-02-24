@@ -176,7 +176,7 @@ set conceallevel=2              " Set de conceal (dinamic replace of _X or \alph
 set concealcursor=c             " Set the conseal cursor for full text display in normal and command mode. Other modes: n-> normal, c-> command, v-> visual, i-> insert
 set whichwrap+=<,>,h,l,[,]      " This causes the left and right arrow keys, as well as h and l, to wrap when used at beginning or end of lines. ( < > are the cursor keys used in normal and visual mode, and [ ] are the cursor keys in insert mode).)
 set scrolloff=2                 " The number of lines before and after of the cursor possition. If is a big number, the cursor is always in the center of the screen.
-" set colorcolumn=81              " highlight column after 'textwidth'
+set colorcolumn=81              " highlight column after 'textwidth'
 
 " ########################################## KeyMaps  ############################################
 

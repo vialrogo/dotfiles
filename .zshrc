@@ -12,6 +12,10 @@ else
   ZSH_THEME="ys"
 fi
 
+if [[ $EUID -eq 0 ]]; then
+  ZSH_THEME="mh"   
+fi
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
