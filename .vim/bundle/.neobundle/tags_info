@@ -1,10 +1,10 @@
 SimpylFold
-Spink
 ack.vim
 ctrlp.vim
 delimitMate
 flattown
 lumberjack.vim
+mod8.vim
 neobundle.vim
 neocomplete.vim
 neosnippet
@@ -19,6 +19,7 @@ vim-colorschemes
 vim-commentary
 vim-exchange
 vim-fugitive
+vim-hybrid
 vim-localvimrc
 vim-polyglot
 vim-repeat
