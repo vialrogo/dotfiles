@@ -44,7 +44,6 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'tommcdo/vim-exchange'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -321,7 +320,8 @@ set t_Co=256
 " Vim airline always
 set laststatus=2
 
-set guifont=Inconsolata\ for\ Powerline\ 13
+set guifont=Fantasque\ Sans\ Mono\ Regular\ 13
+" set guifont=Inconsolata\ for\ Powerline\ 13
 " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 
 if has("gui_running")  
