@@ -54,7 +54,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git,sudo)
+plugins=(vi-mode tmux git sudo archlinux python)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -91,6 +91,10 @@ man() {
     LESS_TERMCAP_us=$'\E[04;38;5;146m' \
     man "$@"
 }
+
+# vi mode
+bindkey -v
+bindkey -M viins 'jk' vi-cmd-mode   # Ohhh yeah, I am happy :D
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
