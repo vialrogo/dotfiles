@@ -54,15 +54,15 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(vi-mode tmux git sudo archlinux python)
+plugins=(vi-mode git sudo zsh-syntax-highlighting history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # User configuration
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin:/usr/sbin:/opt/Matlab/R2013a/bin/:/opt/java/bin:/opt/java/db/bin:/opt/java/jre/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/vialrogo/bin"
-
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 export LANG=pt_BR.UTF-8
