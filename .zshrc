@@ -57,7 +57,6 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(vi-mode git sudo zsh-syntax-highlighting history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # User configuration
 
