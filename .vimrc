@@ -297,6 +297,9 @@ syntax on                       " Set the sintax for all files
 " Force all *.md files to be markdown
 autocmd BufNewFile,BufReadPost,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.md set filetype=markdown
 
+" Force all *.cir files to be spice netlist files
+autocmd BufNewFile,BufReadPost,BufRead *.cir set filetype=spice
+
 " Folding
 " Indent languages
 autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
