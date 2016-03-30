@@ -12,6 +12,7 @@ neosnippet-snippets
 nerdtree
 rename.vim
 smartpairs.vim
+tabular
 vim-airline
 vim-colors_atelier-schemes
 vim-colorschemes
@@ -20,6 +21,7 @@ vim-exchange
 vim-fugitive
 vim-hybrid
 vim-localvimrc
+vim-markdown
 vim-polyglot
 vim-repeat
 vim-surround
