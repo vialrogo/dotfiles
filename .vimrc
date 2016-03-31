@@ -313,7 +313,7 @@ autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
 autocmd Syntax c,cpp,vim,xml,html,xhtml,perl setlocal foldmethod=syntax  
 autocmd Syntax c,cpp,vim,xml,html,xhtml,perl nnoremap <F9> :set foldmethod=syntax<CR>
 " Starup status
-autocmd Syntax c,cpp,vim,xml,html,xhtml,perl,python normal zR 
+autocmd Syntax c,cpp,vim,xml,html,xhtml,perl,python,markdown normal zR 
 
 " --------------------------------- Look and feel options --------------------------------------
 " Remove all bars in GVim
