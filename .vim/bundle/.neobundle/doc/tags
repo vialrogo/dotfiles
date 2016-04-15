@@ -308,8 +308,6 @@ Tabular.txt	Tabular.txt	/*Tabular.txt*
 [L	unimpaired.txt	/*[L*
 [Q	unimpaired.txt	/*[Q*
 [T	unimpaired.txt	/*[T*
-[[	vim-markdown.txt	/*[[*
-[]	vim-markdown.txt	/*[]*
 [a	unimpaired.txt	/*[a*
 [b	unimpaired.txt	/*[b*
 [e	unimpaired.txt	/*[e*
@@ -345,11 +343,8 @@ Tabular.txt	Tabular.txt	/*Tabular.txt*
 ]L	unimpaired.txt	/*]L*
 ]Q	unimpaired.txt	/*]Q*
 ]T	unimpaired.txt	/*]T*
-][	vim-markdown.txt	/*][*
-]]	vim-markdown.txt	/*]]*
 ]a	unimpaired.txt	/*]a*
 ]b	unimpaired.txt	/*]b*
-]c	vim-markdown.txt	/*]c*
 ]e	unimpaired.txt	/*]e*
 ]f	unimpaired.txt	/*]f*
 ]l	unimpaired.txt	/*]l*
@@ -370,7 +365,6 @@ Tabular.txt	Tabular.txt	/*Tabular.txt*
 ]q	unimpaired.txt	/*]q*
 ]t	unimpaired.txt	/*]t*
 ]u	unimpaired.txt	/*]u*
-]u	vim-markdown.txt	/*]u*
 ]uu	unimpaired.txt	/*]uu*
 ]x	unimpaired.txt	/*]x*
 ]xx	unimpaired.txt	/*]xx*
@@ -684,7 +678,6 @@ gcgc	commentary.txt	/*gcgc*
 gcu	commentary.txt	/*gcu*
 go:	ack_quick_help.txt	/*go:*
 gv:	ack_quick_help.txt	/*gv:*
-gx	vim-markdown.txt	/*gx*
 h:	ack_quick_help.txt	/*h:*
 i_<Plug>(neosnippet_start_unite_snippet)	neosnippet.txt	/*i_<Plug>(neosnippet_start_unite_snippet)*
 i_CTRL-G_S	surround.txt	/*i_CTRL-G_S*
@@ -950,6 +943,12 @@ v_]y	unimpaired.txt	/*v_]y*
 v_gc	commentary.txt	/*v_gc*
 vgS	surround.txt	/*vgS*
 vim-markdown	vim-markdown.txt	/*vim-markdown*
+vim-markdown-[[	vim-markdown.txt	/*vim-markdown-[[*
+vim-markdown-[]	vim-markdown.txt	/*vim-markdown-[]*
+vim-markdown-][	vim-markdown.txt	/*vim-markdown-][*
+vim-markdown-]]	vim-markdown.txt	/*vim-markdown-]]*
+vim-markdown-]c	vim-markdown.txt	/*vim-markdown-]c*
+vim-markdown-]u	vim-markdown.txt	/*vim-markdown-]u*
 vim-markdown-adjust-new-list-item-indent	vim-markdown.txt	/*vim-markdown-adjust-new-list-item-indent*
 vim-markdown-change-fold-style	vim-markdown.txt	/*vim-markdown-change-fold-style*
 vim-markdown-commands	vim-markdown.txt	/*vim-markdown-commands*
@@ -958,6 +957,7 @@ vim-markdown-disable-default-key-mappings	vim-markdown.txt	/*vim-markdown-disabl
 vim-markdown-disable-folding	vim-markdown.txt	/*vim-markdown-disable-folding*
 vim-markdown-enable-toc-window-auto-fit	vim-markdown.txt	/*vim-markdown-enable-toc-window-auto-fit*
 vim-markdown-fenced-code-block-languages	vim-markdown.txt	/*vim-markdown-fenced-code-block-languages*
+vim-markdown-gx	vim-markdown.txt	/*vim-markdown-gx*
 vim-markdown-installation	vim-markdown.txt	/*vim-markdown-installation*
 vim-markdown-introduction	vim-markdown.txt	/*vim-markdown-introduction*
 vim-markdown-json-front-matter	vim-markdown.txt	/*vim-markdown-json-front-matter*

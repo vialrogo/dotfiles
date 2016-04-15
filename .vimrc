@@ -193,9 +193,9 @@ inoremap <expr><C-c> pumvisible() ? neocomplete#close_popup() : "\<Space>"
 
 " -------------------------------------- neosnippet ---------------------------------------------
 " Expand the snippets
-imap <C-Space>     <Plug>(neosnippet_expand_or_jump)
-smap <C-Space>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-Space>     <Plug>(neosnippet_expand_target)
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-Space> <Plug>(neosnippet_expand_target)
 imap <C-@> <C-Space>
 smap <C-@> <C-Space>
 xmap <C-@> <C-Space>
