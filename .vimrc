@@ -32,6 +32,7 @@ NeoBundle 'KabbAmine/yowish.vim'
 NeoBundle 'easysid/mod8.vim'
 NeoBundle 'scwood/vim-hybrid'
 "functions
+NeoBundle 'Konfekt/FastFold'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'plasticboy/vim-markdown'
@@ -311,7 +312,7 @@ autocmd BufNewFile,BufReadPost,BufRead *.cir set filetype=spice
 autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
 autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
 " Syntax languages
-autocmd Syntax c,cpp,vim,xml,html,xhtml,perl setlocal foldmethod=syntax  
+autocmd Syntax c,cpp,vim,xml,html,xhtml,perl setlocal foldmethod=syntax
 autocmd Syntax c,cpp,vim,xml,html,xhtml,perl nnoremap <F9> :set foldmethod=syntax<CR>
 " Starup status
 autocmd Syntax c,cpp,vim,xml,html,xhtml,perl,python,markdown normal zR 

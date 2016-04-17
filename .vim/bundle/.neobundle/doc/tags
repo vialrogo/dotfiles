@@ -279,6 +279,11 @@ ClearAllCtrlPCaches	ctrlp.txt	/*ClearAllCtrlPCaches*
 ClearCtrlPCache	ctrlp.txt	/*ClearCtrlPCache*
 ControlP	ctrlp.txt	/*ControlP*
 CtrlP	ctrlp.txt	/*CtrlP*
+FastFold	FastFold.txt	/*FastFold*
+FastFold-commands	FastFold.txt	/*FastFold-commands*
+FastFold-config	FastFold.txt	/*FastFold-config*
+FastFold-intro	FastFold.txt	/*FastFold-intro*
+FastFoldUpdate!	FastFold.txt	/*FastFoldUpdate!*
 H:	ack_quick_help.txt	/*H:*
 LocalVimRC	localvimrc.txt	/*LocalVimRC*
 LocalVimRCClear	localvimrc.txt	/*LocalVimRCClear*
@@ -553,6 +558,10 @@ exchange-settings	exchange.txt	/*exchange-settings*
 exchange-todo	exchange.txt	/*exchange-todo*
 exchange-visual	exchange.txt	/*exchange-visual*
 exchange.txt	exchange.txt	/*exchange.txt*
+fastfold	FastFold.txt	/*fastfold*
+fastfold-commands	FastFold.txt	/*fastfold-commands*
+fastfold-config	FastFold.txt	/*fastfold-config*
+fastfold-intro	FastFold.txt	/*fastfold-intro*
 filter-overrides	syntastic.txt	/*filter-overrides*
 fugitive	fugitive.txt	/*fugitive*
 fugitive#head(...)	fugitive.txt	/*fugitive#head(...)*
