@@ -6,8 +6,9 @@ export ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ## Interesting: kolo mh miloshadzic wedisagree bureau powerlevel9k
+# Powerline themes: powerlevel9k bullet-train
 if [ -z "$SSH_CLIENT" ]; then
-  ZSH_THEME="kolo"   
+  ZSH_THEME="bullet-train"
 else
   ZSH_THEME="ys"
 fi

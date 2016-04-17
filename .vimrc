@@ -32,6 +32,7 @@ NeoBundle 'KabbAmine/yowish.vim'
 NeoBundle 'easysid/mod8.vim'
 NeoBundle 'scwood/vim-hybrid'
 "functions
+NeoBundle 'scrooloose/syntastic'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'tmhedberg/SimpylFold'
