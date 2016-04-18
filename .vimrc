@@ -32,6 +32,7 @@ NeoBundle 'KabbAmine/yowish.vim'
 NeoBundle 'easysid/mod8.vim'
 NeoBundle 'scwood/vim-hybrid'
 "functions
+NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'Konfekt/FastFold'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'godlygeek/tabular'
@@ -134,6 +135,9 @@ let g:localvimrc_ask=0
 let g:tex_flavor = "latex"
 " Set the conceal mode to: a-> accents/ligatures, b -> bold/italic, c -> delimiters, m -> math, g -> greek, s -> superscripts/subscripts. The default is admgs
 let g:tex_conceal = "abdmgs"
+
+" --------------------------------------- tmuxline ------------------------------------------------
+let g:airline#extensions#tmuxline#enabled = 0
 
 " ######################################### Sets  ##################################################
 

@@ -15,6 +15,7 @@ rename.vim
 smartpairs.vim
 syntastic
 tabular
+tmuxline.vim
 vim-airline
 vim-colors_atelier-schemes
 vim-colorschemes

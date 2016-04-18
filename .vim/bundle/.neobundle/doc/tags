@@ -258,6 +258,8 @@
 :SyntasticSetLoclist	syntastic.txt	/*:SyntasticSetLoclist*
 :SyntasticToggleMode	syntastic.txt	/*:SyntasticToggleMode*
 :TableFormat	vim-markdown.txt	/*:TableFormat*
+:Tmuxline	tmuxline.txt	/*:Tmuxline*
+:TmuxlineSnapshot	tmuxline.txt	/*:TmuxlineSnapshot*
 :Toc	vim-markdown.txt	/*:Toc*
 :Toch	vim-markdown.txt	/*:Toch*
 :Toct	vim-markdown.txt	/*:Toct*
@@ -1050,6 +1052,12 @@ tabular-scripting	Tabular.txt	/*tabular-scripting*
 tabular-toc	Tabular.txt	/*tabular-toc*
 tabular-walkthrough	Tabular.txt	/*tabular-walkthrough*
 tabular.vim	Tabular.txt	/*tabular.vim*
+tmuxline	tmuxline.txt	/*tmuxline*
+tmuxline-api	tmuxline.txt	/*tmuxline-api*
+tmuxline-commands	tmuxline.txt	/*tmuxline-commands*
+tmuxline-configuration	tmuxline.txt	/*tmuxline-configuration*
+tmuxline-license	tmuxline.txt	/*tmuxline-license*
+tmuxline.txt	tmuxline.txt	/*tmuxline.txt*
 unimpaired	unimpaired.txt	/*unimpaired*
 unimpaired-encoding	unimpaired.txt	/*unimpaired-encoding*
 unimpaired-lines	unimpaired.txt	/*unimpaired-lines*

@@ -115,3 +115,6 @@
 [submodule ".vim/bundle/FastFold"]
 	path = .vim/bundle/FastFold
 	url = https://github.com/Konfekt/FastFold
+[submodule ".vim/bundle/tmuxline.vim"]
+	path = .vim/bundle/tmuxline.vim
+	url = https://github.com/edkolev/tmuxline.vim
