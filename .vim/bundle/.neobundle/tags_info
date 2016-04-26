@@ -3,9 +3,6 @@ SimpylFold
 ack.vim
 ctrlp.vim
 delimitMate
-flattown
-lumberjack.vim
-mod8.vim
 neobundle.vim
 neocomplete.vim
 neosnippet
@@ -17,12 +14,10 @@ syntastic
 tabular
 tmuxline.vim
 vim-airline
-vim-colors_atelier-schemes
 vim-colorschemes
 vim-commentary
 vim-exchange
 vim-fugitive
-vim-hybrid
 vim-localvimrc
 vim-markdown
 vim-polyglot

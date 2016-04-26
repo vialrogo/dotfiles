@@ -25,12 +25,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 "*****************************************************************************
 "themes
 NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'atelierbram/vim-colors_atelier-schemes'
-NeoBundle 'yamafaktory/lumberjack.vim'
-NeoBundle 'blerins/flattown'
 NeoBundle 'KabbAmine/yowish.vim'
-NeoBundle 'easysid/mod8.vim'
-NeoBundle 'scwood/vim-hybrid'
 "functions
 NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'Konfekt/FastFold'
@@ -339,11 +334,11 @@ set guifont=Fantasque\ Sans\ Mono\ Regular\ 13
 " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 
 if has("gui_running")  
-  " Others Very, very good are: jellybeans, railscasts, mustang, molokai, tango2, wombat, bensday, desertEx, busybee, grb256, base16-atelierforest, base16-atelierdune, Spink, flattown, mopkai, gruvbox, Monokai, mod8
+  " Others Very, very good are: jellybeans, railscasts, mustang, molokai, tango2, wombat, bensday, desertEx, busybee, grb256, base16-atelierforest, base16-atelierdune, Spink, flattown, mopkai, gruvbox, Monokai, mod8, hybrid
   colorscheme hybrid
   set lines=999 columns=999 " Maximize Gvim at startup
 else 
-  " Others Very, very good are: jellybeans, railscasts, mustang, molokai, busybee, neverland, mopkai, Monokai, gruvbox
+  " Others Very, very good are: jellybeans, railscasts, mustang, molokai, busybee, neverland, mopkai, Monokai, gruvbox, hybrid
   colorscheme hybrid
 endif 
 
