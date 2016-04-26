@@ -17,3 +17,6 @@ ln -sf ${PWD}/.tmux       ~/
 ln -sf ${PWD}/.oh-my-zsh  ~/
 
 ln -sf ${PWD}/oh-my-zsh_custom ~/.oh-my-zsh/custom
+
+git submodule foreach git pull origin master
+git submodule foreach git checkout master
