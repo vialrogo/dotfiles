@@ -15,3 +15,5 @@ ln -sf ${PWD}/.bash_git   ~/
 ln -sf ${PWD}/.tmux.conf  ~/
 ln -sf ${PWD}/.tmux       ~/
 ln -sf ${PWD}/.oh-my-zsh  ~/
+
+ln -sf ${PWD}/oh-my-zsh_custom ~/.oh-my-zsh/custom
