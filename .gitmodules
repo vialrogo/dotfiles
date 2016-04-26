@@ -7,12 +7,6 @@
 [submodule ".vim/bundle/vim-cpp-enhanced-highlight"]
 	path = .vim/bundle/vim-cpp-enhanced-highlight
 	url = https://github.com/octol/vim-cpp-enhanced-highlight
-[submodule ".vim/bundle/LaTeX-Box"]
-	path = .vim/bundle/LaTeX-Box
-	url = https://github.com/LaTeX-Box-Team/LaTeX-Box
-[submodule ".vim/bundle/ctrlp.vim"]
-	path = .vim/bundle/ctrlp.vim
-	url = https://github.com/kien/ctrlp.vim
 [submodule ".vim/bundle/vim-colorschemes"]
 	path = .vim/bundle/vim-colorschemes
 	url = https://github.com/flazz/vim-colorschemes
@@ -97,9 +91,6 @@
 [submodule ".vim/bundle/yowish.vim"]
 	path = .vim/bundle/yowish.vim
 	url = git@github.com:KabbAmine/yowish.vim
-[submodule ".vim/bundle/vim-unimpaired"]
-	path = .vim/bundle/vim-unimpaired
-	url = git@github.com:tpope/vim-unimparied
 [submodule ".vim/bundle/SimpylFold"]
 	path = .vim/bundle/SimpylFold
 	url = https://github.com/tmhedberg/SimpylFold
