@@ -14,3 +14,4 @@ ln -sf ${PWD}/.zshrc      ~/
 ln -sf ${PWD}/.bash_git   ~/
 ln -sf ${PWD}/.tmux.conf  ~/
 ln -sf ${PWD}/.tmux       ~/
+ln -sf ${PWD}/.oh-my-zsh  ~/
