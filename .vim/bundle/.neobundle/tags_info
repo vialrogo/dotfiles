@@ -18,6 +18,7 @@ vim-colorschemes
 vim-commentary
 vim-exchange
 vim-fugitive
+vim-indent-guides
 vim-localvimrc
 vim-markdown
 vim-polyglot

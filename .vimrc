@@ -27,6 +27,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'KabbAmine/yowish.vim'
 "functions
+NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'Konfekt/FastFold'
 NeoBundle 'scrooloose/syntastic'
