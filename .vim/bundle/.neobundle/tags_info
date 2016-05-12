@@ -3,6 +3,7 @@ SimpylFold
 ack.vim
 ctrlp.vim
 delimitMate
+latex-box
 neobundle.vim
 neocomplete.vim
 neosnippet
