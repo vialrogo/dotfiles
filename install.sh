@@ -3,6 +3,9 @@
 # update the submodules
 git submodule update -i
 
+git submodule foreach git pull origin master
+git submodule foreach git checkout master
+
 # Symbolic links
 ln -sf ${PWD}/.bashrc     ~/
 ln -sf ${PWD}/bin         ~/
@@ -16,8 +19,5 @@ ln -sf ${PWD}/.tmux.conf  ~/
 ln -sf ${PWD}/.tmux       ~/
 ln -sf ${PWD}/.oh-my-zsh  ~/
 
-rm ~/.oh-my-zsh/custom
+rm -rf ~/.oh-my-zsh/custom
 ln -sf ${PWD}/oh-my-zsh_custom ~/.oh-my-zsh/custom
-
-git submodule foreach git pull origin master
-git submodule foreach git checkout master
