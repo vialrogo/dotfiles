@@ -137,6 +137,10 @@ let g:tex_conceal = "abdmgs"
 " --------------------------------------- tmuxline ------------------------------------------------
 let g:airline#extensions#tmuxline#enabled = 0
 
+" ------------------------------------ vim-table-mode ---------------------------------------------
+let g:table_mode_corner_corner="+"
+
+
 " ######################################### Sets  ##################################################
 
 set hidden                      " It hides buffers instead of closing them. This means that you can have unwritten changes to a file and open a new file
@@ -305,6 +309,7 @@ syntax on                       " Set the sintax for all files
 
 " Force all *.md files to be markdown
 autocmd BufNewFile,BufReadPost,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.md set filetype=markdown
+autocmd BufNewFile,BufReadPost,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.md TableModeEnable
 
 " Force all *.cir files to be spice netlist files
 autocmd BufNewFile,BufReadPost,BufRead *.cir set filetype=spice
