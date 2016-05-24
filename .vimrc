@@ -27,6 +27,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'KabbAmine/yowish.vim'
 "functions
+NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'latex-box-team/latex-box'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'edkolev/tmuxline.vim'

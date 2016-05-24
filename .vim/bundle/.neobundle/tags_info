@@ -25,5 +25,6 @@ vim-markdown
 vim-polyglot
 vim-repeat
 vim-surround
+vim-table-mode
 vim-unimpaired
 yowish.vim
