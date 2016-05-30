@@ -10,6 +10,7 @@ neosnippet
 neosnippet-snippets
 nerdtree
 rename.vim
+restore_view.vim
 smartpairs.vim
 syntastic
 tabular
@@ -21,6 +22,7 @@ vim-exchange
 vim-fugitive
 vim-indent-guides
 vim-localvimrc
+vim-man
 vim-markdown
 vim-polyglot
 vim-repeat

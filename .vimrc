@@ -27,6 +27,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'KabbAmine/yowish.vim'
 "functions
+NeoBundle 'vim-scripts/restore_view.vim'
+NeoBundle 'vim-utils/vim-man'
 NeoBundle 'latex-box-team/latex-box'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'edkolev/tmuxline.vim'
@@ -135,6 +137,11 @@ let g:tex_conceal = "abdmgs"
 
 " --------------------------------------- tmuxline ------------------------------------------------
 let g:airline#extensions#tmuxline#enabled = 0
+
+" --------------------------------------- vim_view  ------------------------------------------------
+set viewoptions=cursor,folds,slash,unix
+let g:skipview_files = ['*\.vim']
+
 
 " ######################################### Sets  ##################################################
 
