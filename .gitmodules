@@ -98,3 +98,6 @@
 [submodule ".vim/bundle/vim-man"]
 	path = .vim/bundle/vim-man
 	url = https://github.com/vim-utils/vim-man
+[submodule ".vim/bundle/vim-table-mode"]
+	path = .vim/bundle/vim-table-mode
+	url = git@github.com:dhruvasagar/vim-table-mode.git

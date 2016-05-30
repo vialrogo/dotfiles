@@ -27,8 +27,12 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'KabbAmine/yowish.vim'
 "functions
+<<<<<<< HEAD
 NeoBundle 'vim-scripts/restore_view.vim'
 NeoBundle 'vim-utils/vim-man'
+=======
+NeoBundle 'dhruvasagar/vim-table-mode'
+>>>>>>> 54a908eac7af04aab95cf4ee85b9c6a8262495d2
 NeoBundle 'latex-box-team/latex-box'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'edkolev/tmuxline.vim'
@@ -138,9 +142,14 @@ let g:tex_conceal = "abdmgs"
 " --------------------------------------- tmuxline ------------------------------------------------
 let g:airline#extensions#tmuxline#enabled = 0
 
+<<<<<<< HEAD
 " --------------------------------------- vim_view  ------------------------------------------------
 set viewoptions=cursor,folds,slash,unix
 let g:skipview_files = ['*\.vim']
+=======
+" ------------------------------------ vim-table-mode ---------------------------------------------
+let g:table_mode_corner_corner="+"
+>>>>>>> 54a908eac7af04aab95cf4ee85b9c6a8262495d2
 
 
 " ######################################### Sets  ##################################################
@@ -311,6 +320,7 @@ syntax on                       " Set the sintax for all files
 
 " Force all *.md files to be markdown
 autocmd BufNewFile,BufReadPost,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.md set filetype=markdown
+autocmd BufNewFile,BufReadPost,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.md TableModeEnable
 
 " Force all *.cir files to be spice netlist files
 autocmd BufNewFile,BufReadPost,BufRead *.cir set filetype=spice
