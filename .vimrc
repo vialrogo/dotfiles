@@ -1,6 +1,6 @@
-"*****************************************************************************
+"*******************************************************************************
 "" NeoBundle core
-"*****************************************************************************
+"*******************************************************************************
 if has('vim_starting')
   set nocompatible               " Be iMproved
   set runtimepath+=~/.vim/bundle/neobundle.vim/
@@ -20,9 +20,9 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-"*****************************************************************************
+"*******************************************************************************
 "" NeoBundle install packages
-"*****************************************************************************
+"*******************************************************************************
 "themes
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'KabbAmine/yowish.vim'
@@ -65,7 +65,7 @@ filetype plugin indent on
 " If there are uninstalled bundles found on startup, this will conveniently prompt you to install them.
 NeoBundleCheck
 
-" ----------------------------------------- neocomplete -------------------------------------------
+" -------------------------------- neocomplete ---------------------------------
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " For newocomplete instalation
@@ -91,13 +91,13 @@ let g:neocomplete#keyword_patterns['default']  = "\h\w*"
 let g:neocomplete#keyword_patterns['markdown'] = "[À-ú[:alpha:]_'][À-ú[:alnum:]_']*"
 let g:neocomplete#keyword_patterns['tex']      = "[À-ú[:alpha:]_:'][À-ú[:alnum:]_:']*"
 
-" ------------------------------------------ Markdown ---------------------------------------------
+" -------------------------------- Markdown ------------------------------------
 let g:vim_markdown_math = 1
 
-" ------------------------------------------ LatexBox ---------------------------------------------
+" -------------------------------- LatexBox ------------------------------------
 let g:LatexBox_Folding = 1
 
-" ---------------------------------------- airline -------------------------------------------------
+" --------------------------------- airline ------------------------------------
 " airline fonts. For the correct fonts and <> symbols, see the documentation. Is necessary add a font to the local files
 let g:airline_powerline_fonts = 1
 " Enable the list of buffers AKA airtab
@@ -107,11 +107,11 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 
-" ---------------------------------------- NERDTree -------------------------------------------------
+" --------------------------------- NERDTree -----------------------------------
 let NERDTreeShowBookmarks=1
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 
-" ---------------------------------------- ctrlp.vim -------------------------------------------------
+" --------------------------------- ctrlp.vim ----------------------------------
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,.pyc,__pycache__
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|tox)$'
@@ -119,7 +119,7 @@ let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore
 let g:ctrlp_use_caching = 0
 let g:ctrlp_map = '<leader>e'
 
-" ---------------------------------------- syntastic -------------------------------------------------
+" --------------------------------- syntastic ----------------------------------
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_style_error_symbol = '✗'
@@ -127,25 +127,25 @@ let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++ -lc++abi '
  
-" --------------------------------------- localvimrc ------------------------------------------------
+" --------------------------------- localvimrc ---------------------------------
 let g:localvimrc_ask=0
 
-" ---------------------------------------------- Core options -------------------------------------- 
+" -------------------------------- Core options --------------------------------
 " Define latex by default for any *.tex file
 let g:tex_flavor = "latex"
 " Set the conceal mode to: a-> accents/ligatures, b -> bold/italic, c -> delimiters, m -> math, g -> greek, s -> superscripts/subscripts. The default is admgs
 let g:tex_conceal = "abdmgs"
 
-" --------------------------------------- tmuxline ------------------------------------------------
+" ---------------------------------- tmuxline ----------------------------------
 let g:airline#extensions#tmuxline#enabled = 0
 
-" --------------------------------------- vim_view  ------------------------------------------------
+" ---------------------------------- vim_view ----------------------------------
 set viewoptions=cursor,folds,slash,unix
 let g:skipview_files = ['*\.vim']
-" ------------------------------------ vim-table-mode ---------------------------------------------
+" ------------------------------ vim-table-mode --------------------------------
 let g:table_mode_corner_corner="+"
 
-" ######################################### Sets  ##################################################
+" #################################### Sets  ###################################
 
 set hidden                      " It hides buffers instead of closing them. This means that you can have unwritten changes to a file and open a new file
 set tabstop=4                   " Number of spaces that a <Tab> in the file counts for. 
@@ -195,15 +195,15 @@ set whichwrap+=<,>,h,l,[,]      " This causes the left and right arrow keys, as 
 set scrolloff=2                 " The number of lines before and after of the cursor possition. If is a big number, the cursor is always in the center of the screen.
 set colorcolumn=81              " highlight column after 'textwidth'
 
-" ########################################## KeyMaps  ############################################
+" ################################# KeyMaps  ###################################
 
-" --------------------------------------- neocomplete ------------------------------------------
+" ------------------------------- neocomplete ----------------------------------
 " <TAB>: completion.
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 " Close popup by <C-c>.
 inoremap <expr><C-c> pumvisible() ? neocomplete#close_popup() : "\<Space>"
 
-" -------------------------------------- neosnippet ---------------------------------------------
+" -------------------------------- neosnippet ----------------------------------
 " Expand the snippets
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -212,15 +212,15 @@ imap <C-@> <C-Space>
 smap <C-@> <C-Space>
 xmap <C-@> <C-Space>
 
-" --------------------------------------- LatexBox ---------------------------------------------
+" ---------------------------------- LatexBox ----------------------------------
 " LatexBox key maps. I really dont know why but if you use inoremap dont work!!!
 imap <buffer> [[     \begin{
 imap <buffer> ]] <Plug>LatexCloseCurEnv
 
-" ---------------------------------------- NERDTree -------------------------------------------------
+" ---------------------------------- NERDTree ----------------------------------
 noremap <F3> :NERDTreeToggle<CR>
 
-" --------------------------------------- Otheres ---------------------------------------------
+" ---------------------------------- Otheres -----------------------------------
 let mapleader = "\<Space>"
 
 " It clears the search buffer when you press <leader>/
@@ -230,7 +230,7 @@ nnoremap <silent> <Leader>/ :set hlsearch!<CR>
 nnoremap <F8> zM
 nnoremap <F10> zR
 
-" """""""""""""""""""""""""""""""""""""""""""""""""
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Faster windows options
 "
 " First, the ConfirmQuit function
@@ -262,7 +262,57 @@ nnoremap <silent> <Leader>x :call ConfirmQuit(1)<CR>
 nnoremap <silent> <Leader>q :call ConfirmQuit(0)<CR>
 nnoremap <silent> <Leader>o :only<CR> 
 
-" """""""""""""""""""""""""""""""""""""""""""""""""
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Fast larger, smaler and normal fontsize - Only GUI
+"
+let s:pattern = '^\(.* \)\([1-9][0-9]*\)$'
+let s:minfontsize = 8
+let s:maxfontsize = 24
+
+function! AdjustFontSize(amount)
+  if has("gui_running")
+    let fontname = substitute(&guifont, s:pattern, '\1', '')
+    let cursize = substitute(&guifont, s:pattern, '\2', '')
+    let newsize = cursize + a:amount
+    if (newsize >= s:minfontsize) && (newsize <= s:maxfontsize)
+      let newfont = fontname . newsize
+      let &guifont = newfont
+    endif
+  else
+    echoerr "You need to run the GTK version of Vim to use this function."
+  endif
+endfunction
+
+function! SetFontSize(fontSize)
+  if has("gui_running")
+    let fontname = substitute(&guifont, s:pattern, '\1', '')
+    if (a:fontSize >= s:minfontsize) && (a:fontSize <= s:maxfontsize)
+      let newfont = fontname . a:fontSize
+      let &guifont = newfont
+    endif
+  else
+    echoerr "You need to run the GTK version of Vim to use this function."
+  endif
+endfunction
+
+function! LargerFont()
+  call AdjustFontSize(1)
+endfunction
+command! LargerFont call LargerFont()
+
+function! SmallerFont()
+  call AdjustFontSize(-1)
+endfunction
+command! SmallerFont call SmallerFont()
+
+command! NormalSize call SetFontSize(13)
+command! -nargs=1 SetFontSize call SetFontSize(<f-args>)
+
+nnoremap <silent> <Leader>] :LargerFont <CR>
+nnoremap <silent> <Leader>[ :SmallerFont <CR>
+nnoremap <silent> <Leader>= :NormalSize <CR>
+
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Set W to sudo save and silent reload the file
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
@@ -307,7 +357,7 @@ inoremap <C-p> <C-r><C-p>+
 vmap < <gv
 vmap > >gv
 
-" ################################### Config stuff  ###########################################
+" ############################## Config stuff ##################################
 
 syntax on                       " Set the sintax for all files
 
@@ -328,7 +378,7 @@ autocmd Syntax c,cpp,vim,xml,html,xhtml,perl nnoremap <F9> :set foldmethod=synta
 " Starup status
 autocmd Syntax c,cpp,vim,xml,html,xhtml,perl,python,markdown normal zR 
 
-" --------------------------------- Look and feel options --------------------------------------
+" ------------------------- Look and feel options ------------------------------
 " Remove all bars in GVim
 set go-=m
 set go-=T
