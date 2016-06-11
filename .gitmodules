@@ -101,3 +101,6 @@
 [submodule ".vim/bundle/vim-table-mode"]
 	path = .vim/bundle/vim-table-mode
 	url = git@github.com:dhruvasagar/vim-table-mode.git
+[submodule "oh-my-zsh_custom/themes/powerlevel9k"]
+	path = oh-my-zsh_custom/themes/powerlevel9k
+	url = https://github.com/bhilburn/powerlevel9k

@@ -8,7 +8,8 @@ export ZSH=$HOME/.oh-my-zsh
 ## Interesting: kolo mh miloshadzic wedisagree bureau powerlevel9k
 # Powerline themes: powerlevel9k bullet-train
 if [ -z "$SSH_CLIENT" ]; then
-  ZSH_THEME="bullet-train"
+  # ZSH_THEME="bullet-train"
+  ZSH_THEME="powerlevel9k/powerlevel9k"
 else
   ZSH_THEME="ys"
 fi
