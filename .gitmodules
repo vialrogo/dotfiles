@@ -64,7 +64,7 @@
 	url = https://github.com/danro/rename.vim
 [submodule ".vim/bundle/yowish.vim"]
 	path = .vim/bundle/yowish.vim
-	url = git@github.com:KabbAmine/yowish.vim
+	url = https://github.com/KabbAmine/yowish.vim
 [submodule ".vim/bundle/SimpylFold"]
 	path = .vim/bundle/SimpylFold
 	url = https://github.com/tmhedberg/SimpylFold
