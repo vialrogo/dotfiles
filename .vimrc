@@ -348,8 +348,6 @@ nnoremap <C-F4> :if &go=~#'L'<Bar>set go-=L<Bar>else<Bar>set go+=L<Bar>endif<CR>
 " cut, copy, paste from standar sytem buffer in visual mode and paste in insertion
 vnoremap <C-y> "+y
 nnoremap <C-y> "+y
-vnoremap <C-d> "+d
-nnoremap <C-d> "+d
 vnoremap <C-p> "+gp
 nnoremap <C-p> "+gp
 inoremap <C-p> <C-r><C-p>+
