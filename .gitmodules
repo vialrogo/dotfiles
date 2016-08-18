@@ -104,3 +104,6 @@
 [submodule "oh-my-zsh_custom/themes/powerlevel9k"]
 	path = oh-my-zsh_custom/themes/powerlevel9k
 	url = https://github.com/bhilburn/powerlevel9k
+[submodule ".vim/bundle/vim-geeknote"]
+	path = .vim/bundle/vim-geeknote
+	url = https://github.com/neilagabriel/vim-geeknote

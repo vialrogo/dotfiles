@@ -20,6 +20,7 @@ vim-colorschemes
 vim-commentary
 vim-exchange
 vim-fugitive
+vim-geeknote
 vim-indent-guides
 vim-localvimrc
 vim-man
