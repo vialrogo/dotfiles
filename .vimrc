@@ -27,7 +27,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'KabbAmine/yowish.vim'
 "functions
-NeoBundle 'neilagabriel/vim-geeknote'
 NeoBundle 'vim-scripts/restore_view.vim'
 NeoBundle 'vim-utils/vim-man'
 NeoBundle 'dhruvasagar/vim-table-mode'
@@ -145,11 +144,6 @@ set viewoptions=cursor,folds,slash,unix
 let g:skipview_files = ['*\.vim']
 " ------------------------------ vim-table-mode --------------------------------
 let g:table_mode_corner_corner="+"
-
-" -------------------------------- vim-geeknote --------------------------------
-let g:GeeknoteFormat="markdown"
-let g:GeeknoteExplorerNodeClosed = '+'
-let g:GeeknoteExplorerNodeOpened = '-'
 
 " #################################### Sets  ###################################
 
@@ -361,9 +355,6 @@ inoremap <C-p> <C-r><C-p>+
 "" Vmap for maintain Visual Mode after shifting > and <
 vmap < <gv
 vmap > >gv
-
-"" Geeknote
-noremap <F7> :Geeknote<cr>
 
 " ############################## Config stuff ##################################
 

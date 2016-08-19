@@ -363,11 +363,6 @@
 :DelimitMateSwitch	delimitMate.txt	/*:DelimitMateSwitch*
 :DelimitMateTest	delimitMate.txt	/*:DelimitMateTest*
 :Errors	syntastic.txt	/*:Errors*
-:Geeknote	vim-geeknote.txt	/*:Geeknote*
-:GeeknoteCreateNote	vim-geeknote.txt	/*:GeeknoteCreateNote*
-:GeeknoteCreateNotebook	vim-geeknote.txt	/*:GeeknoteCreateNotebook*
-:GeeknoteSearch	vim-geeknote.txt	/*:GeeknoteSearch*
-:GeeknoteSync	vim-geeknote.txt	/*:GeeknoteSync*
 :HeaderDecrease	vim-markdown.txt	/*:HeaderDecrease*
 :HeaderIncrease	vim-markdown.txt	/*:HeaderIncrease*
 :IndentGuidesDisable	indent_guides.txt	/*:IndentGuidesDisable*
@@ -1075,7 +1070,6 @@ man-license	man.txt	/*man-license*
 man-maps	man.txt	/*man-maps*
 man-options	man.txt	/*man-options*
 man.txt	man.txt	/*man.txt*
-may	vim-geeknote.txt	/*may*
 neobundle	neobundle.txt	/*neobundle*
 neobundle#add()	neobundle.txt	/*neobundle#add()*
 neobundle#add_meta()	neobundle.txt	/*neobundle#add_meta()*
@@ -1297,7 +1291,6 @@ neosnippet-unite-source-neosnippet/user	neosnippet.txt	/*neosnippet-unite-source
 neosnippet-unite-sources	neosnippet.txt	/*neosnippet-unite-sources*
 neosnippet-variables	neosnippet.txt	/*neosnippet-variables*
 neosnippet.txt	neosnippet.txt	/*neosnippet.txt*
-not	vim-geeknote.txt	/*not*
 o:	ack_quick_help.txt	/*o:*
 o_gc	commentary.txt	/*o_gc*
 q:	ack_quick_help.txt	/*q:*
@@ -1787,16 +1780,6 @@ v_]x	unimpaired.txt	/*v_]x*
 v_]y	unimpaired.txt	/*v_]y*
 v_gc	commentary.txt	/*v_gc*
 vgS	surround.txt	/*vgS*
-vim-geeknote	vim-geeknote.txt	/*vim-geeknote*
-vim-geeknote-acknowlegements	vim-geeknote.txt	/*vim-geeknote-acknowlegements*
-vim-geeknote-installation	vim-geeknote.txt	/*vim-geeknote-installation*
-vim-geeknote-intro	vim-geeknote.txt	/*vim-geeknote-intro*
-vim-geeknote-license	vim-geeknote.txt	/*vim-geeknote-license*
-vim-geeknote-moving-notes	vim-geeknote.txt	/*vim-geeknote-moving-notes*
-vim-geeknote-requirements	vim-geeknote.txt	/*vim-geeknote-requirements*
-vim-geeknote-todo	vim-geeknote.txt	/*vim-geeknote-todo*
-vim-geeknote-usage	vim-geeknote.txt	/*vim-geeknote-usage*
-vim-geeknote.txt	vim-geeknote.txt	/*vim-geeknote.txt*
 vim-man	man.txt	/*vim-man*
 vim-markdown	vim-markdown.txt	/*vim-markdown*
 vim-markdown-[[	vim-markdown.txt	/*vim-markdown-[[*
