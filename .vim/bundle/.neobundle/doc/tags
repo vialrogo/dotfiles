@@ -1320,6 +1320,7 @@ syntastic-about	syntastic.txt	/*syntastic-about*
 syntastic-actionscript-mxmlc	syntastic-checkers.txt	/*syntastic-actionscript-mxmlc*
 syntastic-ada-gcc	syntastic-checkers.txt	/*syntastic-ada-gcc*
 syntastic-aggregating-errors	syntastic.txt	/*syntastic-aggregating-errors*
+syntastic-airline	syntastic.txt	/*syntastic-airline*
 syntastic-ansible-ansible_lint	syntastic-checkers.txt	/*syntastic-ansible-ansible_lint*
 syntastic-apiblueprint-drafter	syntastic-checkers.txt	/*syntastic-apiblueprint-drafter*
 syntastic-applescript-osacompile	syntastic-checkers.txt	/*syntastic-applescript-osacompile*
