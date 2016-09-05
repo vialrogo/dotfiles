@@ -102,6 +102,18 @@ bindkey -M viins 'jk' vi-cmd-mode   # Ohhh yeah, I am happy :D
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
+
 alias ssh_ime='ssh -AXt -L 3128:proxy:3128 -L 3125:smtp.ime.usp.br:25 vialrogo@ime.usp.br'
 alias c++='clang++ -std=c++14 -stdlib=libc++ -lc++abi'
+
+alias howtos='echo "
+Howtos for console users
+========================
+
+For man print: 
+    man -t 5 crontab | lpr -o sides=two-sided-long-edge \n
+
+"'
+
 eval "$(hub alias -s)"
+
