@@ -35,7 +35,11 @@ show_on_monitor="HDMI-1"
 word_chars="-A-Za-z0-9,./?%&#:_"
 lines=5000
 max_width=1920
+<<<<<<< HEAD
 max_height=1048
+=======
+max_height=1054
+>>>>>>> 783ca9789b666bf8b7133dca01d5c73b17f924ca
 min_width=1
 min_height=1
 x_pos=0
