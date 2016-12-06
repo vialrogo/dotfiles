@@ -184,7 +184,7 @@ set encoding=utf-8              " Set the codification
 set fileencoding=utf-8
 set fileencodings=utf-8,latin1,latin2
 " set spell                       " Set the spell revision
-set spelllang=pt                " Set the spell language
+set spelllang=pt,en,es          " Set the spell language
 set nocp                        " This changes the values of a LOT of options, enabling features which are not Vi compatible but really really nice. 
 " set cursorline                  " Set the current cursorline highlight
 set switchbuf=usetab,newtab     " This should mean switching to the existing tab if the buffer is open, or creating a new one if not.
