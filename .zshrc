@@ -105,7 +105,7 @@ bindkey -M viins 'jk' vi-cmd-mode   # Ohhh yeah, I am happy :D
 
 alias ssh_ime='ssh -AXt -L 3128:proxy:3128 -L 3125:smtp.ime.usp.br:25 vialrogo@ime.usp.br'
 alias c++='clang++ -std=c++14 -stdlib=libc++ -lc++abi'
-alias matlab-console='matlab -nojvm -nodisplay -nosplash'
+alias matlab-console='matlab -nodisplay -nosplash'
 
 alias howtos='echo "
 Howtos for console users

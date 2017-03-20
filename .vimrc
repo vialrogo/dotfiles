@@ -126,6 +126,10 @@ let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++ -lc++abi '
+
+" --------------------------------- commentary ---------------------------------
+autocmd FileType matlab setlocal commentstring=%\ %s
+autocmd FileType c,cpp,java setlocal commentstring=//\ %s
  
 " --------------------------------- localvimrc ---------------------------------
 let g:localvimrc_ask=0
@@ -365,7 +369,7 @@ syntax on                       " Set the sintax for all files
 
 " Force all *.md files to be markdown
 autocmd BufNewFile,BufReadPost,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.md set filetype=markdown
-autocmd BufNewFile,BufReadPost,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.md TableModeEnable
+autocmd BufNewFile,BufReadPost,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.md silent !TableModeEnable
 
 " Force all *.cir files to be spice netlist files
 autocmd BufNewFile,BufReadPost,BufRead *.cir set filetype=spice
@@ -399,11 +403,11 @@ set guifont=Fantasque\ Sans\ Mono\ Regular\ 13
 
 if has("gui_running")  
   " Others Very, very good are: jellybeans, railscasts, mustang, molokai, tango2, wombat, bensday, desertEx, busybee, grb256, base16-atelierforest, base16-atelierdune, Spink, flattown, mopkai, gruvbox, Monokai, mod8, hybrid
-  colorscheme gruvbox
+  colorscheme flattown
   set lines=999 columns=999 " Maximize Gvim at startup
 else 
   " Others Very, very good are: jellybeans, railscasts, mustang, molokai, busybee, neverland, mopkai, Monokai, gruvbox, hybrid
-  colorscheme gruvbox
+  colorscheme flattown
 endif 
 
 " Link the Conceal highlight configuration to the Normal configuration. It's a full clone of ALL in the class
