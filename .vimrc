@@ -1,155 +1,58 @@
 "*******************************************************************************
-"" NeoBundle core
+"" dein.vim
 "*******************************************************************************
-if has('vim_starting')
-  set nocompatible               " Be iMproved
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+
+if &compatible
+    set nocompatible
 endif
+set runtimepath+=~/.vim/bundle/repos/github.com/Shougo/dein.vim
 
-let vundle_readme=expand('~/.vim/bundle/neobundle.vim/README.md')
-
-if !filereadable(vundle_readme)
-  echo "Installing NeoBundle..."
-  echo ""
-  silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim/
-endif
-
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-" Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-"*******************************************************************************
-"" NeoBundle install packages
-"*******************************************************************************
+if dein#load_state(expand('~/.vim/bundle'))
+    call dein#begin(expand('~/.vim/bundle'))
+    call dein#add('Shougo/dein.vim')
 "themes
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'KabbAmine/yowish.vim'
+    call dein#add('flazz/vim-colorschemes')
+    call dein#add('KabbAmine/yowish.vim')
 "functions
-NeoBundle 'vim-scripts/restore_view.vim'
-NeoBundle 'vim-utils/vim-man'
-NeoBundle 'dhruvasagar/vim-table-mode'
-NeoBundle 'latex-box-team/latex-box'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'edkolev/tmuxline.vim'
-NeoBundle 'Konfekt/FastFold'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'godlygeek/tabular'
-NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'tmhedberg/SimpylFold'
-NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'mileszs/ack.vim'
-NeoBundle 'danro/rename.vim'
-NeoBundle 'embear/vim-localvimrc'
-NeoBundle 'sheerun/vim-polyglot'
-NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'gorkunov/smartpairs.vim'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'tommcdo/vim-exchange'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-commentary'
-NeoBundle 'tpope/vim-repeat'
+    call dein#add('vim-scripts/restore_view.vim')
+    call dein#add('vim-utils/vim-man')
+    call dein#add('dhruvasagar/vim-table-mode')
+    call dein#add('latex-box-team/latex-box')
+    call dein#add('nathanaelkane/vim-indent-guides')
+    call dein#add('edkolev/tmuxline.vim')
+    call dein#add('Konfekt/FastFold')
+    call dein#add('godlygeek/tabular')
+    call dein#add('plasticboy/vim-markdown')
+    call dein#add('tmhedberg/SimpylFold')
+    call dein#add('tpope/vim-unimpaired')
+    call dein#add('mileszs/ack.vim')
+    call dein#add('danro/rename.vim')
+    call dein#add('embear/vim-localvimrc')
+    call dein#add('sheerun/vim-polyglot')
+    call dein#add('Raimondi/delimitMate')
+    call dein#add('gorkunov/smartpairs.vim')
+    call dein#add('ctrlpvim/ctrlp.vim')
+    call dein#add('bling/vim-airline')
+    call dein#add('tommcdo/vim-exchange')
+    call dein#add('neomake/neomake')
+    call dein#add('Shougo/deoplete.nvim')
+    call dein#add('Shougo/neocomplete.vim')
+    call dein#add('Shougo/neosnippet')
+    call dein#add('Shougo/neosnippet-snippets')
+    call dein#add('tpope/vim-fugitive')
+    call dein#add('tpope/vim-surround')
+    call dein#add('tpope/vim-commentary')
+    call dein#add('tpope/vim-repeat')
 
-call neobundle#end()
+    call dein#end()
+    call dein#save_state()
+endif
 
-" Required:
 filetype plugin indent on
 
-" If there are uninstalled bundles found on startup, this will conveniently prompt you to install them.
-NeoBundleCheck
-
-" -------------------------------- neocomplete ---------------------------------
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" For newocomplete instalation
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Automatic close the preview window
-let g:neocomplete#enable_auto_close_preview = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default']  = "\h\w*"
-let g:neocomplete#keyword_patterns['markdown'] = "[À-ú[:alpha:]_'][À-ú[:alnum:]_']*"
-let g:neocomplete#keyword_patterns['tex']      = "[À-ú[:alpha:]_:'][À-ú[:alnum:]_:']*"
-
-" -------------------------------- Markdown ------------------------------------
-let g:vim_markdown_math = 1
-
-" -------------------------------- LatexBox ------------------------------------
-let g:LatexBox_Folding = 1
-
-" --------------------------------- airline ------------------------------------
-" airline fonts. For the correct fonts and <> symbols, see the documentation. Is necessary add a font to the local files
-let g:airline_powerline_fonts = 1
-" Enable the list of buffers AKA airtab
-let g:airline#extensions#tabline#enabled = 1 
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#syntastic#enabled = 1
-let g:airline#extensions#branch#enabled = 1
-
-" --------------------------------- NERDTree -----------------------------------
-let NERDTreeShowBookmarks=1
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
-
-" --------------------------------- ctrlp.vim ----------------------------------
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,.pyc,__pycache__
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|tox)$'
-let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore +"'"
-let g:ctrlp_use_caching = 0
-let g:ctrlp_map = '<leader>e'
-
-" --------------------------------- syntastic ----------------------------------
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_style_error_symbol = '✗'
-let g:syntastic_style_warning_symbol = '⚠'
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++ -lc++abi '
-
-" --------------------------------- commentary ---------------------------------
-autocmd FileType matlab setlocal commentstring=%\ %s
-autocmd FileType c,cpp,java setlocal commentstring=//\ %s
- 
-" --------------------------------- localvimrc ---------------------------------
-let g:localvimrc_ask=0
-
-" -------------------------------- Core options --------------------------------
-" Define latex by default for any *.tex file
-let g:tex_flavor = "latex"
-" Set the conceal mode to: a-> accents/ligatures, b -> bold/italic, c -> delimiters, m -> math, g -> greek, s -> superscripts/subscripts. The default is admgs
-let g:tex_conceal = "abdmgs"
-
-" ---------------------------------- tmuxline ----------------------------------
-let g:airline#extensions#tmuxline#enabled = 0
-
-" ---------------------------------- vim_view ----------------------------------
-set viewoptions=cursor,folds,slash,unix
-let g:skipview_files = ['*\.vim']
-" ------------------------------ vim-table-mode --------------------------------
-let g:table_mode_corner_corner="+"
-
-" #################################### Sets  ###################################
+"*******************************************************************************
+"" Sets
+"*******************************************************************************
 
 set hidden                      " It hides buffers instead of closing them. This means that you can have unwritten changes to a file and open a new file
 set tabstop=4                   " Number of spaces that a <Tab> in the file counts for. 
@@ -200,7 +103,85 @@ set scrolloff=2                 " The number of lines before and after of the cu
 set colorcolumn=81              " highlight column after 'textwidth'
 set autoread                    " Make Vim automatically refresh any unchanged files.
 
-" ################################# KeyMaps  ###################################
+"*******************************************************************************
+"" Plugins configuration files
+"*******************************************************************************
+
+" -------------------------------- neocomplete ---------------------------------
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" For newocomplete instalation
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Automatic close the preview window
+let g:neocomplete#enable_auto_close_preview = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default']  = "\h\w*"
+let g:neocomplete#keyword_patterns['markdown'] = "[À-ú[:alpha:]_'][À-ú[:alnum:]_']*"
+let g:neocomplete#keyword_patterns['tex']      = "[À-ú[:alpha:]_:'][À-ú[:alnum:]_:']*"
+
+" -------------------------------- Markdown ------------------------------------
+let g:vim_markdown_math = 1
+
+" -------------------------------- LatexBox ------------------------------------
+let g:LatexBox_Folding = 1
+
+" --------------------------------- airline ------------------------------------
+" airline fonts. For the correct fonts and <> symbols, see the documentation. Is necessary add a font to the local files
+let g:airline_powerline_fonts = 1
+" Enable the list of buffers AKA airtab
+let g:airline#extensions#tabline#enabled = 1 
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#branch#enabled = 1
+
+" --------------------------------- ctrlp.vim ----------------------------------
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,.pyc,__pycache__
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|tox)$'
+let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore +"'"
+let g:ctrlp_use_caching = 0
+let g:ctrlp_map = '<leader>e'
+
+" --------------------------------- commentary ---------------------------------
+autocmd FileType matlab setlocal commentstring=%\ %s
+autocmd FileType c,cpp,java setlocal commentstring=//\ %s
+ 
+" --------------------------------- localvimrc ---------------------------------
+let g:localvimrc_ask=0
+
+" -------------------------------- Core options --------------------------------
+" Define latex by default for any *.tex file
+let g:tex_flavor = "latex"
+" Set the conceal mode to: a-> accents/ligatures, b -> bold/italic, c -> delimiters, m -> math, g -> greek, s -> superscripts/subscripts. The default is admgs
+let g:tex_conceal = "abdmgs"
+
+" ---------------------------------- tmuxline ----------------------------------
+let g:airline#extensions#tmuxline#enabled = 0
+
+" ---------------------------------- vim_view ----------------------------------
+set viewoptions=cursor,folds,slash,unix
+let g:skipview_files = ['*\.vim']
+" ------------------------------ vim-table-mode --------------------------------
+let g:table_mode_corner_corner="+"
+
+
+"*******************************************************************************
+"" Keymaps
+"*******************************************************************************
 
 " ------------------------------- neocomplete ----------------------------------
 " <TAB>: completion.
@@ -221,9 +202,6 @@ xmap <C-@> <C-Space>
 " LatexBox key maps. I really dont know why but if you use inoremap dont work!!!
 imap <buffer> [[     \begin{
 imap <buffer> ]] <Plug>LatexCloseCurEnv
-
-" ---------------------------------- NERDTree ----------------------------------
-noremap <F3> :NERDTreeToggle<CR>
 
 " ---------------------------------- Otheres -----------------------------------
 let mapleader = "\<Space>"
@@ -363,9 +341,14 @@ vmap > >gv
 " Spell togle
 :map <F7> :setlocal spell! <CR>
 
-" ############################## Config stuff ##################################
+"*******************************************************************************
+"" aCofig stuff
+"*******************************************************************************
 
 syntax on                       " Set the sintax for all files
+
+" Run NeoMake on read and write operations
+autocmd! BufReadPost,BufWritePost * Neomake
 
 " Force all *.md files to be markdown
 autocmd BufNewFile,BufReadPost,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.md set filetype=markdown
@@ -403,11 +386,11 @@ set guifont=Fantasque\ Sans\ Mono\ Regular\ 13
 
 if has("gui_running")  
   " Others Very, very good are: jellybeans, railscasts, mustang, molokai, tango2, wombat, bensday, desertEx, busybee, grb256, base16-atelierforest, base16-atelierdune, Spink, flattown, mopkai, gruvbox, Monokai, mod8, hybrid
-  colorscheme flattown
+  colorscheme gruvbox
   set lines=999 columns=999 " Maximize Gvim at startup
 else 
   " Others Very, very good are: jellybeans, railscasts, mustang, molokai, busybee, neverland, mopkai, Monokai, gruvbox, hybrid
-  colorscheme flattown
+  colorscheme gruvbox
 endif 
 
 " Link the Conceal highlight configuration to the Normal configuration. It's a full clone of ALL in the class
