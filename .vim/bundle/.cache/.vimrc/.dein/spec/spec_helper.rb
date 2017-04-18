@@ -1,27 +1,22 @@
-require 'tmpdir'
 require 'vimrunner'
-require_relative './support/vim'
+require 'vimrunner/rspec'
 
-PRESETS = Dir.glob([File.expand_path('.'), 'spec/tests', '**'].join('/')).sort
+$plugin_path = File.expand_path('../..', __FILE__)
 
-module VIM
-  extend self
-  attr_accessor :instance
-end
-RSpec.configure do |config|
-  config.include Support::Vim
+Vimrunner::RSpec.configure do |config|
+  # Use a single Vim instance for the test suite. Set to false to use an
+  # instance per test (slower, but can be easier to manage).
+  config.reuse_server = !ENV['REUSE_SERVER'].nil?
 
-  # cd into a temporary directory for every example.
-  config.around do |example|
-    VIM.instance = Vimrunner.start
-    VIM.instance.add_plugin(File.expand_path('.'), 'spec/support/settings.vim')
-    VIM.instance.add_plugin(File.expand_path('.'), 'plugin/smartpairs.vim')
-    Dir.mktmpdir do |dir|
-      Dir.chdir(dir) do
-        VIM.instance.command("cd #{dir}")
-        example.call
-      end
-    end
-    VIM.instance.kill
+  # Decide how to start a Vim instance. In this block, an instance should be
+  # spawned and set up with anything project-specific.
+  config.start_vim do
+    vim = Vimrunner.start
+
+    # Setup your plugin in the Vim instance
+    vim.add_plugin($plugin_path)
+
+    # The returned value is the Client available in the tests.
+    vim
   end
 end
