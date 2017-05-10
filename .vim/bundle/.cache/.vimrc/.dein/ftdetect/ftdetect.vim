@@ -1,12 +1,15 @@
 " markdown filetype file
 au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown
 au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}.{des3,des,bf,bfa,aes,idea,cast,rc2,rc4,rc5,desx} set filetype=markdown
+<<<<<<< HEAD
 autocmd BufNewFile,BufRead *.Rout set ft=rout
 autocmd BufNewFile,BufRead *.Rout.save set ft=rout
 autocmd BufNewFile,BufRead *.Rout.fail set ft=rout
 autocmd BufNewFile,BufRead *.Rprofile set ft=r
 " Detect syntax file.
 autocmd BufNewFile,BufRead *.snip,*.snippets set filetype=neosnippet
+=======
+>>>>>>> 08357e6fe782498619f564b2376143a93343b8c6
 " Enable jsx syntax by default
 if !exists('g:jsx_ext_required')
   let g:jsx_ext_required = 0
@@ -1027,3 +1030,5 @@ augroup filetypedetect
 " yard:sheerun/vim-yardoc
 augroup END
 
+" Detect syntax file.
+autocmd BufNewFile,BufRead *.snip,*.snippets set filetype=neosnippet
