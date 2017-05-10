@@ -1,6 +1,10 @@
 " markdown filetype file
 au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown
 au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}.{des3,des,bf,bfa,aes,idea,cast,rc2,rc4,rc5,desx} set filetype=markdown
+autocmd BufNewFile,BufRead *.Rout set ft=rout
+autocmd BufNewFile,BufRead *.Rout.save set ft=rout
+autocmd BufNewFile,BufRead *.Rout.fail set ft=rout
+autocmd BufNewFile,BufRead *.Rprofile set ft=r
 " Detect syntax file.
 autocmd BufNewFile,BufRead *.snip,*.snippets set filetype=neosnippet
 " Enable jsx syntax by default

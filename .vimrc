@@ -14,6 +14,7 @@ if dein#load_state(expand('~/.vim/bundle'))
     call dein#add('flazz/vim-colorschemes')
     call dein#add('KabbAmine/yowish.vim')
 "functions
+    call dein#add('jalvesaq/Nvim-R')
     call dein#add('vim-scripts/restore_view.vim')
     call dein#add('vim-utils/vim-man')
     call dein#add('dhruvasagar/vim-table-mode')
@@ -158,6 +159,7 @@ let g:ctrlp_map = '<leader>e'
 
 " --------------------------------- commentary ---------------------------------
 autocmd FileType matlab setlocal commentstring=%\ %s
+autocmd BufNewFile,BufReadPost,BufRead *.R,*.Rnw,*.Rd,*.Rmd,*.Rrst setlocal commentstring=#\ %s
 autocmd FileType c,cpp,java setlocal commentstring=//\ %s
  
 " --------------------------------- localvimrc ---------------------------------
