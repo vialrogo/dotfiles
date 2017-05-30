@@ -64,7 +64,7 @@ set smarttab                    " When on, a <Tab> in front of a line inserts bl
 set showcmd                     " Show (partial) command in status line.
 set number                      " Show line numbers.
 set showmatch                   " When a bracket is inserted, briefly jump to the matching one. The jump is only done if the match can be seen on  screen. The time to show the match can be set with 'matchtime'.
-" set hlsearch                    " When there is a previous search pattern, highlight all its matches.
+set hlsearch                    " When there is a previous search pattern, highlight all its matches.
 set incsearch                   " While typing a search command, show immediately where the so far typed pattern matches.
 set ignorecase                  " Ignore case in search patterns.
 set smartcase                   " Override the 'ignorecase' option if the search pattern contains upper case characters.
@@ -94,7 +94,7 @@ set fileencodings=utf-8,latin1,latin2
 " set spell                       " Set the spell revision
 set spelllang=pt,en,es          " Set the spell language
 set nocp                        " This changes the values of a LOT of options, enabling features which are not Vi compatible but really really nice. 
-" set cursorline                  " Set the current cursorline highlight
+set cursorline                  " Set the current cursorline highlight
 set switchbuf=usetab,newtab     " This should mean switching to the existing tab if the buffer is open, or creating a new one if not.
 " set relativenumber              " Amazing number line conf. Provides relative number line to the possition.
 set conceallevel=2              " Set de conceal (dinamic replace of _X or \alpha caracteres).
@@ -214,6 +214,9 @@ nnoremap <silent> <Leader>/ :set hlsearch!<CR>
 " Mappings to toggle foldsEdit
 nnoremap <F8> zM
 nnoremap <F10> zR
+
+" Remove search highlight until next search
+nnoremap <esc> :noh<return><esc>"
 
 " """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Faster windows options
