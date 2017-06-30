@@ -135,9 +135,6 @@ dein#add({repo}[, {options}])
 		{repo} is the repository URI or local repository directory
 		path.  If {repo} starts with github user name (ex:
 		"Shougo/dein.vim"), dein will install github plugins.
-		If {repo} is plugin name only (ex: "taglist.vim"), dein will
-		install the plugin in vim.org repository (vim-scripts.org:
-		https://github.com/vim-scripts).
 		See |dein-options| for what to set in {options}.
 		Note: You must call it in |dein#begin()| block.
 
@@ -236,8 +233,9 @@ dein#rollback({date}[, {plugins}])
 							*dein#check_install()*
 dein#check_install({plugins})
 		Check the plugins installation.
-		If the plugins are not installed, it will return non-zero.
-		{plugins} is the plugins name list or the plugin name to
+		If {plugins} are not installed, it will return non-zero.
+		If {plugins} are invalid, it will return -1.
+		{plugins} are the plugins name list or the plugin name to
 		check.
 		If you omit it, dein will check all plugins installation.
 		Note: You can disable the message by |:silent|.
@@ -786,6 +784,7 @@ HOOKS							*dein-hooks*
 
 		Note: You can use |g:dein#plugin| in the hooks.
 		Note: The loading order is not guaranteed in non lazy plugins.
+		Note: The string is executed as Ex commands.
 
 						*dein-options-hook_add*
 hook_add	(String) or (Function)

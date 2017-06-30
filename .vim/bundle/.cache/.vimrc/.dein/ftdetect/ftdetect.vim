@@ -1,12 +1,6 @@
 " markdown filetype file
 au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown
 au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}.{des3,des,bf,bfa,aes,idea,cast,rc2,rc4,rc5,desx} set filetype=markdown
-autocmd BufNewFile,BufRead *.Rout set ft=rout
-autocmd BufNewFile,BufRead *.Rout.save set ft=rout
-autocmd BufNewFile,BufRead *.Rout.fail set ft=rout
-autocmd BufNewFile,BufRead *.Rprofile set ft=r
-" Detect syntax file.
-autocmd BufNewFile,BufRead *.snip,*.snippets set filetype=neosnippet
 " Enable jsx syntax by default
 if !exists('g:jsx_ext_required')
   let g:jsx_ext_required = 0
@@ -27,6 +21,12 @@ augroup END
 
 augroup filetypedetect
 " applescript:vim-scripts/applescript.vim
+augroup END
+
+augroup filetypedetect
+" asciidoc:asciidoc/vim-asciidoc
+autocmd BufNewFile,BufRead *.asciidoc,*.adoc
+	\ set ft=asciidoc
 augroup END
 
 augroup filetypedetect
@@ -73,7 +73,7 @@ augroup filetypedetect
 augroup END
 
 augroup filetypedetect
-" caddyfile:joshglendenning/vim-caddyfile
+" caddyfile:isobit/vim-caddyfile
 au BufNewFile,BufRead Caddyfile set ft=caddyfile
 augroup END
 
@@ -173,8 +173,6 @@ augroup filetypedetect
 au BufRead,BufNewFile *.ex,*.exs call s:setf('elixir')
 au BufRead,BufNewFile *.eex call s:setf('eelixir')
 au BufRead,BufNewFile * call s:DetectElixir()
-
-au FileType elixir,eelixir setl sw=2 sts=2 et iskeyword+=!,?
 
 function! s:setf(filetype) abort
   let &filetype = a:filetype
@@ -292,7 +290,9 @@ augroup filetypedetect
 " Language: OpenGL Shading Language
 " Maintainer: Sergey Tikhomirov <sergey@tikhomirov.io>
 
-autocmd! BufNewFile,BufRead *.glsl,*.geom,*.vert,*.frag,*.gsh,*.vsh,*.fsh,*.vs,*.fs,*.gs,*.tcs,*.tes,*.tesc,*.tese,*.comp set filetype=glsl
+" Extensions supported by Khronos reference compiler
+" https://github.com/KhronosGroup/glslang
+autocmd! BufNewFile,BufRead *.vert,*.tesc,*.tese,*.geom,*.frag,*.comp set filetype=glsl
 
 " vim:set sts=2 sw=2 :
 augroup END
@@ -334,6 +334,11 @@ au BufReadPost *.s call s:gofiletype_post()
 au BufRead,BufNewFile *.tmpl set filetype=gohtmltmpl
 
 " vim: sw=2 ts=2 et
+augroup END
+
+augroup filetypedetect
+" graphql:jparise/vim-graphql
+au BufRead,BufNewFile *.graphql,*.gql setfiletype graphql
 augroup END
 
 augroup filetypedetect
@@ -385,10 +390,16 @@ augroup END
 
 augroup filetypedetect
 " javascript:pangloss/vim-javascript:_JAVASCRIPT
-au BufNewFile,BufRead *.js setf javascript
-au BufNewFile,BufRead *.jsm setf javascript
-au BufNewFile,BufRead Jakefile setf javascript
-au BufNewFile,BufRead *.es6 setf javascript
+au BufNewFile,BufRead *.{js,jsm,es,es6},Jakefile setf javascript
+
+fun! s:SourceFlowSyntax()
+  if !exists('javascript_plugin_flow') && !exists('b:flow_active') &&
+        \ search('\v\C%^\_s*%(//\s*|/\*[ \t\n*]*)\@flow>','nw')
+    runtime extras/flow.vim
+    let b:flow_active = 1
+  endif
+endfun
+au FileType javascript au BufRead,BufWritePost <buffer> call s:SourceFlowSyntax()
 
 fun! s:SelectJavascript()
   if getline(1) =~# '^#!.*/bin/\%(env\s\+\)\?node\>'
@@ -531,11 +542,12 @@ augroup filetypedetect
 augroup END
 
 augroup filetypedetect
-" nginx:othree/nginx-contrib-vim
+" nginx:chr4/nginx.vim
 au BufRead,BufNewFile *.nginx set ft=nginx
+au BufRead,BufNewFile nginx*.conf set ft=nginx
+au BufRead,BufNewFile *nginx.conf set ft=nginx
 au BufRead,BufNewFile */etc/nginx/* set ft=nginx
 au BufRead,BufNewFile */usr/local/nginx/conf/* set ft=nginx
-au BufRead,BufNewFile nginx.conf set ft=nginx
 augroup END
 
 augroup filetypedetect
@@ -625,11 +637,6 @@ augroup END
 
 augroup filetypedetect
 " plantuml:aklt/plantuml-syntax
-" Vim ftdetect file
-" Language:     PlantUML
-" Maintainer:   Aaron C. Meadows < language name at shadowguarddev dot com>
-" Version:      0.1
-
 if did_filetype()
   finish
 endif
@@ -725,6 +732,11 @@ augroup END
 
 augroup filetypedetect
 " r-lang:vim-scripts/R.vim
+augroup END
+
+augroup filetypedetect
+" racket:wlangstroth/vim-racket
+au BufRead,BufNewFile *.rkt,*.rktl  set filetype=racket
 augroup END
 
 augroup filetypedetect
@@ -984,6 +996,12 @@ augroup END
 
 augroup filetypedetect
 " twig:lumiliet/vim-twig
+
+if !exists('g:vim_twig_filetype_detected') && has("autocmd")
+  au BufNewFile,BufRead *.twig set filetype=html.twig
+  au BufNewFile,BufRead *.html.twig set filetype=html.twig
+  au BufNewFile,BufRead *.xml.twig set filetype=xml.twig
+endif
 augroup END
 
 augroup filetypedetect
@@ -1011,7 +1029,7 @@ augroup END
 
 augroup filetypedetect
 " vue:posva/vim-vue
-au BufNewFile,BufRead *.vue setf vue.html.javascript.css
+au BufNewFile,BufRead *.vue setf vue
 augroup END
 
 augroup filetypedetect

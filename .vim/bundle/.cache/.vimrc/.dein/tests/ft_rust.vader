@@ -2,7 +2,7 @@ Include: include/setup.vader
 
 Execute (cargo skip non json line):
   new
-  file src/lib.rs
+  file build/lib.rs
   let cargo = neomake#makers#ft#rust#cargo()
   let cargo.exe = 'printf'
   let cargo.args = ['error: Could not compile `derive_more`.']
@@ -15,10 +15,10 @@ Execute (cargo skip non json line):
 
 Execute (cargo info message):
   new
-  file src/lib.rs
+  file build/lib.rs
   let cargo = neomake#makers#ft#rust#cargo()
   let cargo.exe = 'cat'
-  let cargo.args = 'tests/fixtures/rust/cargo_info.json'
+  let cargo.args = '../tests/fixtures/rust/cargo_info.json'
 
   call neomake#Make(1, [cargo])
   NeomakeTestsWaitForFinishedJobs
@@ -28,10 +28,10 @@ Execute (cargo info message):
 
 Execute (cargo error without span):
   new
-  file src/lib.rs
+  file build/lib.rs
   let cargo = neomake#makers#ft#rust#cargo()
   let cargo.exe = 'cat'
-  let cargo.args = 'tests/fixtures/rust/cargo_error_without_span.json'
+  let cargo.args = '../tests/fixtures/rust/cargo_error_without_span.json'
 
   call neomake#Make(1, [cargo])
   NeomakeTestsWaitForFinishedJobs
@@ -40,18 +40,13 @@ Execute (cargo error without span):
   bwipe
 
 Execute (cargo error message):
-  " Monkeypatch to check setting of length.
-  Save g:lengths
-  let g:lengths = []
-  function! neomake#highlights#AddHighlight(entry, type) abort
-      call add(g:lengths, a:entry.length)
-  endfunction
+  NeomakeTestsMonkeypatchHighlights
 
   new
-  file src/lib.rs
+  file build/lib.rs
   let cargo = neomake#makers#ft#rust#cargo()
   let cargo.exe = 'cat'
-  let cargo.args = 'tests/fixtures/rust/cargo_error.json'
+  let cargo.args = '../tests/fixtures/rust/cargo_error.json'
 
   call neomake#Make(1, [cargo])
   NeomakeTestsWaitForFinishedJobs
@@ -76,27 +71,31 @@ Execute (cargo error message):
     \ 'vcol': 0,
     \ 'pattern': '',
     \ 'text': 'mismatched types: expected str, found struct `proc_macro::TokenStream`'
+    \ }, {
+    \ 'type': 'I',
+    \ 'bufnr':  bufnr('%'),
+    \ 'nr': 308,
+    \ 'lnum': 25,
+    \ 'col': 1,
+    \ 'valid': 1,
+    \ 'vcol': 0,
+    \ 'pattern': '',
+    \ 'text': 'found type `&proc_macro::TokenStream`'
     \ }], getloclist(0)
 
-  AssertEqual [2, 40], g:lengths
+  " TODO: should not call it for the same highlight twice?!
+  AssertEqual [[19, 2], [25, 40], [25, 40]], g:neomake_tests_highlight_lengths
 
   bwipe
-  " Undo monkeypatch.
-  runtime autoload/neomake/highlights.vim
 
 Execute (cargo warning message):
-  " Monkeypatch to check setting of length.
-  Save g:lengths
-  let g:lengths = []
-  function! neomake#highlights#AddHighlight(entry, type) abort
-      call add(g:lengths, a:entry.length)
-  endfunction
+  NeomakeTestsMonkeypatchHighlights
 
   new
-  file src/add_assign_like.rs
+  file build/add_assign_like.rs
   let cargo = neomake#makers#ft#rust#cargo()
   let cargo.exe = 'cat'
-  let cargo.args = 'tests/fixtures/rust/cargo_warning.json'
+  let cargo.args = '../tests/fixtures/rust/cargo_warning.json'
 
   call neomake#Make(1, [cargo])
   NeomakeTestsWaitForFinishedJobs
@@ -112,24 +111,49 @@ Execute (cargo warning message):
     \ 'pattern': '',
     \ 'text': 'unused import: `Variant`, #[warn(unused_imports)] on by default'}], getloclist(0)
 
-  AssertEqual [7], g:lengths
+  AssertEqual [[2, 7]], g:neomake_tests_highlight_lengths
   bwipe
-  " Undo monkeypatch.
-  runtime autoload/neomake/highlights.vim
+
+Execute (cargo warning for file that is not open):
+  NeomakeTestsMonkeypatchHighlights
+
+  new
+  file build/some_other_file.rs
+
+  let cargo = neomake#makers#ft#rust#cargo()
+  let cargo.exe = 'cat'
+  " Uses build/add_assign_like.rs.
+  let cargo.args = '../tests/fixtures/rust/cargo_warning.json'
+
+  call neomake#Make(1, [cargo])
+  NeomakeTestsWaitForFinishedJobs
+
+  let unlisted_bufnr = bufnr('^build/add_assign_like.rs$')
+  AssertNotEqual -1, unlisted_bufnr
+
+  AssertEqual [{
+    \ 'type': 'W',
+    \ 'bufnr': unlisted_bufnr,
+    \ 'nr': -1,
+    \ 'lnum': 2,
+    \ 'col': 24,
+    \ 'valid': 1,
+    \ 'vcol': 0,
+    \ 'pattern': '',
+    \ 'text': 'unused import: `Variant`, #[warn(unused_imports)] on by default'}], getloclist(0)
+
+  AssertEqual [[2, 7]], g:neomake_tests_highlight_lengths
+  bwipe
+  exe 'bwipe' unlisted_bufnr
 
 Execute (cargo error message children):
-  " Monkeypatch to check setting of length.
-  Save g:lengths
-  let g:lengths = []
-  function! neomake#highlights#AddHighlight(entry, type) abort
-      call add(g:lengths, a:entry.length)
-  endfunction
+  NeomakeTestsMonkeypatchHighlights
 
   new
   file tests/from.rs
   let cargo = neomake#makers#ft#rust#cargo()
   let cargo.exe = 'cat'
-  let cargo.args = 'tests/fixtures/rust/cargo_error_children.json'
+  let cargo.args = 'fixtures/rust/cargo_error_children.json'
 
   call neomake#Make(1, [cargo])
   NeomakeTestsWaitForFinishedJobs
@@ -145,8 +169,6 @@ Execute (cargo error message children):
     \ 'pattern': '',
     \ 'text': 'custom derive attribute panicked. message: Only structs and enums can derive From'}], getloclist(0)
 
-  AssertEqual [4], g:lengths
+  AssertEqual [[11, 4]], g:neomake_tests_highlight_lengths
 
   bwipe
-  " Undo monkeypatch.
-  runtime autoload/neomake/highlights.vim

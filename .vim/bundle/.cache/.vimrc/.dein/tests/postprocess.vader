@@ -104,12 +104,11 @@ Execute (Postprocess: called with dict+maker as self for list):
   AssertEqual g:neomake_test_called[1][0].custom_var, 42
   AssertEqual g:neomake_test_called[1][1].jobinfo.maker._maker_marker, 1
   bwipe!
+  delfunction NeomakeTestPostprocess
 
 Execute (Postprocess: called with dict+maker as self for non-list):
+  Save g:neomake_test_called
   let g:neomake_test_called = []
-  function! NeomakeTestPostprocess(entry) abort dict
-    call add(g:neomake_test_called, [self, g:neomake_hook_context])
-  endfunction
 
   let maker = {
   \ 'exe': 'printf',
@@ -117,8 +116,10 @@ Execute (Postprocess: called with dict+maker as self for non-list):
   \ 'errorformat': '%E%f:%l:%c: %m',
   \ 'append_file': 0,
   \ '_maker_marker': 1,
-  \ 'postprocess': 'NeomakeTestPostprocess',
   \ }
+  function! maker.postprocess(entry) abort dict
+    call add(g:neomake_test_called, [self, g:neomake_hook_context])
+  endfunction
 
   new
   file file1.vim
@@ -140,29 +141,32 @@ Execute (Postprocess: called with dict+maker as self for non-list):
   bwipe
 
 Execute (Postprocess: removes entries with valid -1):
+  Save g:neomake_test_called
   let g:neomake_test_called = []
-  function! NeomakeTestPostprocess(entry) abort dict
+
+  let maker = {
+  \ 'exe': 'printf',
+  \ 'args': [join([
+  \   'file1.vim:1:7: check: bar!',
+  \   'file1.vim:2:5: check: foo!',
+  \   'file1.vim:1:7: check: bar!'], '\n')],
+  \ 'errorformat': '%E%f:%l:%c: %m',
+  \ 'append_file': 0,
+  \ '_maker_marker': 1,
+  \ }
+  function! maker.postprocess(entry) abort dict
     call add(g:neomake_test_called, [self, g:neomake_hook_context])
     if a:entry.text ==# 'check: bar!'
       let a:entry.valid = -1
     endif
   endfunction
 
-  let maker = {
-  \ 'exe': 'printf',
-  \ 'args': ['file1.vim:1:7: check: bar!\nfile1.vim:2:5: check: foo!'],
-  \ 'errorformat': '%E%f:%l:%c: %m',
-  \ 'append_file': 0,
-  \ '_maker_marker': 1,
-  \ 'postprocess': 'NeomakeTestPostprocess',
-  \ }
-
   new
   file file1.vim
   call neomake#Make(1, [maker])
   NeomakeTestsWaitForFinishedJobs
 
-  AssertEqual len(g:neomake_test_called), 2
+  AssertEqual len(g:neomake_test_called), 3
   AssertEqual g:neomake_test_called[0][1].jobinfo.maker._maker_marker, 1
 
   AssertEqual getloclist(0), [{
@@ -189,7 +193,7 @@ Execute (Postprocess: can be disabled with empty string):
   call neomake#Make(1, [maker])
   NeomakeTestsWaitForFinishedJobs
 
-  AssertEqual map(copy(getloclist(0)), 'v:val.text'), ['success']
+  AssertEqual map(getloclist(0), 'v:val.text'), ['success']
 
 Execute (Postprocess: can be disabled with empty list):
   let maker = {
@@ -203,7 +207,7 @@ Execute (Postprocess: can be disabled with empty list):
   call neomake#Make(1, [maker])
   NeomakeTestsWaitForFinishedJobs
 
-  AssertEqual map(copy(getloclist(0)), 'v:val.text'), ['success']
+  AssertEqual map(getloclist(0), 'v:val.text'), ['success']
 
 Execute (maker.postprocess interface for obj):
   let postprocessobj = {'property': 1}
@@ -226,6 +230,7 @@ Execute (maker.postprocess interface for obj):
   Assert 1, g:neomake_test_called
 
 Execute (maker.postprocess interface for maker):
+  call g:NeomakeSetupAutocmdWrappers()
   Save g:neomake_test_called
   let g:neomake_test_called = []
   let maker = neomake#makers#ft#neomake_tests#echo_maker()
@@ -242,6 +247,7 @@ Execute (maker.postprocess interface for maker):
   NeomakeTestsWaitForFinishedJobs
   Assert !has_key(maker, 'called'), 'Property not set, since maker was copied'
   AssertEqual ['Vim(let):E741: Value is locked: self.called = 1'], g:neomake_test_called
+  AssertEqual len(g:neomake_test_finished), 1
 
 Execute (neomake#postprocess#GenericLengthPostprocess for multiple matches):
   if !exists('*matchstrpos')

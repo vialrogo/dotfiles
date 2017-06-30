@@ -13,6 +13,7 @@ if dein#load_state(expand('~/.vim/bundle'))
 "themes
     call dein#add('flazz/vim-colorschemes')
     call dein#add('KabbAmine/yowish.vim')
+    call dein#add('ajmwagar/vim-deus')
 "functions
     call dein#add('jalvesaq/Nvim-R')
     call dein#add('vim-scripts/restore_view.vim')
@@ -87,7 +88,6 @@ set noerrorbells                " don't beep"
 set nobackup                    " Oh, and man… never ever let Vim write a backup file! They did that in the 70’s. 
 set noswapfile                  " Use modern ways for tracking your changes, for God’s sake.
 set pastetoggle=<F2>            " Then, when in insert mode, ready to paste, press <F2>, Vim will switch to paste mode, disabling all kinds of smartness
-set autochdir                   " Set working directory as the current directory"
 set encoding=utf-8              " Set the codification
 set fileencoding=utf-8
 set fileencodings=utf-8,latin1,latin2
@@ -351,6 +351,9 @@ vmap > >gv
 "*******************************************************************************
 
 syntax on                       " Set the sintax for all files
+
+" Set pwd to current directory on starup
+autocmd BufEnter * silent! lcd %:p:h
 
 " Run NeoMake on read and write operations
 autocmd! BufReadPost,BufWritePost * Neomake
