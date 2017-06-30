@@ -1,3 +1,4 @@
 .vim/bundle/NeoBundle.lock
+.vim/bundle/state_vim.vim
 .vim/view/*
 *cache*
