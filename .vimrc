@@ -13,6 +13,7 @@ if dein#load_state(expand('~/.vim/bundle'))
 "themes
     call dein#add('flazz/vim-colorschemes')
     call dein#add('KabbAmine/yowish.vim')
+    call dein#add('ajmwagar/vim-deus')
 "functions
     call dein#add('jalvesaq/Nvim-R')
     call dein#add('vim-scripts/restore_view.vim')
@@ -64,7 +65,7 @@ set smarttab                    " When on, a <Tab> in front of a line inserts bl
 set showcmd                     " Show (partial) command in status line.
 set number                      " Show line numbers.
 set showmatch                   " When a bracket is inserted, briefly jump to the matching one. The jump is only done if the match can be seen on  screen. The time to show the match can be set with 'matchtime'.
-" set hlsearch                    " When there is a previous search pattern, highlight all its matches.
+set hlsearch                    " When there is a previous search pattern, highlight all its matches.
 set incsearch                   " While typing a search command, show immediately where the so far typed pattern matches.
 set ignorecase                  " Ignore case in search patterns.
 set smartcase                   " Override the 'ignorecase' option if the search pattern contains upper case characters.
@@ -87,14 +88,13 @@ set noerrorbells                " don't beep"
 set nobackup                    " Oh, and man… never ever let Vim write a backup file! They did that in the 70’s. 
 set noswapfile                  " Use modern ways for tracking your changes, for God’s sake.
 set pastetoggle=<F2>            " Then, when in insert mode, ready to paste, press <F2>, Vim will switch to paste mode, disabling all kinds of smartness
-set autochdir                   " Set working directory as the current directory"
 set encoding=utf-8              " Set the codification
 set fileencoding=utf-8
 set fileencodings=utf-8,latin1,latin2
 " set spell                       " Set the spell revision
 set spelllang=pt,en,es          " Set the spell language
 set nocp                        " This changes the values of a LOT of options, enabling features which are not Vi compatible but really really nice. 
-" set cursorline                  " Set the current cursorline highlight
+set cursorline                  " Set the current cursorline highlight
 set switchbuf=usetab,newtab     " This should mean switching to the existing tab if the buffer is open, or creating a new one if not.
 " set relativenumber              " Amazing number line conf. Provides relative number line to the possition.
 set conceallevel=2              " Set de conceal (dinamic replace of _X or \alpha caracteres).
@@ -214,6 +214,9 @@ nnoremap <silent> <Leader>/ :set hlsearch!<CR>
 " Mappings to toggle foldsEdit
 nnoremap <F8> zM
 nnoremap <F10> zR
+
+" Remove search highlight until next search
+nnoremap <esc> :noh<return><esc>"
 
 " """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Faster windows options
@@ -349,6 +352,9 @@ vmap > >gv
 
 syntax on                       " Set the sintax for all files
 
+" Set pwd to current directory on starup
+autocmd BufEnter * silent! lcd %:p:h
+
 " Run NeoMake on read and write operations
 autocmd! BufReadPost,BufWritePost * Neomake
 
@@ -388,11 +394,11 @@ set guifont=Fantasque\ Sans\ Mono\ Regular\ 13
 
 if has("gui_running")  
   " Others Very, very good are: jellybeans, railscasts, mustang, molokai, tango2, wombat, bensday, desertEx, busybee, grb256, base16-atelierforest, base16-atelierdune, Spink, flattown, mopkai, gruvbox, Monokai, mod8, hybrid
-  colorscheme gruvbox
+  colorscheme flattown
   set lines=999 columns=999 " Maximize Gvim at startup
 else 
-  " Others Very, very good are: jellybeans, railscasts, mustang, molokai, mopkai, Monokai, gruvbox, hybrid
-  colorscheme gruvbox
+  " Others Very, very good are: jellybeans, railscasts, mustang, molokai, busybee, neverland, mopkai, Monokai, gruvbox, hybrid
+  colorscheme flattown
 endif 
 
 " Link the Conceal highlight configuration to the Normal configuration. It's a full clone of ALL in the class

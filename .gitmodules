@@ -94,7 +94,7 @@
 	url = https://github.com/latex-box-team/latex-box
 [submodule ".vim/bundle/repos/github.com/vim-scripts/restore_view.vim"]
 	path = .vim/bundle/repos/github.com/vim-scripts/restore_view.vim
-	url = https://github.com/vim-scripts/restore_view.vim
+    url = https://github.com/vim-scripts/restore_view.vim
 [submodule ".vim/bundle/repos/github.com/vim-utils/vim-man"]
 	path = .vim/bundle/repos/github.com/vim-utils/vim-man
 	url = https://github.com/vim-utils/vim-man
@@ -107,3 +107,6 @@
 [submodule ".vim/bundle/repos/github.com/jalvesaq/Nvim-R"]
 	path = .vim/bundle/repos/github.com/jalvesaq/Nvim-R
 	url = https://github.com/jalvesaq/Nvim-R
+[submodule ".vim/bundle/repos/github.com/ajmwagar/vim-deus"]
+	path = .vim/bundle/repos/github.com/ajmwagar/vim-deus
+	url = https://github.com/ajmwagar/vim-deus

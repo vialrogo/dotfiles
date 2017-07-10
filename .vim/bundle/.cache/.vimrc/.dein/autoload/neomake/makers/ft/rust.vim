@@ -25,6 +25,7 @@ function! neomake#makers#ft#rust#cargo() abort
     let maker_command = get(b:, 'neomake_rust_cargo_command',
                 \ get(g:, 'neomake_rust_cargo_command', ['check']))
     return {
+        \ 'cwd': '%:p:h',
         \ 'args': maker_command + ['--message-format=json', '--quiet'],
         \ 'append_file': 0,
         \ 'errorformat':
@@ -43,7 +44,7 @@ function! neomake#makers#ft#rust#CargoProcessOutput(context) abort
 
         let decoded = neomake#utils#JSONdecode(line)
         let data = get(decoded, 'message', -1)
-        if type(data) != type({}) || !len(data['spans'])
+        if type(data) != type({}) || empty(data['spans'])
             continue
         endif
 
@@ -61,34 +62,76 @@ function! neomake#makers#ft#rust#CargoProcessOutput(context) abort
         endif
 
         let span = data.spans[0]
-        call neomake#makers#ft#rust#FillErrorFromSpan(error, span)
+        let expanded = 0
+        let has_expansion = type(span.expansion) == type({})
+                    \ && type(span.expansion.span) == type({})
+                    \ && type(span.expansion.def_site_span) == type({})
+
+        if span.file_name =~# '^<.*>$' && has_expansion
+            let expanded = 1
+            call neomake#makers#ft#rust#FillErrorFromSpan(error,
+                        \ span.expansion.span)
+        else
+            call neomake#makers#ft#rust#FillErrorFromSpan(error, span)
+        endif
 
         let error.text = data.message
         let detail = span.label
         let children = data.children
-        if type(detail) == type('') && len(detail)
+        if type(detail) == type('') && !empty(detail)
             let error.text = error.text . ': ' . detail
-        elseif len(children) && has_key(children[0], 'message')
+        elseif !empty(children) && has_key(children[0], 'message')
             let error.text = error.text . '. ' . children[0].message
         endif
 
         call add(errors, error)
 
-        if type(span.expansion) == type({})
-                    \ && type(span.expansion.span) == type({})
-                    \ && type(span.expansion.def_site_span) == type({})
+        if has_expansion && !expanded
             let error = copy(error)
             call neomake#makers#ft#rust#FillErrorFromSpan(error,
                         \ span.expansion.span)
             call add(errors, error)
         endif
+
+        for child in children[1:]
+            if !has_key(child, 'message')
+                continue
+            endif
+
+            let info = deepcopy(error)
+            let info.type = 'I'
+            let info.text = child.message
+            call neomake#utils#CompressWhitespace(info)
+            if has_key(child, 'rendered')
+                        \ && !(child.rendered is g:neomake#compat#json_null)
+                let info.text = info.text . ': ' . child.rendered
+            endif
+
+            if len(child.spans)
+                let span = child.spans[0]
+                if span.file_name =~# '^<.*>$'
+                            \ && type(span.expansion) == type({})
+                            \ && type(span.expansion.span) == type({})
+                            \ && type(span.expansion.def_site_span) == type({})
+                    call neomake#makers#ft#rust#FillErrorFromSpan(info,
+                                \ span.expansion.span)
+                else
+                    call neomake#makers#ft#rust#FillErrorFromSpan(info, span)
+                endif
+                let detail = span.label
+                if type(detail) == type('') && len(detail)
+                    let info.text = info.text . ': ' . detail
+                endif
+            endif
+
+            call add(errors, info)
+        endfor
     endfor
     return errors
 endfunction
 
 function! neomake#makers#ft#rust#FillErrorFromSpan(error, span) abort
     let a:error.filename = a:span.file_name
-    let a:error.bufnr = neomake#utils#get_or_create_buffer(a:error.filename)
     let a:error.col = a:span.column_start
     let a:error.lnum = a:span.line_start
     let a:error.length = a:span.byte_end - a:span.byte_start

@@ -1,3 +1,0 @@
-if a<b
-endif
-workaround for tags <div>test</div> >_<div> </div>
