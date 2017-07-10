@@ -1045,5 +1045,9 @@ augroup filetypedetect
 " yard:sheerun/vim-yardoc
 augroup END
 
+autocmd BufNewFile,BufRead *.Rout set ft=rout
+autocmd BufNewFile,BufRead *.Rout.save set ft=rout
+autocmd BufNewFile,BufRead *.Rout.fail set ft=rout
+autocmd BufNewFile,BufRead *.Rprofile set ft=r
 " Detect syntax file.
 autocmd BufNewFile,BufRead *.snip,*.snippets set filetype=neosnippet

@@ -450,7 +450,14 @@ function! s:command_maker_base._get_tempfilename(jobinfo) abort dict
                 endif
                 let filename = fnamemodify(orig_file, ':t')
                             \ .'@neomake_'.s:pid.'_'.make_id
-                            \ .'.'.fnamemodify(orig_file, ':e')
+                let ext = fnamemodify(orig_file, ':e')
+                if !empty(ext)
+                    let filename .= '.'.ext
+                endif
+                " Use hidden files to make e.g. pytest not trying to import it.
+                if filename[0] !=# '.'
+                    let filename = '.' . filename
+                endif
             endif
             let temp_file = dir . slash . filename
         endif
@@ -1060,16 +1067,19 @@ function! s:AddExprCallback(jobinfo, prev_index) abort
             call neomake#utils#DebugMessage(printf('WARN: entry.bufnr (%d) is different from jobinfo.bufnr (%d) (current buffer %d): %s.', entry.bufnr, a:jobinfo.bufnr, bufnr('%'), string(entry)))
         endif
         if !empty(s:postprocessors)
-            let g:neomake_hook_context = {'jobinfo': a:jobinfo}
-            for s:f in s:postprocessors
-                if type(s:f) == type({})
-                    call call(s:f.fn, [entry], s:f)
-                else
-                    call call(s:f, [entry], maker)
-                endif
-                unlet! s:f  " vim73
-            endfor
-            unlet! g:neomake_hook_context  " Might be unset already with sleep in postprocess.
+            let g:neomake_postprocess_context = {'jobinfo': a:jobinfo}
+            try
+                for s:f in s:postprocessors
+                    if type(s:f) == type({})
+                        call call(s:f.fn, [entry], s:f)
+                    else
+                        call call(s:f, [entry], maker)
+                    endif
+                    unlet! s:f  " vim73
+                endfor
+            finally
+                unlet! g:neomake_postprocess_context  " Might be unset already with sleep in postprocess.
+            endtry
         endif
         if entry != before
             let changed_entries[index] = entry
@@ -1950,7 +1960,7 @@ function! s:abort_next_makers(make_id) abort
     let jobs_queue = s:make_info[a:make_id].jobs_queue
     if !empty(jobs_queue)
         let next_makers = join(map(copy(jobs_queue), 'v:val.maker.name'), ', ')
-        call neomake#utils#LoudMessage('Aborting next makers: '.next_makers.'.')
+        call neomake#utils#LoudMessage('Aborting next makers: '.next_makers.'.', {'make_id': a:make_id})
         let s:make_info[a:make_id].jobs_queue = []
     endif
 endfunction
@@ -2227,12 +2237,18 @@ endfunction
 
 function! neomake#DisplayInfo() abort
     let ft = &filetype
-    echo '#### Neomake debug information'
-    echo 'Async support: '.s:async
-    echo 'Current filetype: '.ft
-    echo "\n"
+    if &verbose
+        echo '#### Neomake debug information'
+        echo 'Async support: '.s:async
+        echo 'Current filetype: '.ft
+        echo 'Windows: '.neomake#utils#IsRunningWindows()
+        echo '[shell, shellcmdflag, shellslash]:' [&shell, &shellcmdflag, &shellslash]
+        echo "\n"
+    else
+        echo '#### Neomake information (use ":verbose NeomakeInfo" extra output)'
+    endif
     echo '##### Enabled makers'
-    echo 'For the current filetype (with :Neomake):'
+    echo 'For the current filetype ("'.ft.'", used with :Neomake):'
     call s:display_maker_info(ft)
     if empty(ft)
         echo 'NOTE: the current buffer does not have a filetype.'
@@ -2242,7 +2258,7 @@ function! neomake#DisplayInfo() abort
                     \ .' to configure it (or b:neomake_'.conf_ft.'_enabled_makers).'
     endif
     echo "\n"
-    echo 'For the project (with :Neomake!):'
+    echo 'For the project (used with :Neomake!):'
     call s:display_maker_info()
     echo 'NOTE: you can define g:neomake_enabled_makers to configure it.'
     echo "\n"
@@ -2258,9 +2274,6 @@ function! neomake#DisplayInfo() abort
         echo 'g:'.k.' = '.string(V)
         unlet! V  " Fix variable type mismatch with Vim 7.3.
     endfor
-    echo "\n"
-    echo 'Windows: '.neomake#utils#IsRunningWindows()
-    echo '[shell, shellcmdflag, shellslash]:' [&shell, &shellcmdflag, &shellslash]
     echo '```'
     if &verbose
         echo "\n"
