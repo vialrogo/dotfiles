@@ -215,9 +215,6 @@ nnoremap <silent> <Leader>/ :set hlsearch!<CR>
 nnoremap <F8> zM
 nnoremap <F10> zR
 
-" Remove search highlight until next search
-nnoremap <esc> :noh<return><esc>"
-
 " """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Faster windows options
 "

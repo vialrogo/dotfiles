@@ -1,7 +1,5 @@
 #!/usr/bin/env rake
 
-task :default => [:test]
-
 task :ci => [:dump, :test]
 
 task :dump do
@@ -12,3 +10,4 @@ task :test do
   sh 'bundle exec vim-flavor test'
 end
 
+task :default => :test
