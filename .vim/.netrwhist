@@ -1,6 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/home/vialrogo/Projects/agentes-ia'
 let g:netrw_dirhist_2='/home/vialrogo/Projects/Provas/fortran'
 let g:netrw_dirhist_3='/home/vialrogo/Projects/MNO-2013/EP1_C'
 let g:netrw_dirhist_4='/home/vialrogo/Projects/Change/Reportes'
+let g:netrw_dirhist_5='/usr/share/applications'

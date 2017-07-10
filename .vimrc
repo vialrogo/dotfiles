@@ -391,7 +391,7 @@ if has("gui_running")
   colorscheme gruvbox
   set lines=999 columns=999 " Maximize Gvim at startup
 else 
-  " Others Very, very good are: jellybeans, railscasts, mustang, molokai, busybee, neverland, mopkai, Monokai, gruvbox, hybrid
+  " Others Very, very good are: jellybeans, railscasts, mustang, molokai, mopkai, Monokai, gruvbox, hybrid
   colorscheme gruvbox
 endif 
 

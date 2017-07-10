@@ -104,3 +104,6 @@
 [submodule "oh-my-zsh_custom/themes/powerlevel9k"]
 	path = oh-my-zsh_custom/themes/powerlevel9k
 	url = https://github.com/bhilburn/powerlevel9k
+[submodule ".vim/bundle/repos/github.com/jalvesaq/Nvim-R"]
+	path = .vim/bundle/repos/github.com/jalvesaq/Nvim-R
+	url = https://github.com/jalvesaq/Nvim-R
