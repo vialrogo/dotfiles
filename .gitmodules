@@ -89,9 +89,6 @@
 [submodule ".vim/bundle/repos/github.com/latex-box-team/latex-box"]
 	path = .vim/bundle/repos/github.com/latex-box-team/latex-box
 	url = https://github.com/latex-box-team/latex-box
-[submodule ".vim/bundle/repos/github.com/vim-scripts/restore_view.vim"]
-	path = .vim/bundle/repos/github.com/vim-scripts/restore_view.vim
-    url = https://github.com/vim-scripts/restore_view.vim
 [submodule ".vim/bundle/repos/github.com/vim-utils/vim-man"]
 	path = .vim/bundle/repos/github.com/vim-utils/vim-man
 	url = https://github.com/vim-utils/vim-man

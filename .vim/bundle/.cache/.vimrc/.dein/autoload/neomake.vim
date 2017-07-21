@@ -121,6 +121,17 @@ function! neomake#CancelJob(job_id, ...) abort
         return 0
     endif
 
+    if remove_always
+        " Remove any queued action.
+        for [k, q] in items(s:action_queue)
+            for v in q
+                if v[1][0] == jobinfo
+                    unlet s:action_queue[k]
+                endif
+            endfor
+        endfor
+    endif
+
     if get(jobinfo, 'canceled', 0)
         call neomake#utils#LoudMessage('Job was canceled already.', jobinfo)
         if remove_always
@@ -902,14 +913,18 @@ function! s:process_action_queue(event) abort
             call s:clean_make_info(jobinfo.make_id)
         endif
     endfor
+    " Cleanup augroup.
     if empty(queue)
-        if empty(keys(s:action_queue))
-            autocmd! neomake_event_queue
-        else
-            augroup neomake_event_queue
-                exe 'au! '.a:event
-            augroup END
-        endif
+        for v in values(s:action_queue)
+            if !empty(v)
+                augroup neomake_event_queue
+                    exe 'au! '.a:event
+                augroup END
+                return
+            endif
+        endfor
+        autocmd! neomake_event_queue
+        augroup! neomake_event_queue
     endif
 endfunction
 
@@ -930,7 +945,7 @@ function! s:Make(options) abort
     call extend(options, {
                 \ 'file_mode': 1,
                 \ 'bufnr': bufnr('%'),
-                \ 'ft': '',
+                \ 'ft': &filetype,
                 \ 'make_id': make_id,
                 \ }, 'keep')
     let bufnr = options.bufnr
@@ -1037,13 +1052,14 @@ function! s:AddExprCallback(jobinfo, prev_index) abort
     else
         let s:postprocessors = s:postprocess
     endif
-    let debug = neomake#utils#get_verbosity(a:jobinfo) >= 3
+    let debug = neomake#utils#get_verbosity(a:jobinfo) >= 3 || !empty(get(g:, 'neomake_logfile'))
     let make_info = s:make_info[a:jobinfo.make_id]
     let default_type = 'unset'
 
     let entries = []
     let changed_entries = {}
     let removed_entries = []
+    let different_bufnrs = {}
     let llen = len(list)
     while index < llen - 1
         let index += 1
@@ -1063,8 +1079,12 @@ function! s:AddExprCallback(jobinfo, prev_index) abort
                 endfor
             endif
         endif
-        if entry.bufnr && entry.bufnr != a:jobinfo.bufnr
-            call neomake#utils#DebugMessage(printf('WARN: entry.bufnr (%d) is different from jobinfo.bufnr (%d) (current buffer %d): %s.', entry.bufnr, a:jobinfo.bufnr, bufnr('%'), string(entry)))
+        if debug && entry.bufnr && entry.bufnr != a:jobinfo.bufnr
+            if !has_key(different_bufnrs, entry.bufnr)
+                let different_bufnrs[entry.bufnr] = 1
+            else
+                let different_bufnrs[entry.bufnr] += 1
+            endif
         endif
         if !empty(s:postprocessors)
             let g:neomake_postprocess_context = {'jobinfo': a:jobinfo}
@@ -1133,6 +1153,10 @@ function! s:AddExprCallback(jobinfo, prev_index) abort
         else
             call setqflist(list, 'r')
         endif
+    endif
+
+    if !empty(different_bufnrs)
+        call neomake#utils#DebugMessage(printf('WARN: seen entries with bufnr different from jobinfo.bufnr (%d): %s, current bufnr: %d.', a:jobinfo.bufnr, string(different_bufnrs), bufnr('%')))
     endif
 
     return entries
@@ -2023,13 +2047,7 @@ function! s:handle_next_job(prev_jobinfo) abort
     return {}
 endfunction
 
-function! neomake#EchoCurrentError(...) abort
-    " a:1 might be a timer from the VimResized event.
-    let force = a:0 ? a:1 : 0
-    if !force && !get(g:, 'neomake_echo_current_error', 1)
-        return
-    endif
-
+function! neomake#GetCurrentErrorMsg() abort
     let buf = bufnr('%')
     let ln = line('.')
     let ln_errors = []
@@ -2040,11 +2058,7 @@ function! neomake#EchoCurrentError(...) abort
     endfor
 
     if empty(ln_errors)
-        if exists('s:neomake_last_echoed_error')
-            echon ''
-            unlet s:neomake_last_echoed_error
-        endif
-        return
+        return ''
     endif
 
     if len(ln_errors) > 1
@@ -2052,13 +2066,29 @@ function! neomake#EchoCurrentError(...) abort
         call sort(ln_errors, function('neomake#utils#sort_by_col'))
     endif
     let error_entry = ln_errors[0]
-    if !force && exists('s:neomake_last_echoed_error')
-                \ && s:neomake_last_echoed_error == error_entry
+    return error_entry.maker_name.': '.error_entry.text
+endfunction
+
+function! neomake#EchoCurrentError(...) abort
+    " a:1 might be a timer from the VimResized event.
+    let force = a:0 ? a:1 : 0
+    if !force && !get(g:, 'neomake_echo_current_error', 1)
         return
     endif
-    let s:neomake_last_echoed_error = error_entry
 
-    let message = error_entry.maker_name.': '.error_entry.text
+    let message = neomake#GetCurrentErrorMsg()
+    if empty(message)
+        if exists('s:neomake_last_echoed_error')
+            echon ''
+            unlet s:neomake_last_echoed_error
+        endif
+        return
+    endif
+    if !force && exists('s:neomake_last_echoed_error')
+                \ && s:neomake_last_echoed_error == message
+        return
+    endif
+    let s:neomake_last_echoed_error = message
     call neomake#utils#WideMessage(message)
 endfunction
 

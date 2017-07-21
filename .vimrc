@@ -16,7 +16,6 @@ if dein#load_state(expand('~/.vim/bundle'))
     call dein#add('ajmwagar/vim-deus')
 "functions
     call dein#add('jalvesaq/Nvim-R')
-    call dein#add('vim-scripts/restore_view.vim')
     call dein#add('vim-utils/vim-man')
     call dein#add('dhruvasagar/vim-table-mode')
     call dein#add('latex-box-team/latex-box')
@@ -173,9 +172,6 @@ let g:tex_conceal = "abdmgs"
 " ---------------------------------- tmuxline ----------------------------------
 let g:airline#extensions#tmuxline#enabled = 0
 
-" ---------------------------------- vim_view ----------------------------------
-set viewoptions=cursor,folds,slash,unix
-let g:skipview_files = ['*\.vim']
 " ------------------------------ vim-table-mode --------------------------------
 let g:table_mode_corner_corner="+"
 
@@ -367,9 +363,10 @@ autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
 autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
 " Syntax languages
 autocmd Syntax c,cpp,vim,xml,html,xhtml,perl setlocal foldmethod=syntax
-" autocmd Syntax c,cpp,vim,xml,html,xhtml,perl nnoremap <F9> :set foldmethod=syntax<CR>
 " Starup status
-autocmd BufEnter *  normal zR 
+autocmd BufEnter * normal zR
+autocmd BufWinLeave * mkview
+autocmd BufWinEnter * silent loadview
 
 " ------------------------- Look and feel options ------------------------------
 " Remove all bars in GVim
