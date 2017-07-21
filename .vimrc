@@ -22,7 +22,6 @@ if dein#load_state(expand('~/.vim/bundle'))
     call dein#add('latex-box-team/latex-box')
     call dein#add('nathanaelkane/vim-indent-guides')
     call dein#add('edkolev/tmuxline.vim')
-    call dein#add('Konfekt/FastFold')
     call dein#add('godlygeek/tabular')
     call dein#add('plasticboy/vim-markdown')
     call dein#add('tmhedberg/SimpylFold')
@@ -368,9 +367,9 @@ autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
 autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
 " Syntax languages
 autocmd Syntax c,cpp,vim,xml,html,xhtml,perl setlocal foldmethod=syntax
-autocmd Syntax c,cpp,vim,xml,html,xhtml,perl nnoremap <F9> :set foldmethod=syntax<CR>
+" autocmd Syntax c,cpp,vim,xml,html,xhtml,perl nnoremap <F9> :set foldmethod=syntax<CR>
 " Starup status
-autocmd Syntax c,cpp,vim,xml,html,xhtml,perl,python,markdown normal zR 
+autocmd BufEnter *  normal zR 
 
 " ------------------------- Look and feel options ------------------------------
 " Remove all bars in GVim

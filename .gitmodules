@@ -71,9 +71,6 @@
 [submodule ".vim/bundle/repos/github.com/godlygeek/tabular"]
 	path = .vim/bundle/repos/github.com/godlygeek/tabular
 	url = https://github.com/godlygeek/tabular
-[submodule ".vim/bundle/repos/github.com/Konfekt/FastFold"]
-	path = .vim/bundle/repos/github.com/Konfekt/FastFold
-	url = https://github.com/Konfekt/FastFold
 [submodule ".vim/bundle/repos/github.com/edkolev/tmuxline.vim"]
 	path = .vim/bundle/repos/github.com/edkolev/tmuxline.vim
 	url = https://github.com/edkolev/tmuxline.vim
