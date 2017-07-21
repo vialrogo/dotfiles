@@ -15,6 +15,7 @@ if dein#load_state(expand('~/.vim/bundle'))
     call dein#add('KabbAmine/yowish.vim')
     call dein#add('ajmwagar/vim-deus')
 "functions
+    call dein#add('vim-scripts/restore_view.vim')
     call dein#add('jalvesaq/Nvim-R')
     call dein#add('vim-utils/vim-man')
     call dein#add('dhruvasagar/vim-table-mode')
@@ -54,7 +55,6 @@ filetype plugin indent on
 "" Sets
 "*******************************************************************************
 
-set hidden                      " It hides buffers instead of closing them. This means that you can have unwritten changes to a file and open a new file
 set tabstop=4                   " Number of spaces that a <Tab> in the file counts for. 
 set shiftwidth=4                " Number of spaces to use for each step of (auto)indent.
 set shiftround                  " use multiple of shiftwidth when indenting with '<' and '>'
@@ -101,6 +101,7 @@ set whichwrap+=<,>,h,l,[,]      " This causes the left and right arrow keys, as 
 set scrolloff=2                 " The number of lines before and after of the cursor possition. If is a big number, the cursor is always in the center of the screen.
 set colorcolumn=81              " highlight column after 'textwidth'
 set autoread                    " Make Vim automatically refresh any unchanged files.
+set hidden                      " It hides buffers instead of closing them. This means that you can have unwritten changes to a file and open a new file
 
 "*******************************************************************************
 "" Plugins configuration files
@@ -364,9 +365,7 @@ autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
 " Syntax languages
 autocmd Syntax c,cpp,vim,xml,html,xhtml,perl setlocal foldmethod=syntax
 " Starup status
-autocmd BufEnter * normal zR
-autocmd BufWinLeave * mkview
-autocmd BufWinEnter * silent loadview
+autocmd BufRead * normal zR
 
 " ------------------------- Look and feel options ------------------------------
 " Remove all bars in GVim

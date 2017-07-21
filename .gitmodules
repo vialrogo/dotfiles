@@ -104,3 +104,6 @@
 [submodule ".vim/bundle/repos/github.com/ajmwagar/vim-deus"]
 	path = .vim/bundle/repos/github.com/ajmwagar/vim-deus
 	url = https://github.com/ajmwagar/vim-deus
+[submodule ".vim/bundle/repos/github.com/vim-scripts/restore_view.vim"]
+	path = .vim/bundle/repos/github.com/vim-scripts/restore_view.vim
+	url = https://github.com/vim-scripts/restore_view.vim
