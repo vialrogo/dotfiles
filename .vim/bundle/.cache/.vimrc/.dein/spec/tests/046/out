@@ -1,1 +1,0 @@
-result[req.requesteddate] << {}
