@@ -2,4 +2,4 @@
 .vim/bundle/state_vim.vim
 .vim/bundle/state_gvim.vim
 .vim/view/*
-*cache*
+.vim/bundle/.cache/

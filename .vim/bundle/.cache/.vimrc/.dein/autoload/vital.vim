@@ -1,7 +1,5 @@
-if !exists('g:polyglot_disabled') || index(g:polyglot_disabled, 'crystal') == -1
-  
 function! vital#of(name) abort
-  let files = globpath(&runtimepath, 'autoload/vital/' . a:name . '.vital')
+  let files = globpath(&runtimepath, 'autoload/vital/' . a:name . '.vital', 1)
   let file = split(files, "\n")
   if empty(file)
     throw 'vital: version file not found: ' . a:name
@@ -12,5 +10,3 @@ function! vital#of(name) abort
   endif
   return vital#_{substitute(ver[0], '\W', '', 'g')}#new()
 endfunction
-
-endif
