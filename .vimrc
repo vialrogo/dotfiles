@@ -44,6 +44,7 @@ if dein#load_state(expand('~/.vim/bundle'))
     call dein#add('tpope/vim-surround')
     call dein#add('tpope/vim-commentary')
     call dein#add('tpope/vim-repeat')
+    call dein#add('Valloric/YouCompleteMe')
 
     call dein#end()
     call dein#save_state()

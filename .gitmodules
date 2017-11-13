@@ -107,3 +107,6 @@
 [submodule ".vim/bundle/repos/github.com/vim-scripts/restore_view.vim"]
 	path = .vim/bundle/repos/github.com/vim-scripts/restore_view.vim
 	url = https://github.com/vim-scripts/restore_view.vim
+[submodule ".vim/bundle/repos/github.com/Valloric/YouCompleteMe"]
+	path = .vim/bundle/repos/github.com/Valloric/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe
