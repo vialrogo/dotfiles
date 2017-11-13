@@ -107,8 +107,12 @@ set hidden                      " It hides buffers instead of closing them. This
 "*******************************************************************************
 "" Plugins configuration files
 "*******************************************************************************
+"
+" -------------------------------- YouCompleteMe ---------------------------------
+let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'"
+let g:ycm_server_python_interpreter = '/usr/bin/python2'
 
-" -------------------------------- neocomplete ---------------------------------
+" -------------------------------- Neocomplete ---------------------------------
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " For newocomplete instalation
