@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/home/vialrogo/Projects/agentes-ia'
 let g:netrw_dirhist_2='/home/vialrogo/Projects/Provas/fortran'
 let g:netrw_dirhist_3='/home/vialrogo/Projects/MNO-2013/EP1_C'
@@ -7,3 +7,4 @@ let g:netrw_dirhist_4='/home/vialrogo/Projects/Change/Reportes'
 let g:netrw_dirhist_5='/usr/share/applications'
 let g:netrw_dirhist_6='/home/vialrogo/Dropbox/USP/Monitoria Cpp/EP1/Fornecido/bk'
 let g:netrw_dirhist_7='/home/vialrogo/Dropbox/Projects/Provas/Python/ipython-notebook'
+let g:netrw_dirhist_8='/home/vialrogo/.local/share/Steam'
