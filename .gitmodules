@@ -110,3 +110,4 @@
 [submodule ".vim/bundle/repos/github.com/Valloric/YouCompleteMe"]
 	path = .vim/bundle/repos/github.com/Valloric/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe
+    ignore = dirty
