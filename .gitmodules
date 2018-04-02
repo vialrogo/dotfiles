@@ -111,3 +111,6 @@
 	path = .vim/bundle/repos/github.com/Valloric/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe
     ignore = dirty
+[submodule ".vim/bundle/repos/github.com/KeitaNakamura/tex-conceal.vim"]
+	path = .vim/bundle/repos/github.com/KeitaNakamura/tex-conceal.vim
+	url = https://github.com/KeitaNakamura/tex-conceal.vim

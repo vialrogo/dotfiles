@@ -45,6 +45,7 @@ if dein#load_state(expand('~/.vim/bundle'))
     call dein#add('tpope/vim-commentary')
     call dein#add('tpope/vim-repeat')
     call dein#add('Valloric/YouCompleteMe')
+    call dein#add('KeitaNakamura/tex-conceal.vim')
 
     call dein#end()
     call dein#save_state()
@@ -180,6 +181,9 @@ let g:airline#extensions#tmuxline#enabled = 0
 
 " ------------------------------ vim-table-mode --------------------------------
 let g:table_mode_corner_corner="+"
+
+" ------------------------------ tex-conceal --------------------------------
+let g:tex_conceal="abdgm"
 
 
 "*******************************************************************************
