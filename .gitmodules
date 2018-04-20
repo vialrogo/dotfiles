@@ -94,13 +94,12 @@
 	url = https://github.com/vim-utils/vim-man
 [submodule ".vim/bundle/repos/github.com/dhruvasagar/vim-table-mode"]
 	path = .vim/bundle/repos/github.com/dhruvasagar/vim-table-mode
-	url = git@github.com:dhruvasagar/vim-table-mode.git
+	url = https://github.com/dhruvasagar/vim-table-mode.git
 [submodule "oh-my-zsh_custom/themes/powerlevel9k"]
 	path = oh-my-zsh_custom/themes/powerlevel9k
 	url = https://github.com/bhilburn/powerlevel9k
 [submodule ".vim/bundle/repos/github.com/jalvesaq/Nvim-R"]
 	path = .vim/bundle/repos/github.com/jalvesaq/Nvim-R
-	url = https://github.com/jalvesaq/Nvim-R
 [submodule ".vim/bundle/repos/github.com/ajmwagar/vim-deus"]
 	path = .vim/bundle/repos/github.com/ajmwagar/vim-deus
 	url = https://github.com/ajmwagar/vim-deus
