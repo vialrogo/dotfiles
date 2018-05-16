@@ -111,6 +111,6 @@
 [submodule ".vim/bundle/repos/github.com/KeitaNakamura/tex-conceal.vim"]
 	path = .vim/bundle/repos/github.com/KeitaNakamura/tex-conceal.vim
 	url = https://github.com/KeitaNakamura/tex-conceal.vim
-[submodule ".vim/bundle/repos/github.com/vim-latex/vim-latex"]
-	path = .vim/bundle/repos/github.com/vim-latex/vim-latex
-	url = https://github.com/vim-latex/vim-latex
+[submodule ".vim/bundle/repos/github.com/lervag/vimtex"]
+	path = .vim/bundle/repos/github.com/lervag/vimtex
+	url = https://github.com/lervag/vimtex
