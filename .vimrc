@@ -389,17 +389,17 @@ set t_Co=256
 " Vim airline always
 set laststatus=2
 
-set guifont=Fantasque\ Sans\ Mono\ Regular\ 13
+set guifont=Fantasque\ Sans\ Mono\ Regular\ 14
 " set guifont=Inconsolata\ for\ Powerline\ 13
 " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 
 if has("gui_running")  
   " Others Very, very good are: jellybeans, railscasts, mustang, molokai, tango2, wombat, bensday, desertEx, busybee, grb256, base16-atelierforest, base16-atelierdune, Spink, flattown, mopkai, gruvbox, Monokai, mod8, hybrid
-  colorscheme flattown
+  colorscheme jellybeans
   set lines=999 columns=999 " Maximize Gvim at startup
 else 
   " Others Very, very good are: jellybeans, railscasts, mustang, molokai, busybee, neverland, mopkai, Monokai, gruvbox, hybrid
-  colorscheme flattown
+  colorscheme jellybeans
 endif 
 
 " Link the Conceal highlight configuration to the Normal configuration. It's a full clone of ALL in the class
