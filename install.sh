@@ -21,4 +21,6 @@ ln -sf ${PWD}/.oh-my-zsh  ~/
 ln -sf ${PWD}/tilda       ~/.config/
 
 rm -rf ~/.oh-my-zsh/custom
-ln -sf ${PWD}/oh-my-zsh_custom ~/.oh-my-zsh/custom
+ln -sf ${PWD}/oh-my-zsh_custom/plugins ~/.oh-my-zsh/custom
+ln -sf ${PWD}/oh-my-zsh_custom/themes/bullet-train.zsh-theme ~/.oh-my-zsh/custom/themes
+ln -sf ${PWD}/oh-my-zsh_custom/themes/powerlevel9k ~/.oh-my-zsh/custom/themes
