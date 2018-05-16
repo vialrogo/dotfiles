@@ -19,7 +19,6 @@ if dein#load_state(expand('~/.vim/bundle'))
     call dein#add('jalvesaq/Nvim-R')
     call dein#add('vim-utils/vim-man')
     call dein#add('dhruvasagar/vim-table-mode')
-    call dein#add('latex-box-team/latex-box')
     call dein#add('nathanaelkane/vim-indent-guides')
     call dein#add('edkolev/tmuxline.vim')
     call dein#add('godlygeek/tabular')
@@ -142,9 +141,6 @@ let g:neocomplete#keyword_patterns['tex']      = "[À-ú[:alpha:]_:'][À-ú[:aln
 " -------------------------------- Markdown ------------------------------------
 let g:vim_markdown_math = 1
 
-" -------------------------------- LatexBox ------------------------------------
-let g:LatexBox_Folding = 1
-
 " --------------------------------- airline ------------------------------------
 " airline fonts. For the correct fonts and <> symbols, see the documentation. Is necessary add a font to the local files
 let g:airline_powerline_fonts = 1
@@ -204,11 +200,6 @@ xmap <C-Space> <Plug>(neosnippet_expand_target)
 imap <C-@> <C-Space>
 smap <C-@> <C-Space>
 xmap <C-@> <C-Space>
-
-" ---------------------------------- LatexBox ----------------------------------
-" LatexBox key maps. I really dont know why but if you use inoremap dont work!!!
-imap <buffer> [[     \begin{
-imap <buffer> ]] <Plug>LatexCloseCurEnv
 
 " ---------------------------------- Otheres -----------------------------------
 let mapleader = "\<Space>"
