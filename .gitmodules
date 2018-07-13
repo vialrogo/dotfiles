@@ -13,9 +13,6 @@
 [submodule ".vim/bundle/repos/github.com/Shougo/dein.vim"]
 	path = .vim/bundle/repos/github.com/Shougo/dein.vim
 	url = https://github.com/Shougo/dein.vim
-[submodule ".vim/bundle/repos/github.com/Shougo/deoplete.nvim"]
-	path = .vim/bundle/repos/github.com/Shougo/deoplete.nvim
-	url = https://github.com/Shougo/deoplete.nvim
 [submodule ".vim/bundle/repos/github.com/Shougo/neosnippet"]
 	path = .vim/bundle/repos/github.com/Shougo/neosnippet
 	url = https://github.com/Shougo/neosnippet
@@ -49,13 +46,13 @@
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh
-    ignore = dirty
+    	ignore = dirty
 [submodule ".vim/bundle/repos/github.com/mileszs/ack.vim"]
 	path = .vim/bundle/repos/github.com/mileszs/ack.vim
 	url = https://github.com/mileszs/ack.vim
 [submodule ".vim/bundle/repos/github.com/gorkunov/smartpairs.vim"]
 	path = .vim/bundle/repos/github.com/gorkunov/smartpairs.vim
-	url = http://www.github.com/gorkunov/smartpairs.vim
+	url = https://github.com/gorkunov/smartpairs.vim
 [submodule ".vim/bundle/repos/github.com/embear/vim-localvimrc"]
 	path = .vim/bundle/repos/github.com/embear/vim-localvimrc
 	url = https://github.com/embear/vim-localvimrc
@@ -98,6 +95,7 @@
 	url = https://github.com/bhilburn/powerlevel9k
 [submodule ".vim/bundle/repos/github.com/jalvesaq/Nvim-R"]
 	path = .vim/bundle/repos/github.com/jalvesaq/Nvim-R
+	url = https://github.com/jalvesaq/Nvim-R
 [submodule ".vim/bundle/repos/github.com/ajmwagar/vim-deus"]
 	path = .vim/bundle/repos/github.com/ajmwagar/vim-deus
 	url = https://github.com/ajmwagar/vim-deus
@@ -114,3 +112,6 @@
 [submodule ".vim/bundle/repos/github.com/lervag/vimtex"]
 	path = .vim/bundle/repos/github.com/lervag/vimtex
 	url = https://github.com/lervag/vimtex
+[submodule ".vim/bundle/repos/github.com/Shougo/deoplete.nvim"]
+	path = .vim/bundle/repos/github.com/Shougo/deoplete.nvim
+	url = https://github.com/Shougo/deoplete.nvim
