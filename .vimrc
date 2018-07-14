@@ -101,7 +101,7 @@ set conceallevel=2              " Set de conceal (dinamic replace of _X or \alph
 set concealcursor=c             " Set the conseal cursor for full text display in normal and command mode. Other modes: n-> normal, c-> command, v-> visual, i-> insert
 set whichwrap+=<,>,h,l,[,]      " This causes the left and right arrow keys, as well as h and l, to wrap when used at beginning or end of lines. ( < > are the cursor keys used in normal and visual mode, and [ ] are the cursor keys in insert mode).)
 set scrolloff=2                 " The number of lines before and after of the cursor possition. If is a big number, the cursor is always in the center of the screen.
-set colorcolumn=81              " highlight column after 'textwidth'
+set colorcolumn=0               " highlight column after 'textwidth'
 set autoread                    " Make Vim automatically refresh any unchanged files.
 set hidden                      " It hides buffers instead of closing them. This means that you can have unwritten changes to a file and open a new file
 
@@ -388,12 +388,12 @@ set guifont=Fantasque\ Sans\ Mono\ Regular\ 14
 " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 
 if has("gui_running")  
-  " Others Very, very good are: jellybeans, railscasts, mustang, molokai, tango2, wombat, bensday, desertEx, busybee, grb256, base16-atelierforest, base16-atelierdune, Spink, flattown, mopkai, gruvbox, Monokai, mod8, hybrid
-  colorscheme jellybeans
+  " Others Very, very good are: jellybeans, railscasts, mustang, molokai, tango2, wombat, bensday, desertEx, busybee, grb256, base16-atelierforest, base16-atelierdune, Spink, flattown, mopkai, gruvbox, Monokai, mod8, hybrid, zenburn
+  colorscheme zenburn
   set lines=999 columns=999 " Maximize Gvim at startup
 else 
-  " Others Very, very good are: jellybeans, railscasts, mustang, molokai, busybee, neverland, mopkai, Monokai, gruvbox, hybrid
-  colorscheme jellybeans
+  " Others Very, very good are: jellybeans, railscasts, mustang, molokai, busybee, neverland, mopkai, Monokai, gruvbox, hybrid, zenburn
+  colorscheme zenburn
 endif 
 
 " Link the Conceal highlight configuration to the Normal configuration. It's a full clone of ALL in the class
