@@ -115,3 +115,6 @@
 [submodule ".vim/bundle/repos/github.com/Shougo/deoplete.nvim"]
 	path = .vim/bundle/repos/github.com/Shougo/deoplete.nvim
 	url = https://github.com/Shougo/deoplete.nvim
+[submodule ".vim/bundle/repos/github.com/xuhdev/vim-latex-live-preview"]
+	path = .vim/bundle/repos/github.com/xuhdev/vim-latex-live-preview
+	url = https://github.com/xuhdev/vim-latex-live-preview

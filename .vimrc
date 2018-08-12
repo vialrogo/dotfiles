@@ -15,6 +15,7 @@ if dein#load_state(expand('~/.vim/bundle'))
     call dein#add('KabbAmine/yowish.vim')
     call dein#add('ajmwagar/vim-deus')
 "functions
+    call dein#add('xuhdev/vim-latex-live-preview')
     call dein#add('lervag/vimtex')
     call dein#add('vim-scripts/restore_view.vim')
     call dein#add('jalvesaq/Nvim-R')
