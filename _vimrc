@@ -27,7 +27,6 @@ if dein#load_state(expand('~/.vim/bundle'))
     call dein#add('tpope/vim-surround')
     call dein#add('tpope/vim-commentary')
     call dein#add('tpope/vim-repeat')
-    call dein#add('KeitaNakamura/tex-conceal.vim')
 
     call dein#end()
     call dein#save_state()
@@ -156,10 +155,6 @@ let g:tex_conceal = "abdmgs"
 
 " ---------------------------------- tmuxline ----------------------------------
 let g:airline#extensions#tmuxline#enabled = 0
-
-" ------------------------------ tex-conceal --------------------------------
-let g:tex_conceal="abdgm"
-
 
 "*******************************************************************************
 "" Keymaps
@@ -359,13 +354,14 @@ set t_Co=256
 " Vim airline always
 set laststatus=2
 
-set guifont=Fantasque\ Sans\ Mono\ Regular\ 14
+" You can get the font with :put =&guifont
+set guifont=Fantasque_Sans_Mono:h14:cANSI:qDRAFT
 " set guifont=Inconsolata\ for\ Powerline\ 13
 " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 
 if has("gui_running")  
   " Others Very, very good are: jellybeans, railscasts, mustang, molokai, tango2, wombat, bensday, desertEx, busybee, grb256, base16-atelierforest, base16-atelierdune, Spink, flattown, mopkai, gruvbox, Monokai, mod8, hybrid, zenburn
-  colorscheme zenburn
+  colorscheme gruvbox
   set lines=999 columns=999 " Maximize Gvim at startup
 else 
   " Others Very, very good are: jellybeans, railscasts, mustang, molokai, busybee, neverland, mopkai, Monokai, gruvbox, hybrid, zenburn
