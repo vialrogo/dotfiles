@@ -1,6 +1,3 @@
-[submodule ".vim/bundle/repos/github.com/Raimondi/delimitMate"]
-	path = .vim/bundle/repos/github.com/Raimondi/delimitMate
-	url = https://github.com/Raimondi/delimitMate
 [submodule ".vim/bundle/repos/github.com/flazz/vim-colorschemes"]
 	path = .vim/bundle/repos/github.com/flazz/vim-colorschemes
 	url = https://github.com/flazz/vim-colorschemes
@@ -62,10 +59,3 @@
 [submodule ".vim/bundle/repos/github.com/ajmwagar/vim-deus"]
 	path = .vim/bundle/repos/github.com/ajmwagar/vim-deus
 	url = https://github.com/ajmwagar/vim-deus
-[submodule ".vim/bundle/repos/github.com/Valloric/YouCompleteMe"]
-	path = .vim/bundle/repos/github.com/Valloric/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe
-    ignore = dirty
-[submodule ".vim/bundle/repos/github.com/Shougo/deoplete.nvim"]
-	path = .vim/bundle/repos/github.com/Shougo/deoplete.nvim
-	url = https://github.com/Shougo/deoplete.nvim
