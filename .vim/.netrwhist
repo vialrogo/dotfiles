@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/vialrogo/Dropbox/Projects/Provas/Marathon'
-let g:netrw_dirhist_2='/home/vialrogo/Dropbox/Projects/Provas/Marathon/3nProblem'
-let g:netrw_dirhist_3='/home/vialrogo/Dropbox/Projects/Provas/Marathon'
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/home/vialrogo/Projects/dotfiles/oh-my-zsh_custom/themes/powerlevel9k/shunit2/source/2.1'
+let g:netrw_dirhist_4='/home/vialrogo/Projects/dotfiles/oh-my-zsh_custom/themes/powerlevel9k/shunit2/source'
+let g:netrw_dirhist_3='/home/vialrogo/Projects/dotfiles/oh-my-zsh_custom/themes/powerlevel9k/shunit2'
+let g:netrw_dirhist_2='/home/vialrogo/.cache/yay/yakyak'
+let g:netrw_dirhist_1='/home/vialrogo/.cache/yay'

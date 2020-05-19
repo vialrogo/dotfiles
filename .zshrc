@@ -119,4 +119,3 @@ For man print:
 "'
 
 eval "$(hub alias -s)"
-

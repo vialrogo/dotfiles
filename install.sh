@@ -18,7 +18,6 @@ ln -sf ${PWD}/.bash_git   ~/
 ln -sf ${PWD}/.tmux.conf  ~/
 ln -sf ${PWD}/.tmux       ~/
 ln -sf ${PWD}/.oh-my-zsh  ~/
-ln -sf ${PWD}/tilda       ~/.config/
 
 rm -rf ~/.oh-my-zsh/custom
 ln -sf ${PWD}/oh-my-zsh_custom/plugins ~/.oh-my-zsh/custom

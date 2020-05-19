@@ -82,7 +82,7 @@ if [ "root" == $_USER ]; then
   export colorH=${grayB}
 fi
 
-if [ "Asus" != $HOSTNAME ]; then
+if [ "KITT" != $HOSTNAME ]; then
   export colorH=${greenB}
   export colorT=${green}
 fi

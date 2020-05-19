@@ -1,42 +1,77 @@
-"*******************************************************************************
-"" dein.vim
-"*******************************************************************************
+" Plugins will be downloaded under the specified directory.
+call plug#begin('~/.vim/plugged')
 
-if &compatible
-    set nocompatible
-endif
-set runtimepath+=~/.vim/bundle/repos/github.com/Shougo/dein.vim
+" Declare the list of plugins.
+Plug 'flazz/vim-colorschemes'
+Plug 'gabrielelana/vim-markdown'
+Plug 'embear/vim-localvimrc'
+Plug 'sheerun/vim-polyglot'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'shougo/deoplete.nvim'             " Requers pip install msgpack-python pynvim
+Plug 'roxma/nvim-yarp'                  " Dependency of deoplete
+Plug 'roxma/vim-hug-neovim-rpc'         " Dependency of deoplete
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
 
-if dein#load_state(expand('~/.vim/bundle'))
-    call dein#begin(expand('~/.vim/bundle'))
-    call dein#add('Shougo/dein.vim')
-"themes
-    call dein#add('flazz/vim-colorschemes')
-"functions
-    call dein#add('edkolev/tmuxline.vim')
-    call dein#add('plasticboy/vim-markdown')
-    call dein#add('embear/vim-localvimrc')
-    call dein#add('sheerun/vim-polyglot')
-    call dein#add('gorkunov/smartpairs.vim')
-    call dein#add('ctrlpvim/ctrlp.vim')
-    call dein#add('bling/vim-airline')
-    call dein#add('neomake/neomake')
-    call dein#add('Shougo/neocomplete.vim')
-    call dein#add('Shougo/neosnippet')
-    call dein#add('Shougo/neosnippet-snippets')
-    call dein#add('tpope/vim-surround')
-    call dein#add('tpope/vim-commentary')
-    call dein#add('tpope/vim-repeat')
+" List ends here. Plugins become visible to Vim after this call.
+call plug#end()
 
-    call dein#end()
-    call dein#save_state()
-endif
+" ------------------------------- vim-markdown ----------------------------------
+let g:markdown_enable_conceal = 1
 
+" --------------------------------- localvimrc ---------------------------------
+let g:localvimrc_ask=0
+
+" --------------------------------- ctrlp.vim ----------------------------------
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,.pyc,__pycache__
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|tox)$'
+let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore +"'"
+let g:ctrlp_use_caching = 0
+let g:ctrlp_map = '<leader>e'
+
+" --------------------------------- airline ------------------------------------
+" airline fonts. For the correct fonts and <> symbols, see the documentation. Is necessary add a font to the local files
+let g:airline_powerline_fonts = 1
+" Enable the list of buffers AKA airtab
+let g:airline#extensions#tabline#enabled = 1 
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#branch#enabled = 1
+
+" ------------------------------ airline-themes --------------------------------
+let g:airline_theme='base16'
+
+" ---------------------------------- deoplete ----------------------------------
+let g:deoplete#enable_at_startup = 1
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" ---------------------------------- ultisnips ---------------------------------
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" --------------------------------- commentary ---------------------------------
+autocmd FileType matlab setlocal commentstring=%\ %s
+autocmd BufNewFile,BufReadPost,BufRead *.R,*.Rnw,*.Rd,*.Rmd,*.Rrst setlocal commentstring=#\ %s
+autocmd FileType c,cpp,java setlocal commentstring=//\ %s
+ 
+" -------------------------------- Core options --------------------------------
+" Define latex by default for any *.tex file
+let g:tex_flavor = "latex"
+" Set the conceal mode to: a-> accents/ligatures, b -> bold/italic, c -> delimiters, m -> math, g -> greek, s -> superscripts/subscripts. The default is admgs
+let g:tex_conceal = "abdmgs"
+
+" ------------------------------------- Sets  ----------------------------------
 filetype plugin indent on
-
-"*******************************************************************************
-"" Sets
-"*******************************************************************************
 
 set tabstop=4                   " Number of spaces that a <Tab> in the file counts for. 
 set shiftwidth=4                " Number of spaces to use for each step of (auto)indent.
@@ -73,7 +108,7 @@ set encoding=utf-8              " Set the codification
 set fileencoding=utf-8
 set fileencodings=utf-8,latin1,latin2
 " set spell                       " Set the spell revision
-set spelllang=pt,en,es          " Set the spell language
+set spelllang=pt                " Set the spell language
 set nocp                        " This changes the values of a LOT of options, enabling features which are not Vi compatible but really really nice. 
 set cursorline                  " Set the current cursorline highlight
 set switchbuf=usetab,newtab     " This should mean switching to the existing tab if the buffer is open, or creating a new one if not.
@@ -86,96 +121,6 @@ set colorcolumn=0               " highlight column after 'textwidth'
 set autoread                    " Make Vim automatically refresh any unchanged files.
 set hidden                      " It hides buffers instead of closing them. This means that you can have unwritten changes to a file and open a new file
 
-"*******************************************************************************
-"" Plugins configuration files
-"*******************************************************************************
-"
-let g:polyglot_disabled = ['latex']
-
-
-" -------------------------------- Neocomplete ---------------------------------
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" For newocomplete instalation
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Automatic close the preview window
-let g:neocomplete#enable_auto_close_preview = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default']  = "\h\w*"
-let g:neocomplete#keyword_patterns['markdown'] = "[À-ú[:alpha:]_'][À-ú[:alnum:]_']*"
-let g:neocomplete#keyword_patterns['tex']      = "[À-ú[:alpha:]_:'][À-ú[:alnum:]_:']*"
-
-" -------------------------------- Markdown ------------------------------------
-let g:vim_markdown_math = 1
-
-" --------------------------------- airline ------------------------------------
-" airline fonts. For the correct fonts and <> symbols, see the documentation. Is necessary add a font to the local files
-let g:airline_powerline_fonts = 1
-" Enable the list of buffers AKA airtab
-let g:airline#extensions#tabline#enabled = 1 
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#branch#enabled = 1
-
-" --------------------------------- ctrlp.vim ----------------------------------
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,.pyc,__pycache__
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|tox)$'
-let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore +"'"
-let g:ctrlp_use_caching = 0
-let g:ctrlp_map = '<leader>e'
-
-" --------------------------------- commentary ---------------------------------
-autocmd FileType matlab setlocal commentstring=%\ %s
-autocmd BufNewFile,BufReadPost,BufRead *.R,*.Rnw,*.Rd,*.Rmd,*.Rrst setlocal commentstring=#\ %s
-autocmd FileType c,cpp,java setlocal commentstring=//\ %s
- 
-" --------------------------------- localvimrc ---------------------------------
-let g:localvimrc_ask=0
-
-" -------------------------------- Core options --------------------------------
-" Define latex by default for any *.tex file
-let g:tex_flavor = "latex"
-" Set the conceal mode to: a-> accents/ligatures, b -> bold/italic, c -> delimiters, m -> math, g -> greek, s -> superscripts/subscripts. The default is admgs
-let g:tex_conceal = "abdmgs"
-
-" ---------------------------------- tmuxline ----------------------------------
-let g:airline#extensions#tmuxline#enabled = 0
-
-"*******************************************************************************
-"" Keymaps
-"*******************************************************************************
-
-" ------------------------------- neocomplete ----------------------------------
-" <TAB>: completion.
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-" Close popup by <C-c>.
-inoremap <expr><C-c> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-
-" -------------------------------- neosnippet ----------------------------------
-" Expand the snippets
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-Space> <Plug>(neosnippet_expand_target)
-imap <C-@> <C-Space>
-smap <C-@> <C-Space>
-xmap <C-@> <C-Space>
-
-" ---------------------------------- Otheres -----------------------------------
 let mapleader = "\<Space>"
 
 " It clears the search buffer when you press <leader>/
@@ -185,9 +130,7 @@ nnoremap <silent> <Leader>/ :set hlsearch!<CR>
 nnoremap <F8> zM
 nnoremap <F10> zR
 
-" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Faster windows options
-"
+" ------------------------------------- Quit -----------------------------------
 " First, the ConfirmQuit function
 function! ConfirmQuit(writeFile)
     if (a:writeFile)
@@ -217,7 +160,7 @@ nnoremap <silent> <Leader>x :call ConfirmQuit(1)<CR>
 nnoremap <silent> <Leader>q :call ConfirmQuit(0)<CR>
 nnoremap <silent> <Leader>o :only<CR> 
 
-" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ------------------------------------------------------------------------------
 " Fast larger, smaler and normal fontsize - Only GUI
 "
 let s:pattern = '^\(.* \)\([1-9][0-9]*\)$'
@@ -267,7 +210,7 @@ nnoremap <silent> <Leader>] :LargerFont <CR>
 nnoremap <silent> <Leader>[ :SmallerFont <CR>
 nnoremap <silent> <Leader>= :NormalSize <CR>
 
-" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ------------------------------------------------------------------------------
 
 " Set W to sudo save and silent reload the file
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
@@ -275,29 +218,11 @@ command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 " Easy and fast scape shortcut
 inoremap jk <ESC>
 
-" Tab options. Tab == Ctrl + Alt
-nnoremap <C-A-h> :tabprevious<CR>
-nnoremap <C-A-l> :tabnext<CR>
-nnoremap <silent> <C-A-j> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
-nnoremap <silent> <C-A-k> :execute 'silent! tabmove ' . tabpagenr()<CR>
-
-" Windows options. Window == Alt
-noremap <A-j> <C-W>w
-noremap <A-k> <C-W>W
-noremap <A-l> <C-W>l
-noremap <A-h> <C-W>h
-
 " Buffer stuff. Buffer == Ctrl
 nnoremap <C-h>  :bp<CR>
 nnoremap <C-l> :bn<CR>
 " Close the current buffer but not the window. Put inside the window the next buffer
 nnoremap <silent> <Leader>bd :bp <BAR> bd #<CR>
-
-" GVim GUI hide-show options
-nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
-nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
-nnoremap <C-F3> :if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>
-nnoremap <C-F4> :if &go=~#'L'<Bar>set go-=L<Bar>else<Bar>set go+=L<Bar>endif<CR>
 
 " cut, copy, paste from standar sytem buffer in visual mode and paste in insertion
 vnoremap <C-y> "+y
@@ -313,21 +238,15 @@ vmap > >gv
 " Spell togle
 :map <F7> :setlocal spell! <CR>
 
-"*******************************************************************************
-"" aCofig stuff
-"*******************************************************************************
-
-syntax on                       " Set the sintax for all files
+" ------------------------------------------------------------------------------
+" Set the sintax for all files
+syntax on                       
 
 " Set pwd to current directory on starup
 autocmd BufEnter * silent! lcd %:p:h
 
-" Run NeoMake on read and write operations
-autocmd! BufReadPost,BufWritePost * Neomake
-
 " Force all *.md files to be markdown
 autocmd BufNewFile,BufReadPost,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.md set filetype=markdown
-autocmd BufNewFile,BufReadPost,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.md silent !TableModeEnable
 
 " Force all *.cir files to be spice netlist files
 autocmd BufNewFile,BufReadPost,BufRead *.cir set filetype=spice
@@ -359,14 +278,11 @@ set guifont=Fantasque\ Sans\ Mono\ Regular\ 14
 " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 
 if has("gui_running")  
-  " Others Very, very good are: jellybeans, railscasts, mustang, molokai, tango2, wombat, bensday, desertEx, busybee, grb256, base16-atelierforest, base16-atelierdune, Spink, flattown, mopkai, gruvbox, Monokai, mod8, hybrid, zenburn
   colorscheme gruvbox
   set lines=999 columns=999 " Maximize Gvim at startup
 else 
-  " Others Very, very good are: jellybeans, railscasts, mustang, molokai, busybee, neverland, mopkai, Monokai, gruvbox, hybrid, zenburn
   colorscheme gruvbox
 endif 
 
 " Link the Conceal highlight configuration to the Normal configuration. It's a full clone of ALL in the class
 highlight! link Conceal Normal 
-
