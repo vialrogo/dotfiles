@@ -19,6 +19,7 @@ ln -sf ${PWD}/.tmux       ~/
 ln -sf ${PWD}/.oh-my-zsh  ~/
 
 rm -rf ~/.oh-my-zsh/custom
-ln -sf ${PWD}/oh-my-zsh_custom/plugins ~/.oh-my-zsh/custom
-ln -sf ${PWD}/oh-my-zsh_custom/themes/bullet-train.zsh-theme ~/.oh-my-zsh/custom/themes
-ln -sf ${PWD}/oh-my-zsh_custom/themes/powerlevel9k ~/.oh-my-zsh/custom/themes
+mkdir -p ~/.oh-my-zsh/custom/themes
+ln -sf ${PWD}/oh-my-zsh_custom/plugins ~/.oh-my-zsh/custom/
+ln -sf ${PWD}/oh-my-zsh_custom/themes/bullet-train.zsh-theme ~/.oh-my-zsh/custom/themes/
+ln -sf ${PWD}/oh-my-zsh_custom/themes/powerlevel9k ~/.oh-my-zsh/custom/themes/
