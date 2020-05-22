@@ -1,10 +1,9 @@
 #!/bin/bash
 
-# update the submodules
-git submodule update -i
-
-git submodule foreach git pull origin master
-git submodule foreach git checkout master
+# git submodules
+git clone https://github.com/robbyrussell/oh-my-zsh .oh-my-zsh
+git clone https://github.com/zsh-users/zsh-syntax-highlighting oh-my-zsh_custom/plugins/zsh-syntax-highlighting
+git clone https://github.com/bhilburn/powerlevel9k oh-my-zsh_custom/themes/powerlevel9k
 
 # Symbolic links
 ln -sf ${PWD}/.bashrc     ~/
