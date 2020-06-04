@@ -252,11 +252,8 @@ autocmd BufNewFile,BufReadPost,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.md set 
 autocmd BufNewFile,BufReadPost,BufRead *.cir set filetype=spice
 
 " Folding
-" Indent languages
-autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
-autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
 " Syntax languages
-autocmd Syntax c,cpp,vim,xml,html,xhtml,perl setlocal foldmethod=syntax
+autocmd Syntax c,cpp,vim,xml,html,xhtml,perl,python setlocal foldmethod=syntax
 " Starup status
 autocmd BufRead * normal zR
 
@@ -273,15 +270,16 @@ set t_Co=256
 " Vim airline always
 set laststatus=2
 
-set guifont=Fantasque\ Sans\ Mono\ Regular\ 14
+set guifont=Fira\ Code\ Regular\ 12
+" set guifont=Fantasque\ Sans\ Mono\ Regular\ 14
 " set guifont=Inconsolata\ for\ Powerline\ 13
 " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 
 if has("gui_running")  
-  colorscheme gruvbox
-  set lines=999 columns=999 " Maximize Gvim at startup
+  colorscheme vimbrains
+  set lines=1000 columns=999 " Maximize Gvim at startup
 else 
-  colorscheme gruvbox
+  colorscheme yuejiu
 endif 
 
 " Link the Conceal highlight configuration to the Normal configuration. It's a full clone of ALL in the class
