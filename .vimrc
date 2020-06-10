@@ -1,8 +1,8 @@
-" Plugins will be downloaded under the specified directory.
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/plugged')       " Plugins will be downloaded under the specified directory.
 
 " Declare the list of plugins.
 Plug 'flazz/vim-colorschemes'
+Plug 'scrooloose/syntastic'
 Plug 'gabrielelana/vim-markdown'
 Plug 'embear/vim-localvimrc'
 Plug 'sheerun/vim-polyglot'
@@ -16,15 +16,22 @@ Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
+Plug 'lervag/vimtex'
+Plug 'keitanakamura/tex-conceal.vim'
 
-" List ends here. Plugins become visible to Vim after this call.
-call plug#end()
+call plug#end()                         " List ends here. Plugins become visible to Vim after this call.
+
+" --------------------------------- syntastic -----------------------------------
+let g:syntastic_always_populate_loc_list = 1    " Enable this option to tell syntastic to always stick any detected errors into the location-list
+let g:syntastic_check_on_open = 1               " syntastic in active mode will run syntax checks when buffers are first loaded, as well as on saving
+let g:syntastic_auto_loc_list = 2               " When set to 2 the error window will be automatically closed when no errors are detected, but not opened automatically. >
+let g:syntastic_check_on_wq = 0                 " In active mode syntax checks are normally run whenever buffers are written to disk. Set 0 to skip check when you quit Vim.
 
 " ------------------------------- vim-markdown ----------------------------------
-let g:markdown_enable_conceal = 1
+let g:markdown_enable_conceal = 1   " Conceal common expresions (bold, italic, etc.)
 
 " --------------------------------- localvimrc ---------------------------------
-let g:localvimrc_ask=0
+let g:localvimrc_ask=0              " Don't ask for load localvim on startup
 
 " --------------------------------- ctrlp.vim ----------------------------------
 set wildmode=list:longest,list:full
@@ -35,44 +42,41 @@ let g:ctrlp_use_caching = 0
 let g:ctrlp_map = '<leader>e'
 
 " --------------------------------- airline ------------------------------------
-" airline fonts. For the correct fonts and <> symbols, see the documentation. Is necessary add a font to the local files
-let g:airline_powerline_fonts = 1
-" Enable the list of buffers AKA airtab
-let g:airline#extensions#tabline#enabled = 1 
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_powerline_fonts = 1                   " airline fonts. For the correct fonts and <> symbols, see the documentation. Is necessary add a font to the local files
+let g:airline#extensions#tabline#enabled = 1        " Enable the list of buffers AKA airtab
+let g:airline#extensions#tabline#fnamemod = ':t'    " Show just the filename
 let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#syntastic#enabled = 1      " Enable syntastics plugin
 
 " ------------------------------ airline-themes --------------------------------
-let g:airline_theme='base16'
+let g:airline_theme='base16'                        " Set airline theme
 
 " ---------------------------------- deoplete ----------------------------------
-let g:deoplete#enable_at_startup = 1
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+let g:deoplete#enable_at_startup = 1                                " Enable deoplete completation at startup
+" Use Tab for next entry on dialog
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"            
+" Use S-Tab for previus entry on dialog
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " ---------------------------------- ultisnips ---------------------------------
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-k>"
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsExpandTrigger="<c-k>"        " Trigger configuration for expand
+let g:UltiSnipsJumpForwardTrigger="<c-n>"   " Trigger configuration for jump forward
+let g:UltiSnipsEditSplit="vertical"         " If you want :UltiSnipsEdit to split your window.
 
 " --------------------------------- commentary ---------------------------------
-autocmd FileType matlab setlocal commentstring=%\ %s
-autocmd BufNewFile,BufReadPost,BufRead *.R,*.Rnw,*.Rd,*.Rmd,*.Rrst setlocal commentstring=#\ %s
-autocmd FileType c,cpp,java setlocal commentstring=//\ %s
+autocmd FileType matlab setlocal commentstring=%\ %s                                                " File type definition for Matlab language
+autocmd BufNewFile,BufReadPost,BufRead *.R,*.Rnw,*.Rd,*.Rmd,*.Rrst setlocal commentstring=#\ %s     " File type definition for R language
+autocmd FileType c,cpp,java setlocal commentstring=//\ %s                                           " Change default /* for // for comments in java, c and cpp
  
-" -------------------------------- Core options --------------------------------
-" Define latex by default for any *.tex file
-let g:tex_flavor = "latex"
-" Set the conceal mode to: a-> accents/ligatures, b -> bold/italic, c -> delimiters, m -> math, g -> greek, s -> superscripts/subscripts. The default is admgs
-let g:tex_conceal = "abdmgs"
+" ----------------------------------- Vimtex -- --------------------------------
+let g:tex_flavor = "latex"      " Define latex by default for any *.tex file
+
+" -------------------------------- tex-conceal ---------------------------------
+let g:tex_conceal = "abdmgs"                            " Set the conceal mode to: a-> accents/ligatures, b -> bold/italic, c -> delimiters, m -> math, g -> greek, s -> superscripts/subscripts. The default is admgs
+let g:tex_superscripts= "[0-9a-zA-W.,:;+-<>/()=]"       " To avoid having inscrutable utf-8 glyphs appear,
+let g:tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"   " To avoid having inscrutable utf-8 glyphs appear,
 
 " ------------------------------------- Sets  ----------------------------------
-filetype plugin indent on
-
 set tabstop=4                   " Number of spaces that a <Tab> in the file counts for. 
 set shiftwidth=4                " Number of spaces to use for each step of (auto)indent.
 set shiftround                  " use multiple of shiftwidth when indenting with '<' and '>'
@@ -121,7 +125,28 @@ set colorcolumn=0               " highlight column after 'textwidth'
 set autoread                    " Make Vim automatically refresh any unchanged files.
 set hidden                      " It hides buffers instead of closing them. This means that you can have unwritten changes to a file and open a new file
 
+" ------------------------------- Syntax and files -----------------------------
+filetype plugin indent on
+syntax on                       
+
+" Force all *.md files to be markdown
+autocmd BufNewFile,BufReadPost,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.md set filetype=markdown
+
+" Force all *.cir files to be spice netlist files
+autocmd BufNewFile,BufReadPost,BufRead *.cir set filetype=spice
+
+" Folding for syntax languages
+autocmd Syntax c,cpp,vim,xml,html,xhtml,perl,python setlocal foldmethod=syntax
+
+" Fold starup status
+autocmd BufRead * normal zR
+
+" ------------------------------------ Basic -----------------------------------
+" Remap mapleader
 let mapleader = "\<Space>"
+
+" Set pwd to current directory on starup
+autocmd BufEnter * silent! lcd %:p:h
 
 " It clears the search buffer when you press <leader>/
 nnoremap <silent> <Leader>/ :set hlsearch!<CR> 
@@ -129,88 +154,6 @@ nnoremap <silent> <Leader>/ :set hlsearch!<CR>
 " Mappings to toggle foldsEdit
 nnoremap <F8> zM
 nnoremap <F10> zR
-
-" ------------------------------------- Quit -----------------------------------
-" First, the ConfirmQuit function
-function! ConfirmQuit(writeFile)
-    if (a:writeFile)
-        if (expand('%:t')=="")
-            echo "Can't save a file with no name."
-            return
-        endif
-        :write
-    endif
-
-    if (winnr('$')==1 && tabpagenr('$')==1) " It's the last window/tab?
-        if (confirm("Do you really want to quit?", "&Yes\n&No", 2)==1)  " Confirm dialog. When No answer, return 2. When cancel, return 0.
-            :quit
-        endif
-    else " Wasn't the last. Close without problems
-        :quit
-    endif
-endfu
-
-" Next, the regular commands map
-cnoremap <silent> q<CR>  :call ConfirmQuit(0)<CR>
-cnoremap <silent> x<CR>  :call ConfirmQuit(1)<CR>
-
-" And finaly, the speed maps
-nnoremap <silent> <Leader>w :w<CR> 
-nnoremap <silent> <Leader>x :call ConfirmQuit(1)<CR>
-nnoremap <silent> <Leader>q :call ConfirmQuit(0)<CR>
-nnoremap <silent> <Leader>o :only<CR> 
-
-" ------------------------------------------------------------------------------
-" Fast larger, smaler and normal fontsize - Only GUI
-"
-let s:pattern = '^\(.* \)\([1-9][0-9]*\)$'
-let s:minfontsize = 8
-let s:maxfontsize = 24
-
-function! AdjustFontSize(amount)
-  if has("gui_running")
-    let fontname = substitute(&guifont, s:pattern, '\1', '')
-    let cursize = substitute(&guifont, s:pattern, '\2', '')
-    let newsize = cursize + a:amount
-    if (newsize >= s:minfontsize) && (newsize <= s:maxfontsize)
-      let newfont = fontname . newsize
-      let &guifont = newfont
-    endif
-  else
-    echoerr "You need to run the GTK version of Vim to use this function."
-  endif
-endfunction
-
-function! SetFontSize(fontSize)
-  if has("gui_running")
-    let fontname = substitute(&guifont, s:pattern, '\1', '')
-    if (a:fontSize >= s:minfontsize) && (a:fontSize <= s:maxfontsize)
-      let newfont = fontname . a:fontSize
-      let &guifont = newfont
-    endif
-  else
-    echoerr "You need to run the GTK version of Vim to use this function."
-  endif
-endfunction
-
-function! LargerFont()
-  call AdjustFontSize(1)
-endfunction
-command! LargerFont call LargerFont()
-
-function! SmallerFont()
-  call AdjustFontSize(-1)
-endfunction
-command! SmallerFont call SmallerFont()
-
-command! NormalSize call SetFontSize(13)
-command! -nargs=1 SetFontSize call SetFontSize(<f-args>)
-
-nnoremap <silent> <Leader>] :LargerFont <CR>
-nnoremap <silent> <Leader>[ :SmallerFont <CR>
-nnoremap <silent> <Leader>= :NormalSize <CR>
-
-" ------------------------------------------------------------------------------
 
 " Set W to sudo save and silent reload the file
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
@@ -238,24 +181,90 @@ vmap > >gv
 " Spell togle
 :map <F7> :setlocal spell! <CR>
 
-" ------------------------------------------------------------------------------
-" Set the sintax for all files
-syntax on                       
+" ------------------------- ConfirmQuit function  ------------------------------
+" Function
+function! ConfirmQuit(writeFile)
+    if (a:writeFile)
+        if (expand('%:t')=="")
+            echo "Can't save a file with no name."
+            return
+        endif
+        :write
+    endif
 
-" Set pwd to current directory on starup
-autocmd BufEnter * silent! lcd %:p:h
+    if (winnr('$')==1 && tabpagenr('$')==1) " It's the last window/tab?
+        if (confirm("Do you really want to quit?", "&Yes\n&No", 2)==1)  " Confirm dialog. When No answer, return 2. When cancel, return 0.
+            :quit
+        endif
+    else " Wasn't the last. Close without problems
+        :quit
+    endif
+endfu
 
-" Force all *.md files to be markdown
-autocmd BufNewFile,BufReadPost,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.md set filetype=markdown
+" Regular key map
+cnoremap <silent> q<CR>  :call ConfirmQuit(0)<CR>
+cnoremap <silent> x<CR>  :call ConfirmQuit(1)<CR>
 
-" Force all *.cir files to be spice netlist files
-autocmd BufNewFile,BufReadPost,BufRead *.cir set filetype=spice
+" Leader key maps
+nnoremap <silent> <Leader>w :w<CR> 
+nnoremap <silent> <Leader>x :call ConfirmQuit(1)<CR>
+nnoremap <silent> <Leader>q :call ConfirmQuit(0)<CR>
+nnoremap <silent> <Leader>o :only<CR> 
 
-" Folding
-" Syntax languages
-autocmd Syntax c,cpp,vim,xml,html,xhtml,perl,python setlocal foldmethod=syntax
-" Starup status
-autocmd BufRead * normal zR
+" ---------------------- AdjustFontSize function -------------------------------
+" local variables
+let s:pattern = '^\(.* \)\([1-9][0-9]*\)$'
+let s:minfontsize = 8
+let s:maxfontsize = 24
+
+" Function to change font size an amount
+function! AdjustFontSize(amount)
+  if has("gui_running")
+    let fontname = substitute(&guifont, s:pattern, '\1', '')
+    let cursize = substitute(&guifont, s:pattern, '\2', '')
+    let newsize = cursize + a:amount
+    if (newsize >= s:minfontsize) && (newsize <= s:maxfontsize)
+      let newfont = fontname . newsize
+      let &guifont = newfont
+    endif
+  else
+    echoerr "You need to run the GTK version of Vim to use this function."
+  endif
+endfunction
+
+" Function to set font size
+function! SetFontSize(fontSize)
+  if has("gui_running")
+    let fontname = substitute(&guifont, s:pattern, '\1', '')
+    if (a:fontSize >= s:minfontsize) && (a:fontSize <= s:maxfontsize)
+      let newfont = fontname . a:fontSize
+      let &guifont = newfont
+    endif
+  else
+    echoerr "You need to run the GTK version of Vim to use this function."
+  endif
+endfunction
+
+" Increase the font
+function! LargerFont()
+  call AdjustFontSize(1)
+endfunction
+command! LargerFont call LargerFont()
+
+" Decrease the font
+function! SmallerFont()
+  call AdjustFontSize(-1)
+endfunction
+command! SmallerFont call SmallerFont()
+
+" Set the font size to the default valor
+command! NormalSize call SetFontSize(13)
+command! -nargs=1 SetFontSize call SetFontSize(<f-args>)
+
+" Key map for the functions
+nnoremap <silent> <Leader>] :LargerFont <CR>
+nnoremap <silent> <Leader>[ :SmallerFont <CR>
+nnoremap <silent> <Leader>= :NormalSize <CR>
 
 " ------------------------- Look and feel options ------------------------------
 " Remove all bars in GVim
@@ -282,5 +291,5 @@ else
   colorscheme yuejiu
 endif 
 
-" Link the Conceal highlight configuration to the Normal configuration. It's a full clone of ALL in the class
+" Link the Conceal highlight configuration to the Normal configuration.
 highlight! link Conceal Normal 
