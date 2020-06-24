@@ -288,7 +288,7 @@ if has("gui_running")
   colorscheme vimbrains
   set lines=1000 columns=999 " Maximize Gvim at startup
 else 
-  colorscheme yuejiu
+  colorscheme vimbrains
 endif 
 
 " Link the Conceal highlight configuration to the Normal configuration.
