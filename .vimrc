@@ -1,5 +1,4 @@
 call plug#begin('~/.vim/plugged')       " Plugins will be downloaded under the specified directory.
-
 " Declare the list of plugins.
 Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/syntastic'
@@ -285,10 +284,10 @@ set guifont=Fira\ Code\ Regular\ 12
 " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 
 if has("gui_running")  
-  colorscheme vimbrains
+  colorscheme solarized8_light
   set lines=1000 columns=999 " Maximize Gvim at startup
 else 
-  colorscheme vimbrains
+  colorscheme solarized8_light
 endif 
 
 " Link the Conceal highlight configuration to the Normal configuration.

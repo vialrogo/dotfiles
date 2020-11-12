@@ -11,7 +11,13 @@ export ZSH=$HOME/.oh-my-zsh
 # Powerline themes: powerlevel9k bullet-train
 if [ -z "$SSH_CLIENT" ]; then
   # ZSH_THEME="bullet-train"
-  ZSH_THEME="powerlevel9k/powerlevel9k"
+  # ZSH_THEME="powerlevel9k/powerlevel9k"
+  
+  ZSH_THEME="solarized-powerline"
+  ZSH_POWERLINE_SINGLE_LINE="true"
+  ZSH_POWERLINE_SHOW_OS="false"
+
+
 else
   ZSH_THEME="ys"
 fi
