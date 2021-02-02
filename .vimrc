@@ -284,10 +284,11 @@ set guifont=Fira\ Code\ Regular\ 12
 " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 
 if has("gui_running")  
-  colorscheme solarized8_light
+  colorscheme gruvbox
   set lines=1000 columns=999 " Maximize Gvim at startup
 else 
-  colorscheme solarized8_light
+  colorscheme gruvbox
+  hi SpellBad cterm=underline ctermfg=red
 endif 
 
 " Link the Conceal highlight configuration to the Normal configuration.
