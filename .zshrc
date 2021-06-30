@@ -12,8 +12,9 @@ export ZSH=$HOME/.oh-my-zsh
 if [ -z "$SSH_CLIENT" ]; then
   # ZSH_THEME="bullet-train"
   # ZSH_THEME="powerlevel9k/powerlevel9k"
+  # ZSH_THEME="solarized-powerline"
   
-  ZSH_THEME="solarized-powerline"
+  ZSH_THEME="fino"
   ZSH_POWERLINE_SINGLE_LINE="true"
   ZSH_POWERLINE_SHOW_OS="false"
 
@@ -109,19 +110,8 @@ bindkey -M viins 'jk' vi-cmd-mode   # Ohhh yeah, I am happy :D
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
 
 alias ssh_ime='ssh -AXt -L 3128:proxy:3128 -L 3125:smtp.ime.usp.br:25 vialrogo@ime.usp.br'
 alias c++='clang++ -std=c++14 -stdlib=libc++ -lc++abi'
-alias matlab-console='matlab -nodisplay -nosplash'
-
-alias howtos='echo "
-Howtos for console users
-========================
-
-For man print: 
-    man -t 5 crontab | lpr -o sides=two-sided-long-edge \n
-
-"'
 
 eval "$(hub alias -s)"
