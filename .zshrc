@@ -14,13 +14,13 @@ if [ -z "$SSH_CLIENT" ]; then
   # ZSH_THEME="powerlevel9k/powerlevel9k"
   # ZSH_THEME="solarized-powerline"
   
-  ZSH_THEME="fino"
+  ZSH_THEME="ys"
   ZSH_POWERLINE_SINGLE_LINE="true"
   ZSH_POWERLINE_SHOW_OS="false"
 
 
 else
-  ZSH_THEME="ys"
+    ZSH_THEME="af-magic"
 fi
 
 if [[ $EUID -eq 0 ]]; then
