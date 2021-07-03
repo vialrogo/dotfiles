@@ -7,18 +7,10 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-## Interesting: kolo mh miloshadzic wedisagree bureau powerlevel9k
-# Powerline themes: powerlevel9k bullet-train
+
+# Interesting: ys af-magic kolo mh miloshadzic wedisagree bureau powerlevel9k bullet-train solarized-powerline
 if [ -z "$SSH_CLIENT" ]; then
-  # ZSH_THEME="bullet-train"
-  # ZSH_THEME="powerlevel9k/powerlevel9k"
-  # ZSH_THEME="solarized-powerline"
-  
   ZSH_THEME="ys"
-  ZSH_POWERLINE_SINGLE_LINE="true"
-  ZSH_POWERLINE_SHOW_OS="false"
-
-
 else
     ZSH_THEME="af-magic"
 fi
@@ -31,7 +23,7 @@ fi
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -43,10 +35,10 @@ fi
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -65,17 +57,28 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(vi-mode git sudo zsh-syntax-highlighting history-substring-search)
+plugins=(
+    vi-mode
+    git 
+    sudo 
+    zsh-syntax-highlighting 
+    history-substring-search 
+    colored-man-pages
+    zsh-autosuggestions
+)
+
+# Plugin configuration
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#444444"
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin:/usr/sbin:/opt/Matlab/R2013a/bin/:/opt/java/bin:/opt/java/db/bin:/opt/java/jre/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/vialrogo/bin"
+export PATH="$PATH:/home/vialrogo/bin"
 export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-export LANG=pt_BR.UTF-8
+# export LANG=pt_BR.UTF-8
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -90,18 +93,6 @@ fi
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# For better colored man pages
-man() {
-    env LESS_TERMCAP_mb=$'\E[01;31m' \
-    LESS_TERMCAP_md=$'\E[01;38;5;74m' \
-    LESS_TERMCAP_me=$'\E[0m' \
-    LESS_TERMCAP_se=$'\E[0m' \
-    LESS_TERMCAP_so=$'\E[38;5;246m' \
-    LESS_TERMCAP_ue=$'\E[0m' \
-    LESS_TERMCAP_us=$'\E[04;38;5;146m' \
-    man "$@"
-}
-
 # vi mode
 bindkey -v
 bindkey -M viins 'jk' vi-cmd-mode   # Ohhh yeah, I am happy :D
@@ -110,8 +101,3 @@ bindkey -M viins 'jk' vi-cmd-mode   # Ohhh yeah, I am happy :D
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-
-alias ssh_ime='ssh -AXt -L 3128:proxy:3128 -L 3125:smtp.ime.usp.br:25 vialrogo@ime.usp.br'
-alias c++='clang++ -std=c++14 -stdlib=libc++ -lc++abi'
-
-eval "$(hub alias -s)"
