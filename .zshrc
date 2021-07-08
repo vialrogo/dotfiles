@@ -35,7 +35,7 @@ DISABLE_AUTO_UPDATE="true"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -74,7 +74,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="$PATH:/home/vialrogo/bin"
+export PATH="$PATH:/home/vialrogo/bin:/home/vialrogo/.local/bin"
 export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

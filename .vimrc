@@ -6,7 +6,7 @@ Plug 'scrooloose/syntastic'
 Plug 'gabrielelana/vim-markdown'
 Plug 'embear/vim-localvimrc'
 Plug 'sheerun/vim-polyglot'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'shougo/deoplete.nvim'             " Requers pip install msgpack-python pynvim
@@ -35,10 +35,8 @@ let g:localvimrc_ask=0              " Don't ask for load localvim on startup
 
 " --------------------------------- ctrlp.vim ----------------------------------
 set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,.pyc,__pycache__
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o,*.obj,.git,*.rbc,.pyc,__pycache__
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|tox)$'
-let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore +"'"
-let g:ctrlp_use_caching = 0
 let g:ctrlp_map = '<leader>e'
 
 " --------------------------------- airline ------------------------------------
