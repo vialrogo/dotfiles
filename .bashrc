@@ -9,9 +9,6 @@ export _USER=$(id -u -n)
 complete -cf sudo
 
 # Load auto-completation of git
-if [ -e  ~/.bash_git ]; then
-  source ~/.bash_git
-fi
 if [ -e  /usr/share/git/completion/git-completion.bash ]; then
   source /usr/share/git/completion/git-completion.bash
 fi
@@ -69,10 +66,10 @@ export grayB="\[\e[1;37m\]"
 # Variables
 export gitBash="\$(__git_ps1 \"(%s)\")"
 export colorU=${grayB}
-export colorH=${cyanB}
+export colorH=${green}
 export colorG=${grayB}
 export colorW=${gray}
-export colorT=${blackB}
+export colorT=${greenB}
 export colorC=${console}
 
 if [ "root" == $_USER ]; then
@@ -80,11 +77,6 @@ if [ "root" == $_USER ]; then
   export colorW=${purple}
   export colorG=${red}
   export colorH=${grayB}
-fi
-
-if [ "KITT" != $HOSTNAME ]; then
-  export colorH=${greenB}
-  export colorT=${green}
 fi
 
 # Prompts
