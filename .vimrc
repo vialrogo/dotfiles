@@ -289,10 +289,7 @@ if has("gui_running")
   set lines=1000 columns=999 " Maximize Gvim at startup
 else 
   colorscheme candid
-  " hi SpellBad cterm=underline ctermfg=red
 endif 
 
 " Link the Conceal highlight configuration to the Normal configuration.
 highlight! link Conceal Normal 
-
-
