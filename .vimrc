@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/plugged')       " Plugins will be downloaded under the specified directory.
 " Declare the list of plugins.
-Plug 'franbach/miramare'
+Plug 'flrnd/candid.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/syntastic'
 Plug 'gabrielelana/vim-markdown'
@@ -38,6 +38,7 @@ set wildmode=list:longest,list:full
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o,*.obj,.git,*.rbc,.pyc,__pycache__
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|tox)$'
 let g:ctrlp_map = '<leader>e'
+let g:ctrlp_show_hidden = 1
 
 " --------------------------------- airline ------------------------------------
 let g:airline_powerline_fonts = 1                   " airline fonts. For the correct fonts and <> symbols, see the documentation. Is necessary add a font to the local files
@@ -74,11 +75,6 @@ let g:tex_conceal = "abdmgs"                            " Set the conceal mode t
 let g:tex_superscripts= "[0-9a-zA-W.,:;+-<>/()=]"       " To avoid having inscrutable utf-8 glyphs appear,
 let g:tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"   " To avoid having inscrutable utf-8 glyphs appear,
 
-" -------------------------------- colorscheme miramare ---------------------------------
-set termguicolors
-" let g:miramare_enable_italic = 1
-let g:miramare_disable_italic_comment = 1
-
 " ------------------------------------- Sets  ----------------------------------
 set tabstop=4                   " Number of spaces that a <Tab> in the file counts for. 
 set shiftwidth=4                " Number of spaces to use for each step of (auto)indent.
@@ -100,6 +96,7 @@ set wrap                        " This enables "visual" wrapping
 set lbr                         " Wrapping only in complete words
 set textwidth=0                 " This turns off physical line wrapping (ie: automatic insertion of newlines)
 set ruler                       " Show the line and column number of the cursor position, separated by a comma.
+set termguicolors
 set background=dark             " When set to "dark", will try to use colors that look good on a dark background. When set to "light" try to use colors that look good on a light background. Any other value is illegal.
 set mouse=a                     " Enable the use of the mouse.
 set history=1000                " remember more commands and search history
@@ -288,11 +285,11 @@ set guifont=Fira\ Code\ Regular\ 12
 " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 
 if has("gui_running")  
-  colorscheme miramare
+  colorscheme candid
   set lines=1000 columns=999 " Maximize Gvim at startup
 else 
-  colorscheme miramare
-  hi SpellBad cterm=underline ctermfg=red
+  colorscheme candid
+  " hi SpellBad cterm=underline ctermfg=red
 endif 
 
 " Link the Conceal highlight configuration to the Normal configuration.
