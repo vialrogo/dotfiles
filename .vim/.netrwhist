@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =6
-let g:netrw_dirhist_6='/home/vialrogo/.config/yay'
-let g:netrw_dirhist_5='/home/vialrogo/Dropbox/Projects/Provas/Paradigms'
-let g:netrw_dirhist_4='/home/vialrogo/Projects/Recetas'
-let g:netrw_dirhist_3='/etc/X11/xorg.conf.d'
-let g:netrw_dirhist_2='/etc/modprobe.d'
-let g:netrw_dirhist_1='/etc/X11/xorg.conf.d'

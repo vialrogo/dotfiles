@@ -1,5 +1,5 @@
-call plug#begin('~/.vim/plugged')       " Plugins will be downloaded under the specified directory.
-" Declare the list of plugins.
+call plug#begin()
+
 Plug 'flrnd/candid.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/syntastic'
@@ -19,7 +19,7 @@ Plug 'tpope/vim-repeat'
 Plug 'lervag/vimtex'
 Plug 'keitanakamura/tex-conceal.vim'
 
-call plug#end()                         " List ends here. Plugins become visible to Vim after this call.
+call plug#end()
 
 " --------------------------------- syntastic -----------------------------------
 let g:syntastic_always_populate_loc_list = 1    " Enable this option to tell syntastic to always stick any detected errors into the location-list
