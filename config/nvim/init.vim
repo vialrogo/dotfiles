@@ -1,3 +1,6 @@
+" Remap mapleader
+let mapleader = "\<Space>"
+
 call plug#begin()
 
     " -------------------------------------------------------------------------------
@@ -5,17 +8,20 @@ call plug#begin()
 
     set termguicolors                                   " Enables 24-bit RGB color in the TUI.
 
+
     " -------------------------------------------------------------------------------
     Plug 'vim-airline/vim-airline'                      " Status line substitute
 
     let g:airline_powerline_fonts = 1                   " airline fonts. For the correct fonts and <> symbols, see the documentation. Is necessary add a font to the local files
     let g:airline#extensions#tabline#enabled = 1        " Enable the list of buffers AKA airtab
 
+
     " -------------------------------------------------------------------------------
     Plug 'vim-airline/vim-airline-themes'               " Themes for vim-airline
 
     let g:airline_theme='term'                          " Set airline theme. Screenshots in https://github.com/vim-airline/vim-airline/wiki/Screenshots
 
+    
     " -------------------------------------------------------------------------------
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}     " Interface for tree-sitter in Neovim and to provide some basic functionality such as highlighting based on it. 
                                                                     " Install languages with :TSInstall <language_to_install>
@@ -28,20 +34,12 @@ call plug#begin()
     let g:syntastic_auto_loc_list = 2                   " When set to 2 the error window will be automatically closed when no errors are detected, but not opened automatically. >
     let g:syntastic_check_on_wq = 0                     " In active mode syntax checks are normally run whenever buffers are written to disk. Set 0 to skip check when you quit Vim.
 
+    
     " -------------------------------------------------------------------------------
     Plug 'gabrielelana/vim-markdown'
 
     let g:markdown_enable_conceal = 1                   " Conceal common expressions (bold, italic, etc.)
 
-    " -------------------------------------------------------------------------------
-    Plug 'ctrlpvim/ctrlp.vim'                           " Fuzzy search plugin
-
-    set wildmode=list:longest,list:full
-    set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o,*.obj,.git,*.rbc,.pyc,__pycache__
-    let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|tox)$'
-    let g:ctrlp_map = '<leader>e'
-    let g:ctrlp_working_path_mode = 'ra'
-    let g:ctrlp_show_hidden = 1
 
     " -------------------------------------------------------------------------------
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }       " Completion framework
@@ -52,6 +50,7 @@ call plug#begin()
     " Use S-Tab for previous entry on dialog
     inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+
     " -------------------------------------------------------------------------------
     Plug 'sirver/ultisnips'                     " Snippets manager
     
@@ -60,8 +59,10 @@ call plug#begin()
     let g:UltiSnipsJumpBackwardTrigger="<c-k>"  " Previous trigger
     let g:UltiSnipsEditSplit="vertical"         " If you want :UltiSnipsEdit to split your window.
 
+
     " -------------------------------------------------------------------------------
     Plug 'honza/vim-snippets'                   " Snippets
+
 
     " -------------------------------------------------------------------------------
     Plug 'tpope/vim-commentary'                 " Comment stuff out.
@@ -70,13 +71,16 @@ call plug#begin()
     autocmd BufNewFile,BufReadPost,BufRead *.R,*.Rnw,*.Rd,*.Rmd,*.Rrst setlocal commentstring=#\ %s     " File type definition for R language
     autocmd FileType c,cpp,java setlocal commentstring=//\ %s                                           " Change default /* for // for comments in java, c and cpp
     
+
     " -------------------------------------------------------------------------------
     Plug 'tpope/vim-repeat'                     " Repeat.vim remaps . in a way that plugins can tap into it.
+
 
     " -------------------------------------------------------------------------------
     Plug 'lervag/vimtex'
 
     let g:tex_flavor = "latex"                  " Define latex by default for any *.tex file
+
 
     " -------------------------------------------------------------------------------
     Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}    " A vim plugin extends the Conceal feature for LaTeX.
@@ -86,6 +90,22 @@ call plug#begin()
     let g:tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"   " To avoid having inscrutable utf-8 glyphs appear,
 
 
+    " -------------------------------------------------------------------------------
+    Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }    " DoGe is a (Do)cumentation (Ge)nerator which will generate a proper documentation skeleton
+
+
+    " -------------------------------------------------------------------------------
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'                        " Search plugin
+
+    nnoremap <leader>ff :Telescope find_files<CR>
+    nnoremap <leader>fb <cmd>Telescope buffers<cr>
+
+    " -------------------------------------------------------------------------------
+    Plug 'psliwka/vim-smoothie'                                 " Smooth scroll
+
+
+    " -------------------------------------------------------------------------------
 call plug#end()
 
 " ------------------------------------- Sets  ----------------------------------
@@ -131,8 +151,6 @@ autocmd Syntax c,cpp,vim,xml,html,xhtml,perl,python setlocal foldmethod=syntax
 autocmd BufRead * normal zR
 
 " ------------------------------------ Basic -----------------------------------
-" Remap mapleader
-let mapleader = "\<Space>"
 
 " Set pwd to current directory on starup
 autocmd BufEnter * silent! lcd %:p:h
