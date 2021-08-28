@@ -185,13 +185,13 @@ inoremap <C-p> <C-r><C-p>+
 vmap < <gv
 vmap > >gv
 
-" Spell toggle
-:map <F7> :setlocal spell! <CR>
-
 " Leader key maps
 nnoremap <silent> <Leader>w :w<CR> 
 nnoremap <silent> <Leader>x :x<CR>
 nnoremap <silent> <Leader>q :q<CR>
+
+" Spell toggle
+:map <F7> :setlocal spell! <CR>
 
 " ------------------------- Look and feel options ------------------------------
 "Others very nice themes: deus abstract afterglow ayu apprentice
