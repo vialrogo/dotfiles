@@ -96,16 +96,19 @@ call plug#begin()
 
     " -------------------------------------------------------------------------------
     Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-telescope/telescope.nvim'                        " Search plugin
+    Plug 'nvim-telescope/telescope.nvim'                     " Search plugin
 
     nnoremap <leader>ff :Telescope find_files<CR>
     nnoremap <leader>fb <cmd>Telescope buffers<cr>
 
     " -------------------------------------------------------------------------------
-    Plug 'psliwka/vim-smoothie'                                 " Smooth scroll
+    Plug 'psliwka/vim-smoothie'                             " Smooth scroll
 
 
     " -------------------------------------------------------------------------------
+    Plug 'dag/vim-fish'                                     " Fish script support
+
+
 call plug#end()
 
 " ------------------------------------- Sets  ----------------------------------
