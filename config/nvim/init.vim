@@ -33,12 +33,16 @@ call plug#begin()
     let g:syntastic_check_on_open = 1                   " Syntastic in active mode will run syntax checks when buffers are first loaded, as well as on saving
     let g:syntastic_auto_loc_list = 2                   " When set to 2 the error window will be automatically closed when no errors are detected, but not opened automatically. >
     let g:syntastic_check_on_wq = 0                     " In active mode syntax checks are normally run whenever buffers are written to disk. Set 0 to skip check when you quit Vim.
+    let g:syntastic_cs_checkers = ['code_checker']      " Syntastic to work with Omnisharp    
 
     
     " -------------------------------------------------------------------------------
     Plug 'gabrielelana/vim-markdown'
 
     let g:markdown_enable_conceal = 1                   " Conceal common expressions (bold, italic, etc.)
+    let g:markdown_enable_spell_checking = 0            " No spellcheck by default
+    let g:markdown_enable_folding = 1                   " Folding by default (can be heavy to load)
+    let g:markdown_enable_conceal = 1                   " Conceal
 
 
     " -------------------------------------------------------------------------------
@@ -109,6 +113,14 @@ call plug#begin()
     Plug 'dag/vim-fish'                                     " Fish script support
 
 
+    " -------------------------------------------------------------------------------
+    Plug 'jiangmiao/auto-pairs'                             " Automatic pairs
+
+
+    " -------------------------------------------------------------------------------
+    Plug 'OmniSharp/omnisharp-vim'                          " C# extension
+
+
 call plug#end()
 
 " ------------------------------------- Sets  ----------------------------------
@@ -141,6 +153,7 @@ set whichwrap+=<,>,h,l,[,]      " This causes the left and right arrow keys, as 
 set scrolloff=2                 " The number of lines before and after of the cursor position. If is a big number, the cursor is always in the center of the screen.
 set colorcolumn=0               " highlight column after 'textwidth'
 set nojoinspaces                " Remove de second spaces with join (J) after '.', '?' and '!'
+set hidden                      " Open new buffer without saving to a currently modified file
 
 " ------------------------------- Syntax and files -----------------------------
 
