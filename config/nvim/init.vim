@@ -41,8 +41,10 @@ call plug#begin()
 
     let g:markdown_enable_conceal = 1                   " Conceal common expressions (bold, italic, etc.)
     let g:markdown_enable_spell_checking = 0            " No spellcheck by default
-    let g:markdown_enable_folding = 1                   " Folding by default (can be heavy to load)
-    let g:markdown_enable_conceal = 1                   " Conceal
+
+
+    " -------------------------------------------------------------------------------
+    Plug 'godlygeek/tabular'                            " Allow tables on markdown plugin
 
 
     " -------------------------------------------------------------------------------
@@ -119,6 +121,12 @@ call plug#begin()
 
     " -------------------------------------------------------------------------------
     Plug 'OmniSharp/omnisharp-vim'                          " C# extension
+
+
+    " -------------------------------------------------------------------------------
+    Plug 'lambdalisue/suda.vim'                             " Edit like sudo plugin
+
+    let g:suda_smart_edit = 1
 
 
 call plug#end()
@@ -212,6 +220,11 @@ nnoremap <silent> <Leader>q :q<CR>
 " ------------------------- Look and feel options ------------------------------
 "Others very nice themes: deus abstract afterglow ayu apprentice
 colorscheme ayu
+
+if exists('g:gnvim')
+    " GNvim-specific configuration goes here
+    set guifont=Fantasque\ Sans\ Mono\ Regular:h14
+endif
 
 " Link the Conceal highlight configuration to the Normal configuration.
 highlight! link Conceal Normal 
