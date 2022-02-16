@@ -107,9 +107,6 @@ call plug#begin()
     nnoremap <leader>ff :Telescope find_files<CR>
     nnoremap <leader>fb <cmd>Telescope buffers<cr>
 
-    " -------------------------------------------------------------------------------
-    Plug 'psliwka/vim-smoothie'                             " Smooth scroll
-
 
     " -------------------------------------------------------------------------------
     Plug 'dag/vim-fish'                                     " Fish script support
