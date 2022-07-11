@@ -27,40 +27,61 @@ call plug#begin()
                                                                     " Install languages with :TSInstall <language_to_install>
 
     " -------------------------------------------------------------------------------
-    Plug 'scrooloose/syntastic'                         " The BIG syntax wrapper
+    Plug 'dense-analysis/ale'                           " The BIG syntax wrapper. Substitute of syntastic
 
-    let g:syntastic_always_populate_loc_list = 1        " Enable this option to tell Syntastic to always stick any detected errors into the location-list
-    let g:syntastic_check_on_open = 1                   " Syntastic in active mode will run syntax checks when buffers are first loaded, as well as on saving
-    let g:syntastic_auto_loc_list = 2                   " When set to 2 the error window will be automatically closed when no errors are detected, but not opened automatically. >
-    let g:syntastic_check_on_wq = 0                     " In active mode syntax checks are normally run whenever buffers are written to disk. Set 0 to skip check when you quit Vim.
-    let g:syntastic_cs_checkers = ['code_checker']      " Syntastic to work with Omnisharp    
-
-    
-    " -------------------------------------------------------------------------------
-    Plug 'gabrielelana/vim-markdown'
-
-    let g:markdown_enable_conceal = 1                   " Conceal common expressions (bold, italic, etc.)
-    let g:markdown_enable_spell_checking = 0            " No spellcheck by default
-
+    let g:ale_completion_enabled = 1
 
     " -------------------------------------------------------------------------------
     Plug 'godlygeek/tabular'                            " Allow tables on markdown plugin
 
 
     " -------------------------------------------------------------------------------
+    Plug 'vim-pandoc/vim-pandoc-syntax'
+
+    augroup pandoc_syntax
+        au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+    augroup END
+
+
+    " -------------------------------------------------------------------------------
+    Plug 'elzr/vim-json'                                " Json better suport 
+
+
+    " -------------------------------------------------------------------------------
+    Plug 'plasticboy/vim-markdown'
+
+    let g:vim_markdown_folding_disabled = 1             " disable header folding
+    let g:vim_markdown_conceal = 2
+
+    " support front matter of various format
+    let g:vim_markdown_frontmatter = 1  " for YAML format
+    let g:vim_markdown_toml_frontmatter = 1  " for TOML format
+    let g:vim_markdown_json_frontmatter = 1  " for JSON format
+
+
+    " -------------------------------------------------------------------------------
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
+    let g:mkdp_auto_close = 0
+    let g:mkdp_browser = 'microsoft-edge-dev'
+    let g:mkdp_command_for_global = 1
+        
+
+    " -------------------------------------------------------------------------------
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }       " Completion framework
                                                                         " Requires pip install msgpack-python pynvim
     let g:deoplete#enable_at_startup = 1                                " Enable deoplete completion at startup
     " Use Tab for next entry on dialog
-    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"            
+    inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"            
     " Use S-Tab for previous entry on dialog
-    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+    inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
 
     " -------------------------------------------------------------------------------
     Plug 'sirver/ultisnips'                     " Snippets manager
     
-    let g:UltiSnipsExpandTrigger="<c-space>"    " Trigger configuration for expand
+    let g:UltiSnipsExpandTrigger="<tab>"        " Trigger configuration for expand
+    let g:UltiSnipsListSnippets="<c-tab>"
     let g:UltiSnipsJumpForwardTrigger="<c-j>"   " Next trigger
     let g:UltiSnipsJumpBackwardTrigger="<c-k>"  " Previous trigger
     let g:UltiSnipsEditSplit="vertical"         " If you want :UltiSnipsEdit to split your window.
@@ -99,13 +120,16 @@ call plug#begin()
     " -------------------------------------------------------------------------------
     Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }    " DoGe is a (Do)cumentation (Ge)nerator which will generate a proper documentation skeleton
 
-
     " -------------------------------------------------------------------------------
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'                     " Search plugin
 
     nnoremap <leader>ff :Telescope find_files<CR>
     nnoremap <leader>fb <cmd>Telescope buffers<cr>
+
+
+    " -------------------------------------------------------------------------------
+    Plug 'dhruvasagar/vim-table-mode'                       " Tables on markdown
 
 
     " -------------------------------------------------------------------------------
@@ -163,7 +187,7 @@ set hidden                      " Open new buffer without saving to a currently 
 " ------------------------------- Syntax and files -----------------------------
 
 " Force all *.md files to be markdown
-autocmd BufNewFile,BufReadPost,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.md set filetype=markdown
+" autocmd BufNewFile,BufReadPost,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.md set filetype=markdown
 
 " Folding for syntax languages
 autocmd Syntax c,cpp,vim,xml,html,xhtml,perl,python setlocal foldmethod=syntax
