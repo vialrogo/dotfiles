@@ -30,19 +30,15 @@
 #
     yay -S neovim
 
-## 2. Install vim-plug for neovim
-#
-    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-## 3. Install extra nvim dependences
+## 2. Install extra nvim dependences
 #
     pip install msgpack-python pynvim
 
-## 4. Symbolic links
+## 3. Symbolic links
 #
     ln -sf ${PWD}/config/nvim   ~/.config/nvim
 
-## 5. Install packages. Open neovim and use:
+## 4. Install packages. Open neovim and use:
 #
 #   :PlugInstall
 #   :PlugUpdate
