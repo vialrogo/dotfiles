@@ -48,6 +48,12 @@ call plug#begin()
 
 
     " -------------------------------------------------------------------------------
+    Plug 'embear/vim-localvimrc'                        " For local .lvimrc files
+
+    let g:localvimrc_ask = 0                            " Doesn't ask before load .lvimrc file
+    
+
+    " -------------------------------------------------------------------------------
     Plug 'plasticboy/vim-markdown'
 
     let g:vim_markdown_folding_disabled = 1             " disable header folding
@@ -249,3 +255,7 @@ endif
 
 " Link the Conceal highlight configuration to the Normal configuration.
 highlight! link Conceal Normal 
+
+lua << EOF
+vim.o.ch = 0
+EOF
