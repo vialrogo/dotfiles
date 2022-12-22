@@ -153,6 +153,11 @@ call plug#begin()
     " -------------------------------------------------------------------------------
     Plug 'lambdalisue/suda.vim'                             " Edit like sudo plugin
 
+
+    " -------------------------------------------------------------------------------
+    Plug 'safv12/andromeda.vim'                             " Andromeda theme
+    
+
     let g:suda_smart_edit = 1
 
 
@@ -246,16 +251,12 @@ nnoremap <silent> <Leader>q :q<CR>
 
 " ------------------------- Look and feel options ------------------------------
 "Others very nice themes: deus abstract afterglow ayu apprentice
-colorscheme ayu
+colorscheme andromeda
 
 if exists('g:gnvim')
     " GNvim-specific configuration goes here
-    set guifont=Fantasque\ Sans\ Mono\ Regular:h14
+    set guifont=Cascadia\ Code\ SemiLight:h13
 endif
 
 " Link the Conceal highlight configuration to the Normal configuration.
 highlight! link Conceal Normal 
-
-lua << EOF
-vim.o.ch = 0
-EOF
