@@ -158,6 +158,10 @@ call plug#begin()
     Plug 'safv12/andromeda.vim'                             " Andromeda theme
     
 
+    " -------------------------------------------------------------------------------
+    Plug 'rebelot/kanagawa.nvim'                            " Kanagawa theme
+    
+
     let g:suda_smart_edit = 1
 
 
@@ -251,7 +255,7 @@ nnoremap <silent> <Leader>q :q<CR>
 
 " ------------------------- Look and feel options ------------------------------
 "Others very nice themes: deus abstract afterglow ayu apprentice
-colorscheme andromeda
+colorscheme kanagawa
 
 if exists("g:neovide")
     " neovide-specific configuration goes here
