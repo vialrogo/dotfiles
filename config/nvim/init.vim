@@ -248,9 +248,10 @@ nnoremap <silent> <Leader>q :q<CR>
 "Others very nice themes: deus abstract afterglow ayu apprentice
 colorscheme ayu
 
-if exists('g:gnvim')
-    " GNvim-specific configuration goes here
+if exists("g:neovide")
+    " neovide-specific configuration goes here
     set guifont=Fantasque\ Sans\ Mono\ Regular:h14
+    let g:neovide_hide_mouse_when_typing = v:false
 endif
 
 " Link the Conceal highlight configuration to the Normal configuration.
