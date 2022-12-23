@@ -10,11 +10,9 @@ call plug#begin()
 
 
     " -------------------------------------------------------------------------------
-    Plug 'vim-airline/vim-airline'                      " Status line substitute
-
-    let g:airline_powerline_fonts = 1                   " airline fonts. For the correct fonts and <> symbols, see the documentation. Is necessary add a font to the local files
-    let g:airline#extensions#tabline#enabled = 1        " Enable the list of buffers AKA airtab
-
+    Plug 'nvim-lualine/lualine.nvim'                    " Status line substitute
+    " If you want to have icons in your statusline choose one of these
+    Plug 'kyazdani42/nvim-web-devicons'
 
     " -------------------------------------------------------------------------------
     Plug 'vim-airline/vim-airline-themes'               " Themes for vim-airline
@@ -265,3 +263,13 @@ endif
 
 " Link the Conceal highlight configuration to the Normal configuration.
 highlight! link Conceal Normal 
+
+"=============================== LUA ==========================================
+lua <<EOF
+require('lualine').setup {
+    options = {
+        section_separators = { left = '', right = '' },
+        component_separators = { left = '', right = '' }
+    }
+}
+
