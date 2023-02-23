@@ -28,3 +28,5 @@ vim.opt.scrolloff=2                     --The number of lines before and after o
 vim.opt.colorcolumn="+1"                --highlight column after 'textwidth'
 vim.opt.joinspaces=false                --Remove de second spaces with join (J) after '.', '?' and '!'
 vim.opt.hidden=true                     --Open new buffer without saving to a currently modified file
+vim.opt.foldmethod="syntax"             --Set foldmethod
+

@@ -165,43 +165,14 @@ call plug#begin()
 
 call plug#end()
 
-" ------------------------------- Syntax and files -----------------------------
 
-" Force all *.md files to be markdown
-" autocmd BufNewFile,BufReadPost,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.md set filetype=markdown
-
-" Folding for syntax languages
-autocmd Syntax c,cpp,vim,xml,html,xhtml,perl,python setlocal foldmethod=syntax
-
-" Fold starup status
-autocmd BufRead * normal zR
-
-" ------------------------------------ Basic -----------------------------------
-
-" Set pwd to current directory on starup
-autocmd BufEnter * silent! lcd %:p:h
-
-" Set W to sudo save and silent reload the file
-command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
-
-" ------------------------- Look and feel options ------------------------------
-"Others very nice themes: deus abstract afterglow ayu apprentice
-colorscheme kanagawa
-
-if exists("g:neovide")
-    " neovide-specific configuration goes here
-    set guifont=Cascadia\ Code\ SemiLight:h13
-    let g:neovide_hide_mouse_when_typing = v:false
-endif
-
-" Link the Conceal highlight configuration to the Normal configuration.
-highlight! link Conceal Normal 
 
 "=============================== LUA ==========================================
 lua <<EOF
 require('lualine_setup')
 require('sets')
 
+-- ------------------------------ SETs ---------------------------------------
 local options = {noremap = true, silent = true}
 vim.keymap.set('i', 'jk', '<Esc>', options)
 
@@ -234,3 +205,23 @@ vim.keymap.set('v', '>', '>gv', options)
 -- Toggle spell
 vim.keymap.set({'n','v','i'}, '<F7>', ':setlocal spell! <CR>', options)
 
+
+-- ------------------------------ CMDs ---------------------------------------
+vim.cmd "autocmd BufRead * normal zR"
+vim.cmd "autocmd BufEnter * silent! lcd %:p:h"
+vim.cmd "command W :execute ':silent w !sudo tee % > /dev/null' | :edit!"
+
+
+-- ----------------------- Look and feel options -----------------------------
+vim.cmd "colorscheme kanagawa"
+
+vim.cmd [[
+if exists("g:neovide")
+    " neovide-specific configuration goes here
+    set guifont=Cascadia\ Code\ SemiLight:h13
+    let g:neovide_hide_mouse_when_typing = v:false
+endif
+]]
+
+-- Link the Conceal highlight configuration to the Normal configuration.
+vim.cmd "highlight! link Conceal Normal" 
