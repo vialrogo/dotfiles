@@ -18,7 +18,6 @@ vim.opt.backup=false                    --Oh, and man… never ever let Vim writ
 vim.opt.swapfile=false                  --Use modern ways for tracking your changes, for God’s sake.
 vim.opt.pastetoggle="<F2>"              --Then, when in insert mode, ready to paste, press <F2>, Vim will switch to paste mode, disabling all kinds of smartness
 vim.opt.fileencoding="utf-8"
-vim.opt.fileencodings={"utf-7","latin1","latin2"}
 vim.opt.spelllang="pt"                  --Set the spell language
 vim.opt.cursorline=true                 --Set the current cursorline highlight
 vim.opt.conceallevel=2                  --Set de conceal (dynamic replace of _X or \alpha characters).
@@ -29,4 +28,5 @@ vim.opt.colorcolumn="+1"                --highlight column after 'textwidth'
 vim.opt.joinspaces=false                --Remove de second spaces with join (J) after '.', '?' and '!'
 vim.opt.hidden=true                     --Open new buffer without saving to a currently modified file
 vim.opt.foldmethod="syntax"             --Set foldmethod
+vim.opt.termguicolors=true              --Enables 24-bit RGB color in the TUI.
 
