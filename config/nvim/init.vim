@@ -165,38 +165,6 @@ call plug#begin()
 
 call plug#end()
 
-" ------------------------------------- Sets  ----------------------------------
-set tabstop=4                   " Number of spaces that a <Tab> in the file counts for. 
-set shiftwidth=4                " Number of spaces to use for each step of (auto)indent.
-set shiftround                  " use multiple of shiftwidth when indenting with '<' and '>'
-set expandtab                   " Use the appropriate number of spaces to insert a <Tab>. Spaces are used in indents with the '>' and '<' commands and when 'autoindent' is on. To insert a real tab when 'expandtab' is on, use CTRL-V <Tab>.
-set number                      " Show line numbers.
-set showmatch                   " When a bracket is inserted, briefly jump to the matching one. The jump is only done if the match can be seen on  screen. The time to show the match can be set with 'matchtime'.
-set ignorecase                  " Ignore case in search patterns.
-set smartcase                   " Override the 'ignorecase' option if the search pattern contains upper case characters.
-set copyindent                  " Copy the previous indentation on autoindenting"
-set wrapmargin=0                " Number of characters for the wrap count.
-set wrap                        " This enables 'visual' wrapping
-set lbr                         " Wrapping only in complete words
-set textwidth=0                 " This turns off physical line wrapping (ie: automatic insertion of newlines)
-set mouse=a                     " Enable the use of the mouse.
-set undolevels=1000             " use many levels of undo
-set title                       " change the terminal's title
-set nobackup                    " Oh, and man… never ever let Vim write a backup file! They did that in the 70’s. 
-set noswapfile                  " Use modern ways for tracking your changes, for God’s sake.
-set pastetoggle=<F2>            " Then, when in insert mode, ready to paste, press <F2>, Vim will switch to paste mode, disabling all kinds of smartness
-set fileencoding=utf-8
-set fileencodings=utf-8,latin1,latin2
-set spelllang=pt                " Set the spell language
-set cursorline                  " Set the current cursorline highlight
-set conceallevel=2              " Set de conceal (dynamic replace of _X or \alpha characters).
-set concealcursor=c             " Set the conseal cursor for full text display in normal and command mode. Other modes: n-> normal, c-> command, v-> visual, i-> insert
-set whichwrap+=<,>,h,l,[,]      " This causes the left and right arrow keys, as well as h and l, to wrap when used at beginning or end of lines. ( < > are the cursor keys used in normal and visual mode, and [ ] are the cursor keys in insert mode).)
-set scrolloff=2                 " The number of lines before and after of the cursor position. If is a big number, the cursor is always in the center of the screen.
-set colorcolumn=0               " highlight column after 'textwidth'
-set nojoinspaces                " Remove de second spaces with join (J) after '.', '?' and '!'
-set hidden                      " Open new buffer without saving to a currently modified file
-
 " ------------------------------- Syntax and files -----------------------------
 
 " Force all *.md files to be markdown
@@ -213,43 +181,8 @@ autocmd BufRead * normal zR
 " Set pwd to current directory on starup
 autocmd BufEnter * silent! lcd %:p:h
 
-" It clears the search buffer when you press <leader>/
-nnoremap <silent> <Leader>/ :set hlsearch!<CR> 
-
-" Mappings to toggle foldsEdit
-nnoremap <F8> zM
-nnoremap <F10> zR
-
 " Set W to sudo save and silent reload the file
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
-
-" Easy and fast scape shortcut
-inoremap jk <ESC>
-
-" Buffer stuff. Buffer == Ctrl
-nnoremap <C-h>  :bp<CR>
-nnoremap <C-l> :bn<CR>
-" Close the current buffer but not the window. Put inside the window the next buffer
-nnoremap <silent> <Leader>bd :bp <BAR> bd #<CR>
-
-" cut, copy, paste from standard system buffer in visual mode and paste in insertion
-vnoremap <C-y> "+y
-nnoremap <C-y> "+y
-vnoremap <C-p> "+gp
-nnoremap <C-p> "+gp
-inoremap <C-p> <C-r><C-p>+
-
-"" Vmap for maintain Visual Mode after shifting > and <
-vmap < <gv
-vmap > >gv
-
-" Leader key maps
-nnoremap <silent> <Leader>w :w<CR> 
-nnoremap <silent> <Leader>x :x<CR>
-nnoremap <silent> <Leader>q :q<CR>
-
-" Spell toggle
-:map <F7> :setlocal spell! <CR>
 
 " ------------------------- Look and feel options ------------------------------
 "Others very nice themes: deus abstract afterglow ayu apprentice
@@ -266,62 +199,38 @@ highlight! link Conceal Normal
 
 "=============================== LUA ==========================================
 lua <<EOF
--- Function to toggle the spelllang string for the lualine. Returns the spell language used if spell is set true, or a empty string if spell is set false.
-local function spelllangtgl()
-    return (vim.o.spell and '%{&spelllang}' or '')
-end
+require('lualine_setup')
+require('sets')
 
-require('lualine').setup {
-    options = {
-        icons_enabled = true,
-        theme = 'auto',
-        section_separators = { left = '', right = '' },
-        component_separators = { left = '', right = '' },
-        disabled_filetypes = {
-            statusline = {},
-            winbar = {},
-        },
-        ignore_focus = {},
-        always_divide_middle = true,
-        globalstatus = false,
-        refresh = {
-            statusline = 1000,
-            tabline = 1000,
-            winbar = 1000,
-        }
-    },
-    sections = {
-        lualine_a = {'mode'},
-        lualine_b = {'filename'},
-        lualine_c = {'branch', 'diff', 'diagnostics'},
-        lualine_x = {{spelllangtgl, color = { fg = '#ffaa88'} }, 'searchcount', 'encoding'},
-        lualine_y = {'progress'},
-        lualine_z = {'location'}
-    },
-    inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {'filename'},
-        lualine_x = {'location'},
-        lualine_y = {},
-        lualine_z = {}
-    },
-    tabline = {
-        lualine_a = {},
-        lualine_b = {{'buffers', icons_enabled = false, symbols = { alternate_file = ''}}},
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {}
-        },
-    winbar = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {}
-        },
-    inactive_winbar = {},
-    extensions = {}
-}
+local options = {noremap = true, silent = true}
+vim.keymap.set('i', 'jk', '<Esc>', options)
+
+-- Fast quit
+vim.keymap.set('n', '<Leader>w', ':w<CR>', options)
+vim.keymap.set('n', '<Leader>x', ':x<CR>', options)
+vim.keymap.set('n', '<Leader>q', ':q<CR>', options)
+
+-- Search toggle
+vim.keymap.set('n', '<Leader>/', ':set hlsearch!<CR>', options)
+
+-- Fold
+vim.keymap.set('n', '<F8>', 'zM', options)
+vim.keymap.set('n', '<F10>', 'zR', options)
+
+--Buffer stuff. Buffer == Ctrl
+vim.keymap.set('n', '<C-h>', ':bp<CR>', options)
+vim.keymap.set('n', '<C-l>', ':bn<CR>', options)
+vim.keymap.set('n', '<Leader>bd', ':bp <BAR> bd #<CR>', options)
+
+-- Global copy and paste
+vim.keymap.set({'n', 'v'}, '<C-y>', '"+y', options)
+vim.keymap.set({'n', 'v'}, '<C-p>', '"+gp', options)
+vim.keymap.set('i', '<C-p>', '<C-r><C-p>+', options)
+
+-- > and < 
+vim.keymap.set('v', '<', '<gv', options)
+vim.keymap.set('v', '>', '>gv', options)
+
+-- Toggle spell
+vim.keymap.set({'n','v','i'}, '<F7>', ':setlocal spell! <CR>', options)
+
