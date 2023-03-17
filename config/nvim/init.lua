@@ -21,10 +21,8 @@ require("lazy").setup({
     'vim-airline/vim-airline-themes',               			-- Themes for vim-airline
     {'nvim-treesitter/nvim-treesitter', build = ":TSUpdate"}, 
     'dense-analysis/ale',                           			-- The BIG syntax wrapper. Substitute of syntastic
-    'godlygeek/tabular',                            			-- Allow tables on markdown plugin
     'elzr/vim-json',                                			-- Json better suport 
     'embear/vim-localvimrc',                        			-- For local .lvimrc files
-    'plasticboy/vim-markdown',
     {'Shougo/deoplete.nvim', build = ':UpdateRemotePlugins'},   -- Completion framework. Requires pip install msgpack-python pynvim
     'sirver/ultisnips',                     				    -- Snippets manager
     'honza/vim-snippets',                   				    -- Snippets
@@ -33,6 +31,7 @@ require("lazy").setup({
     'lervag/vimtex',
     'KeitaNakamura/tex-conceal.vim',		    			    -- A vim plugin extends the Conceal feature for LaTeX.
     {'nvim-telescope/telescope.nvim', tag = '0.1.1', dependencies = { 'nvim-lua/plenary.nvim' } },
+    'ixru/nvim-markdown',
     'dhruvasagar/vim-table-mode',                       		-- Tables on markdown
     'dag/vim-fish',                                     		-- Fish script support
     'jiangmiao/auto-pairs',                             		-- Automatic pairs
@@ -51,14 +50,15 @@ vim.g.ale_completion_enabled = 1
 -- vim-localvimrc
 vim.g.localvimrc_ask = 0                            	-- Doesn't ask before load .lvimrc file
 
--- vim-markdown
-vim.g.vim_markdown_folding_disabled = 0             	-- disable header folding
-vim.g.vim_markdown_conceal = 2
-vim.g.vim_markdown_auto_insert_bullets = 1              -- Inser bullets automaticly on enter. May be problematic with wrapers
-vim.g.vim_markdown_new_list_item_indent = 0             -- No autoident on enter. Better with autobullets
-
 -- deoplete.nvim
 vim.cmd "let g:deoplete#enable_at_startup = 1"
+
+-- nvim-markdown
+vim.g.tex_conceal = ""
+vim.g.vim_markdown_math = 1
+vim.g.vim_markdown_frontmatter = 1
+vim.g.vim_markdown_toml_frontmatter = 1
+vim.g.vim_markdown_json_frontmatter = 1
 
 -- vim-ultisnips
 vim.g.UltiSnipsExpandTrigger="<tab>"        		    -- Trigger configuration for expand
