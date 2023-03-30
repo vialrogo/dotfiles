@@ -19,7 +19,7 @@ require("lazy").setup({
     'nvim-lualine/lualine.nvim',                    			-- Status line substitute
     'kyazdani42/nvim-web-devicons',					            -- If you want to have icons in your statusline choose one of these
     'vim-airline/vim-airline-themes',               			-- Themes for vim-airline
-    {'nvim-treesitter/nvim-treesitter', build = ":TSUpdate"}, 
+    {'nvim-treesitter/nvim-treesitter', build = ":TSUpdate"},   -- Code highlighting  
     'dense-analysis/ale',                           			-- The BIG syntax wrapper. Substitute of syntastic
     'elzr/vim-json',                                			-- Json better suport 
     'embear/vim-localvimrc',                        			-- For local .lvimrc files
@@ -39,6 +39,10 @@ require("lazy").setup({
     'lambdalisue/suda.vim',                             		-- Edit like sudo plugin
     'safv12/andromeda.vim',                             		-- Andromeda theme
     'rebelot/kanagawa.nvim',                            		-- Kanagawa theme
+    {'iamcco/markdown-preview.nvim',
+        ft = "markdown",
+        build = ":call mkdp#util#install()",                    -- build = "cd app && yarn install",
+    },
 })
 
 -- vim-airline-theme
