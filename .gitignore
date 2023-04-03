@@ -2,6 +2,7 @@ config/nvim/spell
 config/nvim/shada
 config/nvim/plugged
 config/nvim/autoload/plug.vim
+config/nvim/lazy-lock.json
 
 config/fish/completions
 config/fish/conf.d
