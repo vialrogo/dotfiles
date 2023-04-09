@@ -16,7 +16,6 @@ vim.opt.undolevels=1000                 --use many levels of undo
 vim.opt.title=true                      --change the terminal's title
 vim.opt.backup=false                    --Oh, and man… never ever let Vim write a backup file! They did that in the 70’s. 
 vim.opt.swapfile=false                  --Use modern ways for tracking your changes, for God’s sake.
-vim.opt.pastetoggle="<F2>"              --Then, when in insert mode, ready to paste, press <F2>, Vim will switch to paste mode, disabling all kinds of smartness
 vim.opt.fileencoding="utf-8"
 vim.opt.spelllang="pt_br"               --Set the spell language
 vim.opt.cursorline=true                 --Set the current cursorline highlight
@@ -29,5 +28,5 @@ vim.opt.joinspaces=false                --Remove de second spaces with join (J) 
 vim.opt.hidden=true                     --Open new buffer without saving to a currently modified file
 vim.opt.foldmethod="syntax"             --Set foldmethod
 vim.opt.termguicolors=true              --Enables 24-bit RGB color in the TUI.
-vim.opt.ma=true                         --Modificable
+vim.opt.modifiable=true                         --Modificable
 

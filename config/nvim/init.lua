@@ -43,6 +43,7 @@ require("lazy").setup({
         ft = "markdown",
         build = ":call mkdp#util#install()",                    -- build = "cd app && yarn install",
     },
+    {'neoclide/coc.nvim', branch = 'release'},                  -- coc for vscode completation style
 })
 
 -- vim-airline-theme
@@ -86,6 +87,11 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
+-- coc
+-- On new systems run:
+-- :CocInstall coc-tsserver coc-json coc-html coc-css coc-vimtex coc-texlab coc-json coc-git coc-clangd coc-cmake coc-docker coc-markdownlint coc-omnisharp coc-sql 
+-- To update all extensions use :CocUpdate , for list extensions :CocList extensions
+
 -- ------------------------------ Requires -----------------------------------
 require('lualine_setup')
 require('sets')
@@ -127,7 +133,6 @@ vim.keymap.set({'n','v','i'}, '<F7>', ':setlocal spell! <CR>', options)
 -- ------------------------------ CMDs ---------------------------------------
 vim.cmd "autocmd BufRead * normal zR"
 vim.cmd "autocmd BufEnter * silent! lcd %:p:h"
-vim.cmd "command W :execute ':silent w !sudo tee % > /dev/null' | :edit!"
 
 
 -- ----------------------- Look and feel options -----------------------------
