@@ -15,48 +15,36 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    'rafi/awesome-vim-colorschemes',                    		-- Collection of awesome color schemes for Vim, merged for quick use.
     'nvim-lualine/lualine.nvim',                    			-- Status line substitute
-    'kyazdani42/nvim-web-devicons',					            -- If you want to have icons in your statusline choose one of these
-    'vim-airline/vim-airline-themes',               			-- Themes for vim-airline
-    {'nvim-treesitter/nvim-treesitter', build = ":TSUpdate"},   -- Code highlighting  
-    'dense-analysis/ale',                           			-- The BIG syntax wrapper. Substitute of syntastic
-    'elzr/vim-json',                                			-- Json better suport 
-    'embear/vim-localvimrc',                        			-- For local .lvimrc files
-    {'Shougo/deoplete.nvim', build = ':UpdateRemotePlugins'},   -- Completion framework. Requires pip install msgpack-python pynvim
-    'sirver/ultisnips',                     				    -- Snippets manager
-    'honza/vim-snippets',                   				    -- Snippets
-    'tpope/vim-commentary',                 				    --  Comment stuff out.
-    'tpope/vim-repeat',                     				    -- Repeat.vim remaps . in a way that plugins can tap into it.
-    'lervag/vimtex',
-    'KeitaNakamura/tex-conceal.vim',		    			    -- A vim plugin extends the Conceal feature for LaTeX.
-    {'nvim-telescope/telescope.nvim', tag = '0.1.1', dependencies = { 'nvim-lua/plenary.nvim' } },
-    'ixru/nvim-markdown',
-    'dhruvasagar/vim-table-mode',                       		-- Tables on markdown
-    'dag/vim-fish',                                     		-- Fish script support
-    'jiangmiao/auto-pairs',                             		-- Automatic pairs
-    'OmniSharp/omnisharp-vim',                          		-- C# extension
-    'lambdalisue/suda.vim',                             		-- Edit like sudo plugin
-    'safv12/andromeda.vim',                             		-- Andromeda theme
-    'rebelot/kanagawa.nvim',                            		-- Kanagawa theme
-    {'iamcco/markdown-preview.nvim',
+    {'nvim-treesitter/nvim-treesitter',                         -- Code highlighting  
+        build = ":TSUpdate"
+    },
+    {'nvim-telescope/telescope.nvim',                           -- File explorer and more
+        tag = '0.1.1', 
+        dependencies = { 'nvim-lua/plenary.nvim' } 
+    },
+    {'iamcco/markdown-preview.nvim',                            -- Markdown preview in browser
         ft = "markdown",
         build = ":call mkdp#util#install()",                    -- build = "cd app && yarn install",
     },
-    {'neoclide/coc.nvim', branch = 'release'},                  -- coc for vscode completation style
+    {'neoclide/coc.nvim',                                       -- coc for vscode completation style 
+        branch = 'release',
+    },                  
+    'embear/vim-localvimrc',                        			-- For local .lvimrc files
+    'tpope/vim-commentary',                 				    -- Comment stuff out.
+    'tpope/vim-repeat',                     				    -- Repeat.vim remaps . in a way that plugins can tap into it.
+    'jiangmiao/auto-pairs',                             		-- Automatic pairs
+    'lambdalisue/suda.vim',                             		-- Edit like sudo plugin
+    'lervag/vimtex',                                            -- Greate latex support for vim
+    'KeitaNakamura/tex-conceal.vim',		    			    -- A vim plugin extends the Conceal feature for LaTeX.
+    'ixru/nvim-markdown',                                       -- Extended markdown suport for vim
+    'dhruvasagar/vim-table-mode',                       		-- Tables on markdown
+    'rafi/awesome-vim-colorschemes',                    		-- Collection of awesome color schemes for Vim, merged for quick use.
+    'rebelot/kanagawa.nvim',                            		-- Kanagawa theme
 })
 
--- vim-airline-theme
-vim.g.airline_theme='term'
-
--- ale
-vim.g.ale_completion_enabled = 1
-
 -- vim-localvimrc
-vim.g.localvimrc_ask = 0                            	-- Doesn't ask before load .lvimrc file
-
--- deoplete.nvim
-vim.cmd "let g:deoplete#enable_at_startup = 1"
+vim.g.localvimrc_ask = 0                            	        -- Doesn't ask before load .lvimrc file
 
 -- nvim-markdown
 vim.g.tex_conceal = ""
@@ -65,20 +53,13 @@ vim.g.vim_markdown_frontmatter = 1
 vim.g.vim_markdown_toml_frontmatter = 1
 vim.g.vim_markdown_json_frontmatter = 1
 
--- vim-ultisnips
-vim.g.UltiSnipsExpandTrigger="<tab>"        		    -- Trigger configuration for expand
-vim.g.UltiSnipsListSnippets="<c-tab>"
-vim.g.UltiSnipsJumpForwardTrigger="<c-j>"   		    -- Next trigger
-vim.g.UltiSnipsJumpBackwardTrigger="<c-k>"  		    -- Previous trigger
-vim.g.UltiSnipsEditSplit="vertical"         		    -- If you want :UltiSnipsEdit to split your window.
-    
 -- vimtex
-vim.g.tex_flavor = "latex"                  	        -- Define latex by default for any *.tex file
+vim.g.tex_flavor = "latex"                  	                -- Define latex by default for any *.tex file
 
 -- tex-conceal
-vim.g.tex_conceal = "abdmgs"                            -- Set to: a->accents/ligatures, b->bold/italic, c->delimiters, m->math, g->greek, s -> super/subscripts. Default is admgs
-vim.g.tex_superscripts= "[0-9a-zA-W.,:;+-<>/()=]"       -- To avoid having inscrutable utf-8 glyphs appear,
-vim.g.tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"   -- To avoid having inscrutable utf-8 glyphs appear,
+vim.g.tex_conceal = "abdmgs"                                    -- Set to: a->accents/ligatures, b->bold/italic, c->delimiters, m->math, g->greek, s -> super/subscripts.
+vim.g.tex_superscripts= "[0-9a-zA-W.,:;+-<>/()=]"               -- To avoid having inscrutable utf-8 glyphs appear,
+vim.g.tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"           -- To avoid having inscrutable utf-8 glyphs appear,
 
 -- telescope
 local builtin = require('telescope.builtin')
@@ -89,14 +70,15 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
 -- coc
 -- On new systems run:
--- :CocInstall coc-tsserver coc-json coc-html coc-css coc-vimtex coc-texlab coc-json coc-git coc-clangd coc-cmake coc-docker coc-markdownlint coc-omnisharp coc-sql 
+-- :CocInstall coc-snippets coc-tsserver coc-json coc-html coc-css coc-vimtex coc-texlab coc-json coc-git coc-clangd coc-cmake coc-docker coc-markdownlint coc-omnisharp coc-sql 
 -- To update all extensions use :CocUpdate , for list extensions :CocList extensions
 
 -- ------------------------------ Requires -----------------------------------
 require('lualine_setup')
+require('coc_setup')
 require('sets')
 
--- ------------------------------ SETs ---------------------------------------
+-- ------------------------------ Keymaps ---------------------------------------
 local options = {noremap = true, silent = true}
 vim.keymap.set('i', 'jk', '<Esc>', options)
 
