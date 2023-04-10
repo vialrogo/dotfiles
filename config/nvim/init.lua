@@ -112,21 +112,13 @@ vim.keymap.set('v', '>', '>gv', options)
 vim.keymap.set({'n','v','i'}, '<F7>', ':setlocal spell! <CR>', options)
 
 
--- ------------------------------ CMDs ---------------------------------------
-vim.cmd "autocmd BufRead * normal zR"
-vim.cmd "autocmd BufEnter * silent! lcd %:p:h"
-
-
 -- ----------------------- Look and feel options -----------------------------
-vim.cmd "colorscheme kanagawa"
+vim.cmd.colorscheme('kanagawa')
+vim.opt.guifont = { 'Cascadia Code SemiLight', 'h13' }
+vim.g.neovide_hide_mouse_when_typing = false
 
-vim.cmd [[
-if exists("g:neovide")
-    " neovide-specific configuration goes here
-    set guifont=Cascadia\ Code\ SemiLight:h13
-    let g:neovide_hide_mouse_when_typing = v:false
-endif
-]]
 
--- Link the Conceal highlight configuration to the Normal configuration.
-vim.cmd "highlight! link Conceal Normal" 
+-- ------------------------------ Others ---------------------------------------
+vim.api.nvim_create_autocmd("BufRead", { pattern = "*", command = [[normal zR]] })                  -- Set de fold to all open.
+vim.api.nvim_create_autocmd("BufEnter", { pattern = "*", command = [[silent! lcd %:p:h]] })         -- Set the pwd to the open buffer.
+vim.api.nvim_set_hl(0, 'Conceal', { link = 'Normal' })                                              -- Link the Conceal highlight configuration to the Normal configuration.
