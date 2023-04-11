@@ -21,13 +21,21 @@ require("lazy").setup({
     },
     {'nvim-telescope/telescope.nvim',                           -- File explorer and more
         tag = '0.1.1', 
-        dependencies = { 'nvim-lua/plenary.nvim' } 
+        dependencies = { 'nvim-lua/plenary.nvim' },
+        keys = {
+            { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+            { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
+            { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
+            { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help tags" },
+        },
     },
     {'iamcco/markdown-preview.nvim',                            -- Markdown preview in browser
         ft = "markdown",
         build = ":call mkdp#util#install()",                    -- build = "cd app && yarn install",
     },
     {'neoclide/coc.nvim',                                       -- coc for vscode completation style 
+        -- :CocInstall coc-snippets coc-tsserver coc-json coc-html coc-css coc-vimtex coc-texlab coc-json coc-git coc-clangd coc-cmake coc-docker coc-markdownlint coc-omnisharp coc-sql 
+        -- To update all extensions use :CocUpdate , for list extensions :CocList extensions
         branch = 'release',
     },                  
     'embear/vim-localvimrc',                        			-- For local .lvimrc files
@@ -61,17 +69,6 @@ vim.g.tex_conceal = "abdmgs"                                    -- Set to: a->ac
 vim.g.tex_superscripts= "[0-9a-zA-W.,:;+-<>/()=]"               -- To avoid having inscrutable utf-8 glyphs appear,
 vim.g.tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"           -- To avoid having inscrutable utf-8 glyphs appear,
 
--- telescope
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-
--- coc
--- On new systems run:
--- :CocInstall coc-snippets coc-tsserver coc-json coc-html coc-css coc-vimtex coc-texlab coc-json coc-git coc-clangd coc-cmake coc-docker coc-markdownlint coc-omnisharp coc-sql 
--- To update all extensions use :CocUpdate , for list extensions :CocList extensions
 
 -- ------------------------------ Requires -----------------------------------
 require('lualine_setup')
