@@ -49,6 +49,7 @@ require("lazy").setup({
     'dhruvasagar/vim-table-mode',                       		-- Tables on markdown
     'rafi/awesome-vim-colorschemes',                    		-- Collection of awesome color schemes for Vim, merged for quick use.
     'rebelot/kanagawa.nvim',                            		-- Kanagawa theme
+    'lukas-reineke/indent-blankline.nvim',                      -- Identation lines
 })
 
 -- vim-localvimrc
@@ -69,6 +70,14 @@ vim.g.tex_conceal = "abdmgs"                                    -- Set to: a->ac
 vim.g.tex_superscripts= "[0-9a-zA-W.,:;+-<>/()=]"               -- To avoid having inscrutable utf-8 glyphs appear,
 vim.g.tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"           -- To avoid having inscrutable utf-8 glyphs appear,
 
+-- indent-blankline
+vim.opt.list = true
+
+require("indent_blankline").setup {
+    show_end_of_line = true,
+    space_char_blankline = " ",
+    show_current_context = true,
+}
 
 -- ------------------------------ Requires -----------------------------------
 require('lualine_setup')
