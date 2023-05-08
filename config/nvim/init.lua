@@ -38,22 +38,23 @@ require("lazy").setup({
         -- To update all extensions use :CocUpdate , for list extensions :CocList extensions
         branch = 'release',
     },                  
-    'embear/vim-localvimrc',                        			-- For local .lvimrc files
-    'tpope/vim-commentary',                 				    -- Comment stuff out.
-    'tpope/vim-repeat',                     				    -- Repeat.vim remaps . in a way that plugins can tap into it.
-    'jiangmiao/auto-pairs',                             		-- Automatic pairs
-    'lambdalisue/suda.vim',                             		-- Edit like sudo plugin
+    'embear/vim-localvimrc',                                    -- For local .lvimrc files
+    'tpope/vim-commentary',                                     -- Comment stuff out.
+    'tpope/vim-repeat',                                         -- Repeat.vim remaps . in a way that plugins can tap into it.
+    'jiangmiao/auto-pairs',                                     -- Automatic pairs
+    'lambdalisue/suda.vim',                                     -- Edit like sudo plugin
     'lervag/vimtex',                                            -- Greate latex support for vim
-    'KeitaNakamura/tex-conceal.vim',		    			    -- A vim plugin extends the Conceal feature for LaTeX.
+    'KeitaNakamura/tex-conceal.vim',                            -- A vim plugin extends the Conceal feature for LaTeX.
     'ixru/nvim-markdown',                                       -- Extended markdown suport for vim
-    'dhruvasagar/vim-table-mode',                       		-- Tables on markdown
-    'rafi/awesome-vim-colorschemes',                    		-- Collection of awesome color schemes for Vim, merged for quick use.
-    'rebelot/kanagawa.nvim',                            		-- Kanagawa theme
+    'dhruvasagar/vim-table-mode',                               -- Tables on markdown
+    'rafi/awesome-vim-colorschemes',                            -- Collection of awesome color schemes for Vim, merged for quick use.
+    'rebelot/kanagawa.nvim',                                    -- Kanagawa theme
     'lukas-reineke/indent-blankline.nvim',                      -- Identation lines
+    'lervag/wiki.vim',                                          -- Wiki for notes
 })
 
 -- vim-localvimrc
-vim.g.localvimrc_ask = 0                            	        -- Doesn't ask before load .lvimrc file
+vim.g.localvimrc_ask = 0                                        -- Doesn't ask before load .lvimrc file
 
 -- nvim-markdown
 vim.g.tex_conceal = ""
@@ -78,6 +79,9 @@ require("indent_blankline").setup {
     space_char_blankline = " ",
     show_current_context = true,
 }
+
+-- wiki.vim
+vim.g.wiki_root = '~/Wiki'
 
 -- ------------------------------ Requires -----------------------------------
 require('lualine_setup')
