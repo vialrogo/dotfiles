@@ -81,7 +81,7 @@ require("indent_blankline").setup {
 }
 
 -- wiki.vim
-vim.g.wiki_root = '~/Wiki'
+vim.g.wiki_root = 'C:/Users/vialr/My Drive (vialrogo@gmail.com)/Wiki'
 
 -- ------------------------------ Requires -----------------------------------
 require('lualine_setup')
@@ -91,7 +91,7 @@ require('keymaps')
 
 -- ----------------------- Look and feel options -----------------------------
 vim.cmd.colorscheme('kanagawa')
-vim.opt.guifont = { 'Cascadia Code SemiLight', 'h13' }
+-- vim.opt.guifont = { '*' }
 vim.g.neovide_hide_mouse_when_typing = false
 
 
