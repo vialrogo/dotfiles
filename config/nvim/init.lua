@@ -51,6 +51,8 @@ require("lazy").setup({
     'rebelot/kanagawa.nvim',                                    -- Kanagawa theme
     'lukas-reineke/indent-blankline.nvim',                      -- Identation lines
     'lervag/wiki.vim',                                          -- Wiki for notes
+    'lervag/wiki-ft.vim',                                       -- .wiki files suport
+    'lervag/lists.vim',                                         -- list suport for md/wiki files
 })
 
 -- vim-localvimrc
@@ -82,6 +84,14 @@ require("indent_blankline").setup {
 
 -- wiki.vim
 vim.g.wiki_root = '~/Wiki'
+
+-- wiki-ft.vim
+vim.g.wiki_filetypes = {'wiki'}
+
+-- lists.vim
+vim.g.lists_filetypes = {'wiki'}
+vim.keymap.set('n', '<C-s>', ':ListsToggle<CR>', options)
+vim.keymap.set('n', '<C-c>', ':ListsToggleCheckbox<CR>', options)
 
 -- ------------------------------ Requires -----------------------------------
 require('lualine_setup')
