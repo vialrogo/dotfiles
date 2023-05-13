@@ -84,8 +84,6 @@ require("indent_blankline").setup {
 
 -- wiki.vim
 vim.g.wiki_root = '~/Wiki'
-
--- wiki-ft.vim
 vim.g.wiki_filetypes = {'wiki'}
 
 -- lists.vim
