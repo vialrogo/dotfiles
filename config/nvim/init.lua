@@ -51,6 +51,8 @@ require("lazy").setup({
     'rebelot/kanagawa.nvim',                                    -- Kanagawa theme
     'lukas-reineke/indent-blankline.nvim',                      -- Identation lines
     'lervag/wiki.vim',                                          -- Wiki for notes
+    'lervag/wiki-ft.vim',                                       -- .wiki files suport
+    'lervag/lists.vim',                                         -- list suport for md/wiki files
 })
 
 -- vim-localvimrc
@@ -82,6 +84,13 @@ require("indent_blankline").setup {
 
 -- wiki.vim
 vim.g.wiki_root = 'C:/Users/vialr/My Drive (vialrogo@gmail.com)/Wiki'
+vim.g.wiki_filetypes = {'wiki'}
+
+
+-- lists.vim
+vim.g.lists_filetypes = {'wiki'}
+vim.keymap.set('n', '<C-s>', ':ListsToggle<CR>', options)
+vim.keymap.set('n', '<C-c>', ':ListsToggleCheckbox<CR>', options)
 
 -- ------------------------------ Requires -----------------------------------
 require('lualine_setup')
@@ -96,6 +105,11 @@ vim.g.neovide_hide_mouse_when_typing = false
 
 
 -- ------------------------------ Others ---------------------------------------
+vim.api.nvim_create_autocmd('Filetype', { pattern = 'wiki', command = [[WikiEnable]] })
+vim.api.nvim_create_autocmd('Filetype', { pattern = 'wiki', command = [[ListsEnable]] })
+vim.api.nvim_create_autocmd('Filetype', { pattern = 'wiki', command = [[setlocal wrap]] })
+
 vim.api.nvim_create_autocmd("BufRead", { pattern = "*", command = [[normal zR]] })                  -- Set de fold to all open.
 vim.api.nvim_create_autocmd("BufEnter", { pattern = "*", command = [[silent! lcd %:p:h]] })         -- Set the pwd to the open buffer.
+
 vim.api.nvim_set_hl(0, 'Conceal', { link = 'Normal' })                                              -- Link the Conceal highlight configuration to the Normal configuration.
