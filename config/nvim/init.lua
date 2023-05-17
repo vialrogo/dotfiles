@@ -27,6 +27,7 @@ require("lazy").setup({
             { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
             { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
             { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help tags" },
+            { "<leader>fd", "<cmd>Telescope find_files cwd=~/Wiki<cr>", desc = "Find Files in Wiki" },
         },
     },
     {'iamcco/markdown-preview.nvim',                            -- Markdown preview in browser
@@ -85,7 +86,6 @@ require("indent_blankline").setup {
 -- wiki.vim
 vim.g.wiki_root = '~/Wiki'
 vim.g.wiki_filetypes = {'wiki'}
-vim.keymap.set('n', '<leader>fd', ':Telescope find_files cwd=~/Wiki <CR>', {noremap = true, silent = true})
 
 -- lists.vim
 vim.g.lists_filetypes = {'wiki'}
