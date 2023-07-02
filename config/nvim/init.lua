@@ -38,7 +38,16 @@ require("lazy").setup({
         -- :CocInstall coc-snippets coc-tsserver coc-json coc-html coc-css coc-vimtex coc-texlab coc-json coc-git coc-clangd coc-cmake coc-docker coc-markdownlint coc-omnisharp coc-sql 
         -- To update all extensions use :CocUpdate , for list extensions :CocList extensions
         branch = 'release',
-    },                  
+    },
+    {'kylechui/nvim-surround',
+        version = "*", -- Use for stability; omit to use `main` branch for the latest features
+        event = "VeryLazy",
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end
+    },
     'embear/vim-localvimrc',                                    -- For local .lvimrc files
     'tpope/vim-commentary',                                     -- Comment stuff out.
     'tpope/vim-repeat',                                         -- Repeat.vim remaps . in a way that plugins can tap into it.
