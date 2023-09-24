@@ -30,12 +30,9 @@ require("lazy").setup({
             { "<leader>fd", "<cmd>Telescope find_files cwd=~/Wiki<cr>", desc = "Find Files in Wiki" },
         },
     },
-    {'iamcco/markdown-preview.nvim',                            -- Markdown preview in browser
-        ft = "markdown",
-        build = ":call mkdp#util#install()",                    -- build = "cd app && yarn install",
-    },
     {'neoclide/coc.nvim',                                       -- coc for vscode completation style 
-        -- :CocInstall coc-snippets coc-tsserver coc-json coc-html coc-css coc-vimtex coc-texlab coc-json coc-git coc-clangd coc-cmake coc-docker coc-markdownlint coc-omnisharp coc-sql 
+        -- :CocInstall coc-snippets coc-tsserver coc-json coc-html coc-css coc-vimtex coc-texlab coc-json coc-git coc-clangd coc-cmake coc-docker 
+        -- :CocInstall coc-markdownlint coc-omnisharp coc-sql 
         -- To update all extensions use :CocUpdate , for list extensions :CocList extensions
         branch = 'release',
     },
@@ -43,26 +40,33 @@ require("lazy").setup({
         version = "*", -- Use for stability; omit to use `main` branch for the latest features
         event = "VeryLazy",
         config = function()
-            require("nvim-surround").setup({
-                -- Configuration here, or leave empty to use defaults
-            })
+            require("nvim-surround").setup({  })
         end
     },
-    'embear/vim-localvimrc',                                    -- For local .lvimrc files
+    'embear/vim-localvimrc',                                    -- For local .lvimrc files.
     'tpope/vim-commentary',                                     -- Comment stuff out.
     'tpope/vim-repeat',                                         -- Repeat.vim remaps . in a way that plugins can tap into it.
-    'jiangmiao/auto-pairs',                                     -- Automatic pairs
-    'lambdalisue/suda.vim',                                     -- Edit like sudo plugin
-    'lervag/vimtex',                                            -- Greate latex support for vim
+    'jiangmiao/auto-pairs',                                     -- Automatic pairs.
+    'lambdalisue/suda.vim',                                     -- Edit like sudo plugin.
+    'lervag/vimtex',                                            -- Greate latex support for vim.
     'KeitaNakamura/tex-conceal.vim',                            -- A vim plugin extends the Conceal feature for LaTeX.
-    'dhruvasagar/vim-table-mode',                               -- Tables on markdown
+    'dhruvasagar/vim-table-mode',                               -- Tables on markdown.
     'rafi/awesome-vim-colorschemes',                            -- Collection of awesome color schemes for Vim, merged for quick use.
-    'rebelot/kanagawa.nvim',                                    -- Kanagawa theme
-    'lukas-reineke/indent-blankline.nvim',                      -- Identation lines
-    'lervag/wiki.vim',                                          -- Wiki for notes
-    'lervag/wiki-ft.vim',                                       -- .wiki files suport
-    'lervag/lists.vim',                                         -- list suport for md/wiki files
+    'rebelot/kanagawa.nvim',                                    -- Kanagawa theme.
+    'lukas-reineke/indent-blankline.nvim',                      -- Identation lines.
+    'lervag/wiki.vim',                                          -- Wiki for notes.
+    'lervag/wiki-ft.vim',                                       -- .wiki files suport.
+    'lervag/lists.vim',                                         -- list suport for md/wiki files.
+    'dkarter/bullets.vim',                                      -- Better bullets and list in markdown files.
+    'folke/paint.nvim',                                         -- Add filter options. I used it to change header level color on markdownsa.
 })
+
+-- ------------------------------ Requires -----------------------------------
+require('lualine_setup')
+require('coc_setup')
+require('paint_setup')
+require('sets')
+require('keymaps')
 
 -- vim-localvimrc
 vim.g.localvimrc_ask = 0                                        -- Doesn't ask before load .lvimrc file
@@ -93,11 +97,9 @@ vim.g.lists_filetypes = {'wiki'}
 vim.keymap.set('n', '<C-s>', ':ListsToggle<CR>', {noremap = true, silent = true})
 vim.keymap.set('n', '<C-c>', ':ListsToggleCheckbox<CR>', {noremap = true, silent = true})
 
--- ------------------------------ Requires -----------------------------------
-require('lualine_setup')
-require('coc_setup')
-require('sets')
-require('keymaps')
+-- bullets.vim
+vim.g.bullets_enabled_file_types = "['markdown','wiki','text','gitcommit']"
+vim.g.bullets_pad_right = 0
 
 -- ----------------------- Look and feel options -----------------------------
 vim.cmd.colorscheme('kanagawa')
