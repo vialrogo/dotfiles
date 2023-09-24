@@ -43,7 +43,3 @@ set -Ux WINEPREFIX "$XDG_DATA_HOME/wine"
 set -Ux XINITRC "$XDG_CONFIG_HOME/X11/xinitrc"
 set -Ux XAUTHORITY "$XDG_RUNTIME_DIR/Xauthority"
 
-alias svn "svn --config-dir $XDG_CONFIG_HOME/subversion"
-alias wget "wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
-alias vpn_sabesp="cat ~/Documents/vpn_sabesp_password.txt | sudo openconnect https://vpn.sabesp.com.br --useragent=AnyConnect --user=vgonzalez.fcth --authgroup=VPN_Terceiros --passwd-on-stdin"
-# alias vpn_sabesp="echo \"\$44Snha44\$\" | sudo openconnect https://vpn.sabesp.com.br --useragent=AnyConnect --user=vgonzalez.fcth --authgroup=VPN_Terceiros --passwd-on-stdin"

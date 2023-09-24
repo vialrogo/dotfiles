@@ -55,7 +55,6 @@ require("lazy").setup({
     'lambdalisue/suda.vim',                                     -- Edit like sudo plugin
     'lervag/vimtex',                                            -- Greate latex support for vim
     'KeitaNakamura/tex-conceal.vim',                            -- A vim plugin extends the Conceal feature for LaTeX.
-    'ixru/nvim-markdown',                                       -- Extended markdown suport for vim
     'dhruvasagar/vim-table-mode',                               -- Tables on markdown
     'rafi/awesome-vim-colorschemes',                            -- Collection of awesome color schemes for Vim, merged for quick use.
     'rebelot/kanagawa.nvim',                                    -- Kanagawa theme
@@ -67,13 +66,6 @@ require("lazy").setup({
 
 -- vim-localvimrc
 vim.g.localvimrc_ask = 0                                        -- Doesn't ask before load .lvimrc file
-
--- nvim-markdown
-vim.g.tex_conceal = ""
-vim.g.vim_markdown_math = 1
-vim.g.vim_markdown_frontmatter = 1
-vim.g.vim_markdown_toml_frontmatter = 1
-vim.g.vim_markdown_json_frontmatter = 1
 
 -- vimtex
 vim.g.tex_flavor = "latex"                  	                -- Define latex by default for any *.tex file
