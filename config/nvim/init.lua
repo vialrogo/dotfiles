@@ -53,7 +53,10 @@ require("lazy").setup({
     'dhruvasagar/vim-table-mode',                               -- Tables on markdown.
     'rafi/awesome-vim-colorschemes',                            -- Collection of awesome color schemes for Vim, merged for quick use.
     'rebelot/kanagawa.nvim',                                    -- Kanagawa theme.
-    'lukas-reineke/indent-blankline.nvim',                      -- Identation lines.
+    {'lukas-reineke/indent-blankline.nvim',                     -- Identation lines.
+        main = 'ibl',
+        opts = {}
+    },
     'lervag/wiki.vim',                                          -- Wiki for notes.
     'lervag/wiki-ft.vim',                                       -- .wiki files suport.
     'lervag/lists.vim',                                         -- list suport for md/wiki files.
@@ -81,12 +84,6 @@ vim.g.tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"           -- To avoid havi
 
 -- indent-blankline
 vim.opt.list = true
-
-require("indent_blankline").setup {
-    show_end_of_line = true,
-    space_char_blankline = " ",
-    show_current_context = true,
-}
 
 -- wiki.vim
 vim.g.wiki_root = '~/Wiki'

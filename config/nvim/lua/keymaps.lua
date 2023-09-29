@@ -19,6 +19,7 @@ vim.keymap.set('n', '<C-l>', ':bn<CR>', options)
 vim.keymap.set('n', '<Leader>bd', ':bp <BAR> bd #<CR>', options)
 
 -- Global copy and paste
+vim.opt.clipboard = 'unnamedplus'
 vim.keymap.set({'n', 'v'}, '<C-y>', '"+y', options)
 vim.keymap.set({'n', 'v'}, '<C-p>', '"+gp', options)
 vim.keymap.set('i', '<C-p>', '<C-r><C-p>+', options)
