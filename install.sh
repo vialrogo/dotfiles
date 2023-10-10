@@ -28,7 +28,7 @@
 
 ## 1. Install neovim with pacakge manager
 #
-    yay -S neovim
+    yay -S neovim wl-clipboard
 
 ## 2. Install extra nvim dependences
 #

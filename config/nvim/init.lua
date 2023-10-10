@@ -20,8 +20,11 @@ require("lazy").setup({
         build = ":TSUpdate"
     },
     {'nvim-telescope/telescope.nvim',                           -- File explorer and more
-        tag = '0.1.1', 
-        dependencies = { 'nvim-lua/plenary.nvim' },
+        tag = '0.1.3', 
+        dependencies = {'nvim-lua/plenary.nvim', 
+                        'BurntSushi/ripgrep',
+                        'sharkdp/fd',
+                        'nvim-tree/nvim-web-devicons'},
         keys = {
             { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
             { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
@@ -32,7 +35,7 @@ require("lazy").setup({
     },
     {'neoclide/coc.nvim',                                       -- coc for vscode completation style 
         -- :CocInstall coc-snippets coc-tsserver coc-json coc-html coc-css coc-vimtex coc-texlab coc-json coc-git coc-clangd coc-cmake coc-docker 
-        -- :CocInstall coc-markdownlint coc-omnisharp coc-sql 
+        -- :CocInstall coc-omnisharp coc-sql 
         -- To update all extensions use :CocUpdate , for list extensions :CocList extensions
         branch = 'release',
     },
