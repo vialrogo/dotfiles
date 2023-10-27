@@ -30,4 +30,4 @@ vim.opt.hidden=true                     --Open new buffer without saving to a cu
 vim.opt.foldmethod="syntax"             --Set foldmethod
 vim.opt.termguicolors=true              --Enables 24-bit RGB color in the TUI.
 vim.opt.modifiable=true                 --Modificable
-
+vim.opt.clipboard="unnamedplus"         --Use clipboard for copy/paste 
