@@ -93,3 +93,4 @@ websockets=0
 freerdp_log_level=INFO
 window_maximize=1
 viewmode=4
+keyboard_grab=0
