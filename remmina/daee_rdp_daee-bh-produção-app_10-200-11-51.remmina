@@ -93,3 +93,6 @@ disable-smooth-scrolling=0
 no-suppress=0
 sound=off
 websockets=0
+window_width=640
+window_height=480
+viewonly=0
