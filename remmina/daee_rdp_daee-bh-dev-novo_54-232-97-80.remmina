@@ -1,5 +1,5 @@
 [remmina]
-password=
+password=.
 gateway_username=
 notes_text=
 vc=
@@ -47,16 +47,16 @@ drive=
 relax-order-checks=0
 base-cred-for-gw=0
 gateway_domain=
-network=none
+profile-lock=0
 rdp2tcp=
 gateway_password=
 serialdriver=
 rdp_reconnect_attempts=
-profile-lock=0
 domain=
 smartcardname=
 multimon=0
 exec=
+network=none
 username=Administrator
 enable-autostart=0
 usb=
