@@ -46,6 +46,15 @@ require("lazy").setup({
             require("nvim-surround").setup({  })
         end
     },
+    {"nvim-tree/nvim-tree.lua",
+        version = "*",
+        lazy = false,
+        dependencies = { "nvim-tree/nvim-web-devicons",
+        },
+        config = function()
+            require("nvim-tree").setup({ })
+        end
+    },
     'embear/vim-localvimrc',                                    -- For local .lvimrc files.
     'tpope/vim-commentary',                                     -- Comment stuff out.
     'tpope/vim-repeat',                                         -- Repeat.vim remaps . in a way that plugins can tap into it.
@@ -101,6 +110,9 @@ vim.keymap.set('n', '<C-c>', ':ListsToggleCheckbox<CR>', {noremap = true, silent
 -- bullets.vim
 vim.g.bullets_enabled_file_types = "['markdown','wiki','text','gitcommit']"
 vim.g.bullets_pad_right = 0
+
+-- nvim-tree.lua
+vim.keymap.set('n', '<F3>', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
 
 -- ----------------------- Look and feel options -----------------------------
 vim.cmd.colorscheme('kanagawa')
