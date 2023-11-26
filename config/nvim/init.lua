@@ -52,7 +52,9 @@ require("lazy").setup({
         dependencies = { "nvim-tree/nvim-web-devicons",
         },
         config = function()
-            require("nvim-tree").setup({ })
+            require("nvim-tree").setup({
+                filters = { dotfiles = true }
+            })
         end
     },
     'embear/vim-localvimrc',                                    -- For local .lvimrc files.
