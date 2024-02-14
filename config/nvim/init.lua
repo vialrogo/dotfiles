@@ -52,9 +52,12 @@ require("lazy").setup({
         dependencies = { "nvim-tree/nvim-web-devicons",
         },
         config = function()
-            require("nvim-tree").setup({ })
+            require("nvim-tree").setup({
+                filters = { dotfiles = true }
+            })
         end
     },
+    'neovim/nvim-lspconfig',
     'embear/vim-localvimrc',                                    -- For local .lvimrc files.
     'tpope/vim-commentary',                                     -- Comment stuff out.
     'tpope/vim-repeat',                                         -- Repeat.vim remaps . in a way that plugins can tap into it.
@@ -82,6 +85,9 @@ require('coc_setup')
 require('paint_setup')
 require('sets')
 require('keymaps')
+
+-- nvim-lspconfig
+require('lspconfig').csharp_ls.setup{}
 
 -- vim-localvimrc
 vim.g.localvimrc_ask = 0                                        -- Doesn't ask before load .lvimrc file
