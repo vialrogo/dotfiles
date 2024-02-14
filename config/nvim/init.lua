@@ -57,6 +57,7 @@ require("lazy").setup({
             })
         end
     },
+    'neovim/nvim-lspconfig',
     'embear/vim-localvimrc',                                    -- For local .lvimrc files.
     'tpope/vim-commentary',                                     -- Comment stuff out.
     'tpope/vim-repeat',                                         -- Repeat.vim remaps . in a way that plugins can tap into it.
@@ -84,6 +85,9 @@ require('coc_setup')
 require('paint_setup')
 require('sets')
 require('keymaps')
+
+-- nvim-lspconfig
+require('lspconfig').csharp_ls.setup{}
 
 -- vim-localvimrc
 vim.g.localvimrc_ask = 0                                        -- Doesn't ask before load .lvimrc file
@@ -117,7 +121,6 @@ vim.keymap.set('n', '<F3>', ':NvimTreeToggle<CR>', {noremap = true, silent = tru
 
 -- ----------------------- Look and feel options -----------------------------
 vim.cmd.colorscheme('kanagawa')
-vim.opt.guifont = { 'Cascadia Code SemiLight', 'h13' }
 vim.g.neovide_hide_mouse_when_typing = false
 
 -- ------------------------------ Others ---------------------------------------
