@@ -121,6 +121,10 @@ vim.keymap.set('n', '<F3>', ':NvimTreeToggle<CR>', {noremap = true, silent = tru
 
 -- ----------------------- Look and feel options -----------------------------
 vim.cmd.colorscheme('kanagawa')
+if vim.g.neovide then
+    vim.opt.guifont = 'Fantasque Sans Mono:h11'
+    -- vim.opt.guifont = 'FiraCode Nerd Font:h10'
+end
 vim.g.neovide_hide_mouse_when_typing = false
 
 -- ------------------------------ Others ---------------------------------------
