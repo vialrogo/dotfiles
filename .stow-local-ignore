@@ -1,3 +1,6 @@
 .git
 .gitignore
 .stow-local-ignore
+README.md
+install.md
+stow.sh
