@@ -2,7 +2,7 @@
 password=.
 gateway_username=
 notes_text=
-window_height=865
+window_height=480
 vc=
 preferipv6=0
 ssh_tunnel_loopback=0
@@ -92,7 +92,7 @@ dvc=
 window_maximize=0
 gateway_usage=0
 gwtransp=http
-window_width=1068
+window_width=640
 freerdp_log_level=INFO
 sound=off
 disable-smooth-scrolling=0

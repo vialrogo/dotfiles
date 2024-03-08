@@ -15,8 +15,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    'nvim-lualine/lualine.nvim',                    			-- Status line substitute
-    {'nvim-treesitter/nvim-treesitter',                         -- Code highlighting  
+    'nvim-lualine/lualine.nvim',                                -- Status line substitute
+    {'neovim/nvim-lspconfig',                                   -- For lsp lenguage servers
+        dependencies =  { 'hrsh7th/cmp-nvim-lsp',
+                          { 'antosha417/nvim-lsp-file-operations', config = true },
+                        },
+    },
+    {'nvim-treesitter/nvim-treesitter',                         -- Code highlighting
         build = ":TSUpdate"
     },
     {'nvim-telescope/telescope.nvim',                           -- File explorer and more
@@ -32,12 +37,6 @@ require("lazy").setup({
             { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help tags" },
             { "<leader>fd", "<cmd>Telescope find_files cwd=~/Wiki<cr>", desc = "Find Files in Wiki" },
         },
-    },
-    {'neoclide/coc.nvim',                                       -- coc for vscode completation style 
-        -- :CocInstall coc-snippets coc-tsserver coc-json coc-html coc-css coc-vimtex coc-texlab coc-json coc-git coc-clangd coc-cmake coc-docker 
-        -- :CocInstall coc-omnisharp coc-sql 
-        -- To update all extensions use :CocUpdate , for list extensions :CocList extensions
-        branch = 'release',
     },
     {'kylechui/nvim-surround',
         version = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -57,7 +56,6 @@ require("lazy").setup({
             })
         end
     },
-    'neovim/nvim-lspconfig',
     'embear/vim-localvimrc',                                    -- For local .lvimrc files.
     'tpope/vim-commentary',                                     -- Comment stuff out.
     'tpope/vim-repeat',                                         -- Repeat.vim remaps . in a way that plugins can tap into it.
@@ -80,14 +78,12 @@ require("lazy").setup({
 })
 
 -- ------------------------------ Requires -----------------------------------
-require('lualine_setup')
-require('coc_setup')
-require('paint_setup')
 require('sets')
 require('keymaps')
-
--- nvim-lspconfig
-require('lspconfig').csharp_ls.setup{}
+require('plugins/lsp')
+require('plugins/lualine')
+require('plugins/paint')
+require('plugins/nvim-cmp')
 
 -- vim-localvimrc
 vim.g.localvimrc_ask = 0                                        -- Doesn't ask before load .lvimrc file
