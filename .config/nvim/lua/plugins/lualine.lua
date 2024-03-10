@@ -44,7 +44,20 @@ return {
             },
             tabline = {
                 lualine_a = {},
-                lualine_b = {{'buffers', icons_enabled = false, symbols = { alternate_file = ''}}},
+                lualine_b = {{  'buffers', 
+                                icons_enabled = true, 
+                                use_mode_colors = true,
+                                show_modified_status = true, -- Shows indicator when the buffer is modified.
+                                buffers_color = {
+                                    active = { fg = '#ff913c'},     -- Color for active buffer.
+                                    inactive = { fg = '#713a0f'}, -- Color for inactive buffer.
+                                },
+                                symbols = {
+                                    modified = ' ●',      -- Text to show when the buffer is modified
+                                    alternate_file = '', -- Text to show to identify the alternate file
+                                    directory =  '',     -- Text to show when the buffer is a directory
+                                },
+                            }},
                 lualine_c = {},
                 lualine_x = {},
                 lualine_y = {},

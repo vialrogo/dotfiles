@@ -12,4 +12,17 @@ return {
         { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help tags" },
         { "<leader>fd", "<cmd>Telescope find_files cwd=~/Wiki<cr>", desc = "Find Files in Wiki" },
     },
+    config = function()
+        require("telescope").setup({
+            defaults = {
+                path_display = { "truncate " },
+                mappings = {
+                    i = {
+                        ["<C-k>"] = require("telescope.actions").move_selection_previous, -- move to prev result
+                        ["<C-j>"] = require("telescope.actions").move_selection_next, -- move to next result
+                    },
+                },
+            },
+        })
+    end,
 }
