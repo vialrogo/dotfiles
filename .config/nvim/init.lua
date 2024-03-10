@@ -1,95 +1,16 @@
 vim.g.mapleader = " "
 
--- ------------------------------ Lazy ---------------------------------------
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup({
-    'nvim-lualine/lualine.nvim',                                -- Status line substitute
-    {'neovim/nvim-lspconfig',                                   -- For lsp lenguage servers
-        dependencies =  { 'hrsh7th/cmp-nvim-lsp',
-                          { 'antosha417/nvim-lsp-file-operations', config = true },
-                        },
-    },
-    {'nvim-treesitter/nvim-treesitter',                         -- Code highlighting
-        build = ":TSUpdate"
-    },
-    {'nvim-telescope/telescope.nvim',                           -- File explorer and more
-        tag = '0.1.3', 
-        dependencies = {'nvim-lua/plenary.nvim', 
-                        'BurntSushi/ripgrep',
-                        'sharkdp/fd',
-                        'nvim-tree/nvim-web-devicons'},
-        keys = {
-            { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
-            { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-            { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
-            { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help tags" },
-            { "<leader>fd", "<cmd>Telescope find_files cwd=~/Wiki<cr>", desc = "Find Files in Wiki" },
-        },
-    },
-    {'kylechui/nvim-surround',
-        version = "*", -- Use for stability; omit to use `main` branch for the latest features
-        event = "VeryLazy",
-        config = function()
-            require("nvim-surround").setup({  })
-        end
-    },
-    {"nvim-tree/nvim-tree.lua",
-        version = "*",
-        lazy = false,
-        dependencies = { "nvim-tree/nvim-web-devicons",
-        },
-        config = function()
-            require("nvim-tree").setup({
-                filters = { dotfiles = true }
-            })
-        end
-    },
-    'embear/vim-localvimrc',                                    -- For local .lvimrc files.
-    'tpope/vim-commentary',                                     -- Comment stuff out.
-    'tpope/vim-repeat',                                         -- Repeat.vim remaps . in a way that plugins can tap into it.
-    'jiangmiao/auto-pairs',                                     -- Automatic pairs.
-    'lambdalisue/suda.vim',                                     -- Edit like sudo plugin.
-    'lervag/vimtex',                                            -- Greate latex support for vim.
-    'KeitaNakamura/tex-conceal.vim',                            -- A vim plugin extends the Conceal feature for LaTeX.
-    'dhruvasagar/vim-table-mode',                               -- Tables on markdown.
-    'rafi/awesome-vim-colorschemes',                            -- Collection of awesome color schemes for Vim, merged for quick use.
-    'rebelot/kanagawa.nvim',                                    -- Kanagawa theme.
-    {'lukas-reineke/indent-blankline.nvim',                     -- Identation lines.
-        main = 'ibl',
-        opts = {}
-    },
-    'lervag/wiki.vim',                                          -- Wiki for notes.
-    'lervag/wiki-ft.vim',                                       -- .wiki files suport.
-    'lervag/lists.vim',                                         -- list suport for md/wiki files.
-    'dkarter/bullets.vim',                                      -- Better bullets and list in markdown files.
-    'folke/paint.nvim',                                         -- Add filter options. I used it to change header level color on markdownsa.
-})
-
--- ------------------------------ Requires -----------------------------------
+require('lazy_conf')
 require('sets')
 require('keymaps')
-require('plugins/lsp')
-require('plugins/lualine')
-require('plugins/paint')
-require('plugins/nvim-cmp')
+-- require('plugins/lsp')
+-- require('plugins/nvim-cmp')
 
 -- vim-localvimrc
 vim.g.localvimrc_ask = 0                                        -- Doesn't ask before load .lvimrc file
 
 -- vimtex
-vim.g.tex_flavor = "latex"                  	                -- Define latex by default for any *.tex file
+vim.g.tex_flavor = "latex"                                      -- Define latex by default for any *.tex file
 
 -- tex-conceal
 vim.g.tex_conceal = "abdmgs"                                    -- Set to: a->accents/ligatures, b->bold/italic, c->delimiters, m->math, g->greek, s -> super/subscripts.
