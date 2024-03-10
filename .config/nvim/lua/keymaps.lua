@@ -1,4 +1,9 @@
+vim.g.mapleader = " "
+
+-- local options for keymaps
 local options = {noremap = true, silent = true}
+
+-- Esc
 vim.keymap.set('i', 'jk', '<Esc>', options)
 
 -- Fast quit
@@ -21,7 +26,6 @@ vim.keymap.set('n', '<Leader>bd', ':bp <BAR> bd #<CR>', options)
 -- Global copy and paste
 vim.keymap.set({'n', 'v'}, '<C-y>', '"+y', options)
 vim.keymap.set({'n', 'v'}, '<C-p>', '"+gp', options)
-vim.keymap.set('i', '<C-p>', '<C-r><C-p>+', options)
 
 -- To do > and < remainds the selection
 vim.keymap.set('v', '<', '<gv', options)
