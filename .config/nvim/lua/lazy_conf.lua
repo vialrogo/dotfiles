@@ -13,11 +13,20 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
-    { import = "plugins" },
-    -- {'neovim/nvim-lspconfig',                                   -- For lsp lenguage servers
-    --     dependencies =  { 'hrsh7th/cmp-nvim-lsp',
-    --                       { 'antosha417/nvim-lsp-file-operations', config = true },
-    --                     },
-    -- },
-})
+require("lazy").setup(
+    {
+        { import = "plugins" },
+        -- {'neovim/nvim-lspconfig',                                   -- For lsp lenguage servers
+        --     dependencies =  { 'hrsh7th/cmp-nvim-lsp',
+        --                       { 'antosha417/nvim-lsp-file-operations', config = true },
+        --                     },
+    },
+    {   checker = {
+            enabled = true,
+            notify = false,
+        },
+        change_detection = {
+            notify = false,
+        },
+    }
+    )
