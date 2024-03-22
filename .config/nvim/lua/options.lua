@@ -1,8 +1,8 @@
 --Tabsize
-vim.opt.tabstop=4
+vim.opt.tabstop=2
 
 --Number of spaces to use for each step of (auto)indent.
-vim.opt.shiftwidth=4
+vim.opt.shiftwidth=2
 
 --use multiple of shiftwidth when indenting with '<' and '>'
 vim.opt.shiftround=true
@@ -98,7 +98,7 @@ vim.opt.modifiable=true
 vim.opt.clipboard="unnamedplus"
 
 -- Color scheme
-vim.cmd.colorscheme('ayu')
+vim.cmd.colorscheme('everforest')
 
 -- Set the fold to all open.
 vim.api.nvim_create_autocmd("BufRead", { pattern = "*", command = [[normal zR]] })
