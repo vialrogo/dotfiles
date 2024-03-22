@@ -98,7 +98,7 @@ vim.opt.modifiable=true
 vim.opt.clipboard="unnamedplus"
 
 -- Color scheme
-vim.cmd.colorscheme('ayu')
+vim.cmd.colorscheme('everforest')
 
 -- Set the fold to all open.
 vim.api.nvim_create_autocmd("BufRead", { pattern = "*", command = [[normal zR]] })
