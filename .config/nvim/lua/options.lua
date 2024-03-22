@@ -1,8 +1,8 @@
 --Tabsize
-vim.opt.tabstop=4
+vim.opt.tabstop=2
 
 --Number of spaces to use for each step of (auto)indent.
-vim.opt.shiftwidth=4
+vim.opt.shiftwidth=2
 
 --use multiple of shiftwidth when indenting with '<' and '>'
 vim.opt.shiftround=true
