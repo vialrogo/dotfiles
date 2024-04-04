@@ -29,6 +29,9 @@ return {
                         node_decremental = "<bs>",
                     },
                 },
+
+                -- Force use markdown rules for wiki files for no error message
+                vim.treesitter.language.register("markdown", "wiki"),
             })
         end,
     },
