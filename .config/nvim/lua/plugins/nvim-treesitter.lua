@@ -11,6 +11,9 @@ return {
 
             require("nvim-treesitter.configs").setup({
 
+                -- enable auto install parsers
+                auto_install = true,
+
                 -- enable syntax highlighting
                 highlight = { enable = true },
 
@@ -30,8 +33,8 @@ return {
                     },
                 },
 
-                -- Force use markdown rules for wiki files for no error message
-                vim.treesitter.language.register("markdown", "wiki"),
+                -- Force use org rules for wiki files for no error message
+                vim.treesitter.language.register("org", "wiki"),
             })
         end,
     },
