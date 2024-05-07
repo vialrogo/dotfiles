@@ -1,0 +1,16 @@
+[Unit]
+Description=Auto Mount GDrive FCTH
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=vialrogo
+Group=vialrogo
+Environment=RCLONE_CONFIG=/home/vialrogo/.config/rclone/rclone.conf
+ExecStartPre=/bin/mkdir -p /home/vialrogo/Rclone/fcth
+ExecStart= /usr/bin/rclone mount fcth: /home/vialrogo/Rclone/fcth
+ExecStop=/usr/bin/fusermount -uz /home/vialrogo/Rclone/fcth
+
+[Install]
+WantedBy=multi-user.target
