@@ -96,3 +96,4 @@ websockets=0
 window_width=640
 window_height=480
 viewonly=0
+keyboard_grab=0
