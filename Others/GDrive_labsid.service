@@ -1,0 +1,16 @@
+[Unit]
+Description=Auto Mount GDrive Labsid
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=vialrogo
+Group=vialrogo
+Environment=RCLONE_CONFIG=/home/vialrogo/.config/rclone/rclone.conf
+ExecStartPre=/bin/mkdir -p /home/vialrogo/Rclone/labsid
+ExecStart= /usr/bin/rclone mount labsid: /home/vialrogo/Rclone/labsid
+ExecStop=/usr/bin/fusermount -uz /home/vialrogo/Rclone/labsid
+
+[Install]
+WantedBy=multi-user.target

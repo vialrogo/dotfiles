@@ -1,9 +1,3 @@
-# Stow
-
-* Install
-
-    yay -S stow
-
 # Tmux
 
 * Install
@@ -44,3 +38,13 @@
 * exa
 
     yay -S exa
+
+# Stow
+
+* Install
+
+    yay -S stow
+
+* Config
+
+    ./stow.sh
