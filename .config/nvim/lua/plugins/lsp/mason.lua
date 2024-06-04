@@ -46,6 +46,7 @@ return {
             "cpplint", -- cpp linter
             "markdownlint", -- markdown linter
             "cmakelint", -- cmake linter
+            "debugpy", -- python debugger
         },
         })
     end,
