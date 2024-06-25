@@ -94,9 +94,6 @@ vim.opt.termguicolors=true
 --Modificable
 vim.opt.modifiable=true
 
---Use clipboard for copy/paste 
-vim.opt.clipboard="unnamedplus"
-
 -- Color scheme
 vim.cmd.colorscheme('everforest')
 

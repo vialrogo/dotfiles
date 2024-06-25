@@ -11,6 +11,9 @@ return {
 
             require("nvim-treesitter.configs").setup({
 
+                -- enable auto install parsers
+                auto_install = true,
+
                 -- enable syntax highlighting
                 highlight = { enable = true },
 
@@ -29,6 +32,9 @@ return {
                         node_decremental = "<bs>",
                     },
                 },
+
+                -- Force use org rules for wiki files for no error message
+                vim.treesitter.language.register("org", "wiki"),
             })
         end,
     },
