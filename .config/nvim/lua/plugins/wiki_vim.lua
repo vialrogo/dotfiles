@@ -1,7 +1,7 @@
 return {
     'lervag/wiki.vim', -- Wiki for notes.
     config = function()
-        vim.g.wiki_root = '/home/vialrogo/Wiki'
+        vim.g.wiki_root = 'C:/Users/vialr/Insync/vialrogo/Wiki'
         vim.g.wiki_filetypes = {'wiki'}
 
         -- Load wiki on wiki filetype
