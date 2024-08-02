@@ -34,3 +34,6 @@ vim.keymap.set('v', '>', '>gv', options)
 
 -- Toggle spell
 vim.keymap.set({'n','v','i'}, '<F7>', ':setlocal spell! <CR>', options)
+
+-- Set pwd to current directory and print it
+vim.keymap.set({'n','v'}, '<leader>cd', ':cd %:p:h<CR>:pwd<CR>', options)
