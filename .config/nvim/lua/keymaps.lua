@@ -33,7 +33,12 @@ vim.keymap.set('v', '<', '<gv', options)
 vim.keymap.set('v', '>', '>gv', options)
 
 -- Toggle spell
-vim.keymap.set({'n','v','i'}, '<F7>', ':setlocal spell! <CR>', options)
+vim.keymap.set({'n','v'}, '<F7>', ':setlocal spell! <CR>', options)
 
 -- Set pwd to current directory and print it
 vim.keymap.set({'n','v'}, '<leader>cd', ':cd %:p:h<CR>:pwd<CR>', options)
+
+-- Tab on insert mode
+vim.keymap.set({'i'}, '<leader><Tab>', '<C-o>>>')
+vim.keymap.set({'i'}, '<leader><S-Tab>', '<C-o><<')
+
