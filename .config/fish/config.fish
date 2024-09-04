@@ -19,6 +19,7 @@ if type -q fzf
   else
     alias fzf "fzf --preview='cat {}'"
   end
+  fzf --fish | source
 end
 
 set -U fish_greeting ""

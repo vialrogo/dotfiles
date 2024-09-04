@@ -1,3 +1,4 @@
+package fzf
 package https://github.com/decors/fish-colored-man
 theme boxfish
 theme default

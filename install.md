@@ -32,6 +32,7 @@
 
     omf install boxfish
     omf install https://github.com/decors/fish-colored-man
+    omf install fzf
 
 # Extra stuff
 
