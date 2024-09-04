@@ -13,6 +13,14 @@ if type -q tmux
     alias stmux "tmux new -A -s fish"
 end
 
+if type -q fzf
+  if type -q bat
+    alias fzf "fzf --preview='bat --color=always {}'"
+  else
+    alias fzf "fzf --preview='cat {}'"
+  end
+end
+
 set -U fish_greeting ""
 set -Ux TERM "xterm-256color"
 set -Ux PAGER "/usr/bin/most -s"

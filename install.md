@@ -35,9 +35,7 @@
 
 # Extra stuff
 
-* exa
-
-    yay -S exa
+    yay -S exa fzf bat
 
 # Stow
 
