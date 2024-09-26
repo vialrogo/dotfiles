@@ -7,7 +7,7 @@ vim.opt.shiftwidth=2
 --use multiple of shiftwidth when indenting with '<' and '>'
 vim.opt.shiftround=true
 
---Use the appropriate number of spaces to insert a <Tab>. To insert a real tab when 'expandtab' is on, use CTRL-V <Tab>.
+--Use the appropriate number of spaces to insert a <Tab>.
 vim.opt.expandtab=true
 
 --Show line numbers.

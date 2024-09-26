@@ -32,12 +32,11 @@
 
     omf install boxfish
     omf install https://github.com/decors/fish-colored-man
+    omf install fzf
 
 # Extra stuff
 
-* exa
-
-    yay -S exa
+    yay -S exa fzf bat
 
 # Stow
 

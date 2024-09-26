@@ -2,6 +2,14 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+# Change prompt if I am in a container (for distrobox)
+if test -e /run/.containerenv -o -e /.dockerenv
+  function fish_prompt -d "Write out the prompt"
+    set_color brred
+    printf '[%s] %s%s%s > ' $CONTAINER_ID (set_color $fish_color_cwd) (prompt_pwd) (set_color normal)
+  end
+end
+
 if type -q exa
     alias ls "exa -g --icons"
     alias lt "exa -g --icons --tree"
@@ -13,10 +21,18 @@ if type -q tmux
     alias stmux "tmux new -A -s fish"
 end
 
+if type -q fzf
+  if type -q bat
+    alias fzf "fzf --preview='bat --color=always {}'"
+  else
+    alias fzf "fzf --preview='cat {}'"
+  end
+  fzf --fish | source
+end
+
 set -U fish_greeting ""
 set -Ux TERM "xterm-256color"
 set -Ux PAGER "/usr/bin/most -s"
-
 
 #Environmental variables
 set -Ux XDG_DATA_HOME "$HOME/.local/share"
