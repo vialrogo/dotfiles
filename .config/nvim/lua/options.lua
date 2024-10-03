@@ -95,7 +95,7 @@ vim.opt.termguicolors=true
 vim.opt.modifiable=true
 
 -- Color scheme
-vim.cmd.colorscheme('everforest')
+vim.cmd.colorscheme('catppuccin-mocha')
 
 -- Set the fold to all open.
 vim.api.nvim_create_autocmd("BufRead", { pattern = "*", command = [[normal zR]] })
