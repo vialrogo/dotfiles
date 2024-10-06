@@ -34,7 +34,7 @@ return {
                 },
 
                 -- Force use org rules for wiki files for no error message
-                vim.treesitter.language.register("org", "wiki"),
+                vim.treesitter.language.register("markdown", "wiki"),
             })
         end,
     },
