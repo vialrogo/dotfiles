@@ -2,4 +2,6 @@ theme = ayu
 font-family = CaskaydiaCove Nerd Font Mono
 font-size = 14
 command = tmux new -A -s ghostty
-window-decoration = false
+window-decoration = none
+gtk-titlebar-hide-when-maximized = true
+maximize = true
