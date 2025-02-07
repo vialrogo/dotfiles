@@ -26,7 +26,7 @@ vim.keymap.set('n', '<Leader>bd', ':bp <BAR> bd #<CR>', options)
 -- Global copy and paste
 vim.keymap.set({'n', 'v'}, '<C-y>', '"+y', options)
 vim.keymap.set({'n', 'v'}, '<C-p>', '"+gp', options)
-vim.keymap.set({'i'}, '<C-v>', '<C-R>+', options)
+vim.keymap.set({'i'}, '<C-y>', '<C-R>+', options)
 
 -- To do > and < remainds the selection
 vim.keymap.set('v', '<', '<gv', options)
