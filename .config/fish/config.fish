@@ -10,6 +10,14 @@ if test -e /run/.containerenv -o -e /.dockerenv
   end
 end
 
+# Change prompt if I am in an SSH session
+if set -q SSH_CONNECTION
+  function fish_prompt -d "Write out the SSH prompt"
+    set_color bryellow
+    printf '[SSH:%s@%s] %s%s%s > ' (whoami) (hostname) (set_color $fish_color_cwd) (prompt_pwd) (set_color normal)
+  end
+end
+
 if type -q exa
     alias ls "exa -g --icons"
     alias lt "exa -g --icons --tree"
@@ -58,4 +66,19 @@ set -Ux PYLINTHOME "$XDG_CACHE_HOME/pylint"
 set -Ux WINEPREFIX "$XDG_DATA_HOME/wine"
 set -Ux XINITRC "$XDG_CONFIG_HOME/X11/xinitrc"
 set -Ux XAUTHORITY "$XDG_RUNTIME_DIR/Xauthority"
+
+
+set -gx CRYPTOGRAPHY_OPENSSL_NO_LEGACY 1
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if test -f /opt/miniconda3/bin/conda
+    eval /opt/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+else
+    if test -f "/opt/miniconda3/etc/fish/conf.d/conda.fish"
+        . "/opt/miniconda3/etc/fish/conf.d/conda.fish"
+    else
+        set -x PATH "/opt/miniconda3/bin" $PATH
+    end
+end
+# <<< conda initialize <<<
 
