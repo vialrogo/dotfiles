@@ -10,7 +10,7 @@ return {
         { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
         { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
         { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help tags" },
-        { "<leader>fd", "<cmd>Telescope find_files cwd=~/Wiki<cr>", desc = "Find Files in Wiki" },
+        { "<leader>fd", "<cmd>Telescope find_files cwd=/home/vialrogo/Wiki<cr>", desc = "Find Files in Wiki" },
     },
     config = function()
         require("telescope").setup({
