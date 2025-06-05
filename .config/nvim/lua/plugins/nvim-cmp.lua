@@ -1,5 +1,6 @@
 return {
     "hrsh7th/nvim-cmp",
+    lazy = false,
     event = "InsertEnter",
     dependencies = {
         "hrsh7th/cmp-buffer", -- source for text in buffer
