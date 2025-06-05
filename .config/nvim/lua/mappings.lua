@@ -15,6 +15,10 @@ map('n', '<Leader>q', ':q<CR>')
 -- Search toggle
 map('n', '<Leader>/', ':set hlsearch!<CR>')
 
+-- Folds
+map('n', '<F8>', 'zM')
+map('n', '<F10>', 'zR')
+
 -- Toggle spell
 map({'n','v'}, '<F7>', ':setlocal spell! <CR>')
 
