@@ -1,5 +1,6 @@
 return {
     'lervag/wiki.vim', -- Wiki for notes.
+    lazy = false,
     config = function()
         vim.g.wiki_root = '/home/vialrogo/Wiki'
         vim.g.wiki_filetypes = {'wiki'}

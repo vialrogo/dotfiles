@@ -1,5 +1,6 @@
 return {
     'lukas-reineke/indent-blankline.nvim', -- Identation lines.
+    azy = false,
     main = 'ibl',
     opts = {},
     config = function()

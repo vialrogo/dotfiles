@@ -1,5 +1,6 @@
 return {
     'KeitaNakamura/tex-conceal.vim', -- A vim plugin extends the Conceal feature for LaTeX.
+    lazy = false,
     config = function()
         vim.opt.conceallevel=2
         vim.g.tex_conceal = "abdmgs"                            -- Set to: a->accents/ligatures, b->bold/italic, c->delimiters, m->math, g->greek, s -> super/subscripts.

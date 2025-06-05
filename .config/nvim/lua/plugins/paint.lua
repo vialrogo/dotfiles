@@ -1,5 +1,6 @@
 return {
     'folke/paint.nvim', -- Add filter options. I used it to change header level color on markdownsa.
+    azy = false,
     config = function()
 
         local hlmap = {
