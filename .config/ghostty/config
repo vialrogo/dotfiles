@@ -1,5 +1,5 @@
 theme = ayu
-font-family = CaskaydiaCove Nerd Font Mono
+font-family = CaskaydiaCove Nerd Font
 font-size = 15
 command = tmux new -A -s ghostty
 window-decoration = none
