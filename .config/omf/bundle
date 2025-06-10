@@ -1,4 +1,6 @@
 package fzf
+package vcs
 theme bobthefish
 theme boxfish
+theme chain
 theme default
