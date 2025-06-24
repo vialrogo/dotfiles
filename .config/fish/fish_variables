@@ -22,7 +22,7 @@ SETUVAR --export PSQL_HISTORY:/home/vialrogo/\x2elocal/share/psql_history
 SETUVAR --export PYLINTHOME:/home/vialrogo/\x2ecache/pylint
 SETUVAR --export TERM:xterm\x2d256color
 SETUVAR --export WINEPREFIX:/home/vialrogo/\x2elocal/share/wine
-SETUVAR --export XAUTHORITY:/run/user/1000//Xauthority
+SETUVAR --export XAUTHORITY:/run/user/1000/Xauthority
 SETUVAR --export XDG_CACHE_HOME:/home/vialrogo/\x2ecache
 SETUVAR --export XDG_CONFIG_HOME:/home/vialrogo/\x2econfig
 SETUVAR --export XDG_DATA_HOME:/home/vialrogo/\x2elocal/share
