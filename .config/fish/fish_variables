@@ -30,6 +30,9 @@ SETUVAR --export XDG_STATE_HOME:/home/vialrogo/\x2elocal/state
 SETUVAR --export XINITRC:/home/vialrogo/\x2econfig/X11/xinitrc
 SETUVAR --export _JAVA_OPTIONS:\x2dDjava\x2eutil\x2eprefs\x2euserRoot\x3d/home/vialrogo/\x2econfig/java
 SETUVAR __fish_initialized:3800
+SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
+SETUVAR _fisher_plugins:jorgebucaran/fisher
+SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:blue
