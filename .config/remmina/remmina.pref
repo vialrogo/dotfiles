@@ -145,3 +145,4 @@ periodic_news_last_checksum=
 periodic_usage_stats_permitted=false
 info_uid_prefix=KOX31MG91ULV3Z
 disable_tip=true
+ssh_color_file=
