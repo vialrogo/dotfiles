@@ -12,6 +12,7 @@ return {
         { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
         { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help tags" },
         { "<leader>fd", "<cmd>Telescope find_files cwd=/home/vialrogo/Wiki<cr>", desc = "Find Files in Wiki" },
+        { "<leader>fp", "<cmd>Telescope neoclip<cr>", desc = "Neoclip" },
     },
     config = function()
         require("telescope").setup({
