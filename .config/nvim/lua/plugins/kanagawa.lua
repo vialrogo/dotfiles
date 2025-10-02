@@ -1,3 +1,3 @@
 return {
-    'rebelot/kanagawa.nvim', -- Kanagawa theme.
+    'rebelot/kanagawa.nvim',
 }

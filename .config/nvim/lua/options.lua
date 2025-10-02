@@ -1,104 +1,109 @@
+local o = vim.o
+local wo = vim.wo
+
 --Tabsize
-vim.opt.tabstop=2
+o.tabstop=2
 
 --Number of spaces to use for each step of (auto)indent.
-vim.opt.shiftwidth=2
+o.shiftwidth=2
 
 --use multiple of shiftwidth when indenting with '<' and '>'
-vim.opt.shiftround=true
+o.shiftround=true
 
 --Use the appropriate number of spaces to insert a <Tab>.
-vim.opt.expandtab=true
+o.expandtab=true
 
 --Show line numbers.
-vim.opt.number=true
+o.number=true
 
 --When a bracket is inserted, briefly jump to the matching one.
-vim.opt.showmatch=true
+o.showmatch=true
 
 --Ignore case in search patterns.
-vim.opt.ignorecase=true
+o.ignorecase=true
 
 --Override the 'ignorecase' option if the search pattern contains upper case characters.
-vim.opt.smartcase=true
+o.smartcase=true
 
 --Copy the previous indentation on autoindenting"
-vim.opt.copyindent=true
+o.copyindent=true
 
 --Number of characters for the wrap count.
-vim.opt.wrapmargin=0
+o.wrapmargin=0
 
 --This enables 'visual' wrapping
-vim.wo.wrap = true
+wo.wrap = true
 
 --Wrapping only in complete words
-vim.wo.linebreak = true
+wo.linebreak = true
 
 --Remove chars on break characters
-vim.wo.list = false
+wo.list = false
 
 --This turns off physical line wrapping (ie: automatic insertion of newlines)
-vim.opt.textwidth=0
+o.textwidth=0
 
 --Enable the use of the mouse.
-vim.opt.mouse=a
+o.mouse=a
 
 --use many levels of undo
-vim.opt.undolevels=1000
+o.undolevels=1000
 
 --change the terminal's title
-vim.opt.title=true
+o.title=true
 
---Oh, and man… never ever let Vim write a backup file! They did that in the 70’s. 
-vim.opt.backup=false
+--Oh, and man… never ever let Vim write a backup file! They did that in the 70’s.-
+o.backup=false
 
 --Use modern ways for tracking your changes, for God’s sake.
-vim.opt.swapfile=false
+o.swapfile=false
 
 --Default file encoding
-vim.opt.fileencoding="utf-8"
+o.fileencoding="utf-8"
 
 --Set the spell language
-vim.opt.spelllang="pt_br"
+o.spelllang="pt_br"
 
 --Set the current cursorline highlight
-vim.opt.cursorline=true
+o.cursorline=true
 
 --Set de conceal (dynamic replace of _X or \alpha characters).
-vim.opt.conceallevel=2
+o.conceallevel=2
 
 --Set the conseal cursor for full text display in normal and command mode. Other modes: n-> normal, c-> command, v-> visual, i-> insert
-vim.opt.concealcursor="c"
+o.concealcursor="c"
 
 --This causes the left and right arrow keys, as well as h and l, to wrap when used at beginning or end of lines.
-vim.opt.whichwrap:append("<,>,h,l,[,]")
+o.whichwrap="<,>,h,l,[,],b,s"
 
 --The number of lines before and after of the cursor position. If is a big number, the cursor is always in the center of the screen.
-vim.opt.scrolloff=2
+o.scrolloff=2
 
 --highlight column after 'textwidth'
-vim.opt.colorcolumn="+1"
+o.colorcolumn="+1"
 
---Remove de second spaces with join (J) after '.', '?' and '!'
-vim.opt.joinspaces=false
+--Remove the second spaces with join (J) after '.', '?' and '!'
+o.joinspaces=false
 
---Open new buffer without saving to a currently modified file
-vim.opt.hidden=true
+--Open a new buffer without saving to a currently modified file
+o.hidden=true
 
 --Set foldmethod
-vim.opt.foldmethod="syntax"
+o.foldmethod="syntax"
 
 --Enables 24-bit RGB color in the TUI.
-vim.opt.termguicolors=true
+o.termguicolors=true
 
 --Modificable
-vim.opt.modifiable=true
+o.modifiable=true
 
--- Color scheme
-vim.cmd.colorscheme('ayu')
+--Color scheme
+vim.cmd.colorscheme('kanagawa')
 
--- Set the fold to all open.
+--Set the fold to all open.
 vim.api.nvim_create_autocmd("BufRead", { pattern = "*", command = [[normal zR]] })
 
 vim.api.nvim_set_hl(0, 'Conceal', { link = 'Normal' })
 -- Link the Conceal highlight configuration to the Normal configuration.
+
+
