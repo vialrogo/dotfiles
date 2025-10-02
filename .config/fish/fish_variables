@@ -17,7 +17,9 @@ SETUVAR --export LESSHISTFILE:/home/vialrogo/\x2ecache/less/history
 SETUVAR --export MPLAYER_HOME:/home/vialrogo/\x2econfig/mplayer
 SETUVAR --export NODE_REPL_HISTORY:/home/vialrogo/\x2elocal/share/node_repl_history
 SETUVAR --export NUGET_PACKAGES:/home/vialrogo/\x2ecache/NuGetPackages
+SETUVAR --export OLLAMA_HIPBLAS:1
 SETUVAR --export PAGER:/usr/bin/most\x20\x2ds
+SETUVAR --export --path PATH:/opt/rocm/bin\x1e/opt/rocm/bin\x1e/home/vialrogo/\x2edotnet/tools\x1e/home/vialrogo/bin\x1e/opt/miniconda3/condabin\x1e/usr/local/bin\x1e/usr/bin\x1e/usr/bin/site_perl\x1e/usr/bin/vendor_perl\x1e/usr/bin/core_perl
 SETUVAR --export PSQL_HISTORY:/home/vialrogo/\x2elocal/share/psql_history
 SETUVAR --export PYLINTHOME:/home/vialrogo/\x2ecache/pylint
 SETUVAR --export TERM:xterm\x2d256color

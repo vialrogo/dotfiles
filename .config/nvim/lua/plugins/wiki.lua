@@ -1,5 +1,5 @@
 return {
-    'lervag/wiki.vim', -- Wiki for notes.
+    'lervag/wiki.vim',
     lazy = false,
     config = function()
         vim.g.wiki_root = '/home/vialrogo/Wiki'
@@ -7,7 +7,6 @@ return {
 
         -- Load wiki on wiki filetype
         vim.api.nvim_create_autocmd('Filetype', { pattern = 'wiki', command = [[WikiEnable]] })
-        vim.api.nvim_create_autocmd('Filetype', { pattern = 'wiki', command = [[ListsEnable]] })
         vim.api.nvim_create_autocmd('Filetype', { pattern = 'wiki', command = [[setlocal wrap]] })
     end,
 }

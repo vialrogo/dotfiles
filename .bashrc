@@ -85,3 +85,8 @@ alias prompt_simply="export PS1='${colorH}\h ${colorG}\W ${colorW}${gitBash} $ $
 
 prompt_normal
 
+
+# Distrobox Command-Not-Found Handler Integration
+if [ -f "$HOME/.local/distrobox-handler/command_not_found_handle" ]; then
+    source "$HOME/.local/distrobox-handler/command_not_found_handle"
+fi
