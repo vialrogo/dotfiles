@@ -6,7 +6,6 @@ return{
     require('mini.surround').setup({})
     require('mini.pairs').setup({})
     require('mini.icons').setup({})
-    require('mini.animate').setup({})
     require('mini.cursorword').setup({})
 
     local gen_loader = require('mini.snippets').gen_loader
