@@ -1,3 +1,3 @@
 return {
-    'Shatur/neovim-ayu',
+    'ayu-theme/ayu-vim',
 }
