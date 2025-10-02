@@ -1,5 +1,5 @@
 return {
-    'lervag/wiki.vim', -- Wiki for notes.
+    'lervag/wiki.vim',
     lazy = false,
     config = function()
         vim.g.wiki_root = '/home/vialrogo/Wiki'

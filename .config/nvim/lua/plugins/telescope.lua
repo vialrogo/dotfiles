@@ -1,16 +1,20 @@
 return {
-    'nvim-telescope/telescope.nvim', -- File explorer and more
-    tag = '0.1.3',
+    'nvim-telescope/telescope.nvim',
+    branch = 'master',
     dependencies = {'nvim-lua/plenary.nvim',
                     'BurntSushi/ripgrep',
                     'sharkdp/fd',
+                    'nvim-treesitter/nvim-treesitter',
+                    'jonarrien/telescope-cmdline.nvim',
                     'nvim-tree/nvim-web-devicons'},
     keys = {
-        { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
-        { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-        { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
-        { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help tags" },
-        { "<leader>fd", "<cmd>Telescope find_files cwd=/home/vialrogo/Wiki<cr>", desc = "Find Files in Wiki" },
+            { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+            { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
+            { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
+            { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help tags" },
+            { "<leader>fd", "<cmd>Telescope find_files cwd=/home/vialrogo/Wiki<cr>", desc = "Find Files in Wiki" },
+            { "<leader>fp", "<cmd>Telescope neoclip<cr>", desc = "Neoclip" },
+            { '<leader><leader>', '<cmd>Telescope cmdline<cr>', desc = 'Cmdline' },
     },
     config = function()
         require("telescope").setup({
