@@ -5,3 +5,4 @@ command = tmux new -A -s ghostty
 window-decoration = none
 gtk-titlebar-hide-when-maximized = true
 maximize = true
+background-opacity=0.8
