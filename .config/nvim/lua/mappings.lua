@@ -14,7 +14,7 @@ map('n', '<Leader>/', ':set hlsearch!<CR>')
 
 -- Folds
 map('n', '<F8>', 'zM')
-map('n', '<F10>', 'zR')
+map('n', '<F9>', 'zR')
 
 --Buffer stuff. Buffer == Ctrl
 map('n', '<C-h>', ':bp<CR>')
