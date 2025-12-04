@@ -4,6 +4,9 @@ local wo = vim.wo
 --Tabsize
 o.tabstop=2
 
+--Tabsize
+o.softtabstop=2
+
 --Number of spaces to use for each step of (auto)indent.
 o.shiftwidth=2
 
