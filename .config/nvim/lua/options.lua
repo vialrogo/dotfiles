@@ -101,7 +101,8 @@ o.termguicolors=true
 o.modifiable=true
 
 --Color scheme
-vim.cmd.colorscheme('kanagawa')
+-- vim.cmd.colorscheme('kanagawa')
+vim.cmd.colorscheme('everforest')
 
 --Set the fold to all open.
 vim.api.nvim_create_autocmd("BufRead", { pattern = "*", command = [[normal zR]] })
