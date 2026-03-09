@@ -1,6 +1,6 @@
 theme = Ayu
 font-family = CaskaydiaCove Nerd Font
-font-size = 13
+font-size = 16
 command = tmux new -A -s ghostty
 window-decoration = none
 gtk-titlebar-hide-when-maximized = true
