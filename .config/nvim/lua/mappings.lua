@@ -1,41 +1,41 @@
-local map = vim.keymap.set
-
 -- Geral
-map("n", ";", ":", { desc = "CMD enter command mode" })
-map('i', 'jk', '<Esc>')
+vim.g.mapleader = " "
+
+vim.keymap.set("n", ";", ":", { desc = "CMD enter command mode" })
+vim.keymap.set('i', 'jk', '<Esc>')
 
 -- Fast quit
-map('n', '<Leader>w', ':w<CR>')
-map('n', '<Leader>x', ':x<CR>')
-map('n', '<Leader>q', ':q<CR>')
+vim.keymap.set('n', '<Leader>w', ':w<CR>')
+vim.keymap.set('n', '<Leader>x', ':x<CR>')
+vim.keymap.set('n', '<Leader>q', ':q<CR>')
 
 -- Search toggle
-map('n', '<Leader>/', ':set hlsearch!<CR>')
+vim.keymap.set('n', '<Leader>/', ':set hlsearch!<CR>')
 
 -- Folds
-map('n', '<F8>', 'zM')
-map('n', '<F9>', 'zR')
+vim.keymap.set('n', '<F8>', 'zM')
+vim.keymap.set('n', '<F9>', 'zR')
 
 --Buffer stuff. Buffer == Ctrl
-map('n', '<C-h>', ':bp<CR>')
-map('n', '<C-l>', ':bn<CR>')
-map('n', '<Leader>bd', ':bp <BAR> bd #<CR>')
+vim.keymap.set('n', '<C-h>', ':bp<CR>')
+vim.keymap.set('n', '<C-l>', ':bn<CR>')
+vim.keymap.set('n', '<Leader>bd', ':bp <BAR> bd #<CR>')
 
 -- Global copy and paste
-map({'n', 'v'}, '<C-y>', '"+y')
-map({'n', 'v'}, '<C-p>', '"+gp')
-map({'i'}, '<C-y>', '<C-R>+')
+vim.keymap.set({ 'n', 'v' }, '<C-y>', '"+y')
+vim.keymap.set({ 'n', 'v' }, '<C-p>', '"+gp')
+vim.keymap.set({ 'i' }, '<C-y>', '<C-R>+')
 
 -- To do > and < remainds the selection
-map('v', '<', '<gv')
-map('v', '>', '>gv')
+vim.keymap.set('v', '<', '<gv')
+vim.keymap.set('v', '>', '>gv')
 
 -- Toggle spell
-map({'n','v'}, '<F7>', ':setlocal spell! <CR>')
+vim.keymap.set({ 'n', 'v' }, '<F7>', ':setlocal spell! <CR>')
 
 -- Set pwd to current directory and print it
-map({'n','v'}, '<leader>cd', ':cd %:p:h<CR>:pwd<CR>')
+vim.keymap.set({ 'n', 'v' }, '<leader>cd', ':cd %:p:h<CR>:pwd<CR>')
 
 -- Tab on insert mode
-map({'i'}, '<leader><Tab>', '<C-o>>>')
-map({'i'}, '<leader><S-Tab>', '<C-o><<')
+vim.keymap.set({ 'i' }, '<leader><Tab>', '<C-o>>>')
+vim.keymap.set({ 'i' }, '<leader><S-Tab>', '<C-o><<')
