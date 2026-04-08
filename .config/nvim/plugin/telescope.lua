@@ -2,7 +2,7 @@
 vim.pack.add({
   'https://github.com/nvim-lua/plenary.nvim',
   'https://github.com/nvim-telescope/telescope.nvim',
-  'https://github.com/nvim-treesitter/nvim-treesitter',
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = 'main' },
   'https://github.com/jonarrien/telescope-cmdline.nvim',
   'https://github.com/nvim-tree/nvim-web-devicons',
 })
