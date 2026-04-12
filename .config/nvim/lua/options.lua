@@ -40,17 +40,19 @@ vim.opt.smartcase = true  -- Override the 'ignorecase' option if the search patt
 
 
 -- Graphical options
-vim.opt.termguicolors = true  -- Enables 24-bit RGB color in the TUI.
-vim.opt.title = true          -- change the terminal's title
-vim.opt.winborder = "rounded" -- Round the borders
-vim.opt.showmatch = true      -- When a bracket is inserted, briefly jump to the matching one.
-vim.opt.scrolloff = 2         -- The number of lines before and after of the cursor position.
-vim.opt.smoothscroll = true   -- Smooth scroll
-vim.opt.cmdheight = 0         -- Hides command line when not in use
-vim.opt.shortmess:append("c") -- Reduces message noise
-vim.opt.cursorline = true     -- Set the current cursorline highlight
-vim.opt.confirm = true        -- Confirm before quit
-vim.opt.virtualedit = "block" -- Allows cursor in “non-existent” spaces in block environment.
+vim.opt.termguicolors = true                   -- Enables 24-bit RGB color in the TUI.
+vim.opt.title = true                           -- change the terminal's title
+vim.opt.winborder = "rounded"                  -- Round the borders
+vim.opt.showmatch = true                       -- When a bracket is inserted, briefly jump to the matching one.
+vim.opt.scrolloff = 2                          -- The number of lines before and after of the cursor position.
+vim.opt.smoothscroll = true                    -- Smooth scroll
+vim.opt.cmdheight = 0                          -- Hides command line when not in use
+vim.opt.shortmess:append("c")                  -- Reduces message noise
+vim.opt.cursorline = true                      -- Set the current cursorline highlight
+vim.opt.confirm = true                         -- Confirm before quit
+vim.opt.virtualedit =
+"block"                                        -- Allows cursor in “non-existent” spaces in block environment.
+vim.opt.guifont = "CaskaydiaCove NF Light:h15" --Gui font
 
 
 -- Conceal
