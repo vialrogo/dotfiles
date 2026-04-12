@@ -39,3 +39,6 @@ vim.keymap.set({ 'n', 'v' }, '<leader>cd', ':cd %:p:h<CR>:pwd<CR>')
 -- Tab on insert mode
 vim.keymap.set({ 'i' }, '<leader><Tab>', '<C-o>>>')
 vim.keymap.set({ 'i' }, '<leader><S-Tab>', '<C-o><<')
+
+-- Open the undotree
+vim.keymap.set("n", "<leader>u", require("undotree").open)

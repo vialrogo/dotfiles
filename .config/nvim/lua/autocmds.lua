@@ -6,9 +6,21 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
   end,
 })
 
--- Format with lsp on save
+-- Run on buffer write
 vim.api.nvim_create_autocmd("BufWritePre", {
-  callback = function()
-    vim.lsp.buf.format({ async = false })
+  callback = function(event)
+    -- Format with LSP. Format only if supported
+    local clients = vim.lsp.get_clients({ bufnr = event.buf })
+    if #clients > 0 then
+      vim.lsp.buf.format({
+        async = false,
+        bufnr = event.buf,
+      })
+    end
+
+    -- Trim whitespace
+    local view = vim.fn.winsaveview()
+    vim.cmd([[%s/\s\+$//e]])
+    vim.fn.winrestview(view)
   end,
 })
