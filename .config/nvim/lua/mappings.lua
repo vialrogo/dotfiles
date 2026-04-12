@@ -1,7 +1,7 @@
 -- Geral
 vim.g.mapleader = " "
 
-vim.keymap.set("n", ";", ":", { desc = "CMD enter command mode" })
+vim.keymap.set("n", ";", ":")
 vim.keymap.set('i', 'jk', '<Esc>')
 
 -- Fast quit
@@ -39,3 +39,6 @@ vim.keymap.set({ 'n', 'v' }, '<leader>cd', ':cd %:p:h<CR>:pwd<CR>')
 -- Tab on insert mode
 vim.keymap.set({ 'i' }, '<leader><Tab>', '<C-o>>>')
 vim.keymap.set({ 'i' }, '<leader><S-Tab>', '<C-o><<')
+
+-- Open the undotree
+vim.keymap.set("n", "<leader>u", require("undotree").open)

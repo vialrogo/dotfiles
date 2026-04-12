@@ -1,101 +1,74 @@
---Tabsize
-vim.o.tabstop = 2
+-- Indent behaivour
+vim.opt.tabstop = 2       -- Tab size
+vim.opt.softtabstop = 2   -- Tab size in insert mode
+vim.opt.expandtab = true  -- Use the appropriate number of spaces to insert a <Tab>.
 
---Tabsize
-vim.o.softtabstop = 2
+vim.opt.shiftwidth = 2    -- Number of spaces to use for each step of (auto)indent.
+vim.opt.shiftround = true -- use multiple of shiftwidth when indenting with '<' and '>'
+vim.opt.copyindent = true -- Copy the previous indentation on autoindenting"
 
---Number of spaces to use for each step of (auto)indent.
-vim.o.shiftwidth = 2
 
---use multiple of shiftwidth when indenting with '<' and '>'
-vim.o.shiftround = true
+-- Wrap behaivour
+vim.opt.wrap = true -- This enables 'visual' wrapping
+vim.opt.linebreak = true -- Wrapping only in complete words
+vim.opt.textwidth = 0 -- This turns off physical line wrapping (ie: automatic insertion of newlines)
 
---Use the appropriate number of spaces to insert a <Tab>.
-vim.o.expandtab = true
+vim.opt.whichwrap = "<,>,h,l,[,],b,s" -- This causes the left and right arrow keys, as well as h and l, to wrap
 
---Show line numbers.
-vim.o.number = true
+vim.opt.showbreak = "↳ " -- Define the showbreak string
+vim.opt.breakindent = true -- Keeps wrapped lines visually aligned
+vim.opt.breakindentopt = "shift:2,sbr" -- Define the break options: Two spaces and put the string
 
---Show line numbers.
-vim.o.relativenumber = true
 
---When a bracket is inserted, briefly jump to the matching one.
-vim.o.showmatch = true
+-- Status colum behaivor
+vim.opt.number = true             -- Show line numbers
+vim.opt.relativenumber = true     -- Show line numbers relative to the current line
 
---Ignore case in search patterns.
-vim.o.ignorecase = true
+vim.opt.signcolumn = "yes"        -- Controls the left column for signs (git, diagnostics)
+vim.opt.fillchars = { eob = " " } -- Controls filler characters in UI. Makes UI look modern/minimal
 
---Override the 'ignorecase' option if the search pattern contains upper case characters.
-vim.o.smartcase = true
 
---Copy the previous indentation on autoindenting"
-vim.o.copyindent = true
+-- Completion
+vim.opt.complete = { ".", "w", "b", "u" }               -- Where completion comes from. .→current buffer; w→other windows; b→other buffers; u→unloaded buffers
+vim.opt.completeopt = { "menu", "menuone", "noselect" } -- Controls how the completion menu behaves. menu → show popup menu; menuone → show even for 1 item; noselect → don’t auto-select anything
+vim.opt.infercase = true                                -- Makes completion adapt to what you typed
 
---Number of characters for the wrap count.
-vim.o.wrapmargin = 0
 
---This enables 'visual' wrapping
-vim.wo.wrap = true
+-- Search options
+vim.opt.ignorecase = true -- Ignore case in search patterns.
+vim.opt.smartcase = true  -- Override the 'ignorecase' option if the search pattern contains upper case characters.
 
---Wrapping only in complete words
-vim.wo.linebreak = true
 
---Remove chars on break characters
-vim.wo.list = false
+-- Graphical options
+vim.opt.termguicolors = true                   -- Enables 24-bit RGB color in the TUI.
+vim.opt.title = true                           -- change the terminal's title
+vim.opt.winborder = "rounded"                  -- Round the borders
+vim.opt.showmatch = true                       -- When a bracket is inserted, briefly jump to the matching one.
+vim.opt.scrolloff = 2                          -- The number of lines before and after of the cursor position.
+vim.opt.smoothscroll = true                    -- Smooth scroll
+vim.opt.cmdheight = 0                          -- Hides command line when not in use
+vim.opt.shortmess:append("c")                  -- Reduces message noise
+vim.opt.cursorline = true                      -- Set the current cursorline highlight
+vim.opt.confirm = true                         -- Confirm before quit
+vim.opt.virtualedit =
+"block"                                        -- Allows cursor in “non-existent” spaces in block environment.
+vim.opt.guifont = "CaskaydiaCove NF Light:h15" --Gui font
 
---This turns off physical line wrapping (ie: automatic insertion of newlines)
-vim.o.textwidth = 0
 
---Enable the use of the mouse.
-vim.o.mouse = a
+-- Conceal
+vim.opt.conceallevel = 2    -- Set de conceal (dynamic replace of _X or \alpha characters).
+vim.opt.concealcursor = "c" -- Set the conseal cursor for full text display in normal and command mode.
 
---use many levels of undo
-vim.o.undolevels = 1000
 
---change the terminal's title
-vim.o.title = true
+-- Folds
+vim.opt.foldmethod = "expr"                     -- Set foldmethod to expr for modern treesitter
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- Call the correct expression
 
---Oh, and man… never ever let Vim write a backup file! They did that in the 70’s
-vim.o.backup = false
 
---Use modern ways for tracking your changes, for God’s sake.
-vim.o.swapfile = false
-
---Default file encoding
-vim.o.fileencoding = "utf-8"
-
---Set the spell language
-vim.o.spelllang = "pt_br"
-
---Set the current cursorline highlight
-vim.o.cursorline = true
-
---Set de conceal (dynamic replace of _X or \alpha characters).
-vim.o.conceallevel = 2
-
---Set the conseal cursor for full text display in normal and command mode. Other modes: n-> normal, c-> command, v-> visual, i-> insert
-vim.o.concealcursor = "c"
-
---This causes the left and right arrow keys, as well as h and l, to wrap when used at beginning or end of lines.
-vim.o.whichwrap = "<,>,h,l,[,],b,s"
-
---The number of lines before and after of the cursor position. If is a big number, the cursor is always in the center of the screen.
-vim.o.scrolloff = 2
-
---highlight column after 'textwidth'
-vim.o.colorcolumn = "+1"
-
---Remove the second spaces with join (J) after '.', '?' and '!'
-vim.o.joinspaces = false
-
---Open a new buffer without saving to a currently modified file
-vim.o.hidden = true
-
---Set foldmethod
-vim.o.foldmethod = "syntax"
-
---Enables 24-bit RGB color in the TUI.
-vim.o.termguicolors = true
-
---Modificable
-vim.o.modifiable = true
+-- Misc
+vim.opt.mouse = a              -- Enable the use of the mouse.
+vim.opt.backup = false         -- Oh, and man… never ever let Vim write a backup file! They did that in the 70’s
+vim.opt.swapfile = false       -- Use modern ways for tracking your changes, for God’s sake.
+vim.opt.fileencoding = "utf-8" -- Default file encoding
+vim.opt.updatetime = 200       -- Controls delay for idle events for faster results
+vim.opt.spelllang = "pt_br"    -- Set the spell language
