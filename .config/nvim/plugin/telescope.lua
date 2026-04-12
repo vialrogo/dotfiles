@@ -42,7 +42,7 @@ vim.keymap.set("n", "<leader>fd", function()
 end, { desc = "Find Files in Wiki" })
 
 vim.keymap.set("n", "<leader><leader>", function()
-  require("telescope").extensions.cmdline.cmdline()
+  require("telescope").extensions.cmdline.cmdline({})
 end, { desc = "Cmdline" })
 
 vim.keymap.set("n", "<leader>fp", function()
