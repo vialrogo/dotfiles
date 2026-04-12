@@ -28,7 +28,6 @@ require("telescope").setup({
 
 require("neoclip").setup()
 
-
 -- Keymap configuration
 local builtin = require("telescope.builtin")
 

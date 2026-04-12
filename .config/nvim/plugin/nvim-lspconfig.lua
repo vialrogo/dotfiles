@@ -6,33 +6,63 @@ vim.pack.add({
 -- LSP keymaps (applied when LSP attaches)
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(event)
-    local opts = { buffer = event.buf }
+    local builtin = require("telescope.builtin")
+    local bufmap = function(mode, lhs, rhs, desc)
+      vim.keymap.set(mode, lhs, rhs, { buffer = event.buf, desc = desc })
+    end
 
-    vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
-    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-    vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
-    vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
-    vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+    -- Navigation (Telescope-powered)
+    bufmap("n", "gr", builtin.lsp_references, "LSP References")
+    bufmap("n", "gi", builtin.lsp_implementations, "LSP Implementations")
+    bufmap("n", "gt", builtin.lsp_type_definitions, "LSP Type Definitions")
 
-    vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
-    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+    -- Go to definition
+    bufmap("n", "gd", function()
+      vim.lsp.buf.definition()
+      vim.cmd("normal! zz")
+    end, "Go to Definition")
 
-    vim.keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
-    vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
+    -- Native LSP
+    bufmap("n", "gD", vim.lsp.buf.declaration, "LSP Declaration")
+    bufmap("n", "K", vim.lsp.buf.hover, "Hover")
 
-    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+    -- Actions
+    bufmap({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "Code Action")
+    bufmap("n", "<leader>rn", vim.lsp.buf.rename, "Rename")
 
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    -- Buffer diagnostics
+    bufmap("n", "<leader>D", function()
+      builtin.diagnostics({ bufnr = 0 })
+    end, "Buffer Diagnostics")
+
+    -- Line diagnostics
+    bufmap("n", "<leader>d", vim.diagnostic.open_float, "Line Diagnostics")
+
+    bufmap("n", "[d", vim.diagnostic.goto_prev, "Prev Diagnostic")
+    bufmap("n", "]d", vim.diagnostic.goto_next, "Next Diagnostic")
   end,
 })
 
 -- Diagnostic signs
-local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-end
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = " ",
+      [vim.diagnostic.severity.WARN]  = " ",
+      [vim.diagnostic.severity.HINT]  = "󰠠 ",
+      [vim.diagnostic.severity.INFO]  = " ",
+    },
+    numhl = {
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN]  = "",
+      [vim.diagnostic.severity.HINT]  = "",
+      [vim.diagnostic.severity.INFO]  = "",
+    },
+  },
+  underline = true,
+  virtual_text = false,
+  severity_sort = true,
+})
 
 -- Format on save
 vim.api.nvim_create_autocmd("BufWritePre", {
