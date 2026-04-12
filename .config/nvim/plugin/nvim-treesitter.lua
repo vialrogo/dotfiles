@@ -22,7 +22,14 @@ require("nvim-treesitter").setup({
       scope_incremental = "<C-s>",
     },
   },
+  ensure_installed = {
+    "lua",
+    "python",
+    "markdown",
+    "c",
+    "cpp",
+    "latex",
+    "yaml",
+    "html",
+  },
 })
-
--- Language configurations
-vim.treesitter.language.register("markdown", "wiki") -- Force use org rules for wiki files for no error message
