@@ -1,7 +1,7 @@
 -- Geral
 vim.g.mapleader = " "
 
-vim.keymap.set("n", ";", ":", { desc = "CMD enter command mode" })
+vim.keymap.set("n", ";", ":")
 vim.keymap.set('i', 'jk', '<Esc>')
 
 -- Fast quit
