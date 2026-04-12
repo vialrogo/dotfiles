@@ -75,3 +75,6 @@ end
 # <<< conda initialize <<<
 
 starship init fish | source
+
+# Created by `pipx` on 2026-01-28 21:58:25
+set PATH $PATH /home/vialrogo/.local/bin

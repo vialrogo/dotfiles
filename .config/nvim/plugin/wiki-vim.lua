@@ -16,3 +16,6 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.wrap = true
   end,
 })
+
+-- Language configurations
+vim.treesitter.language.register("markdown", "wiki") -- Force use org rules for wiki files for no error message
