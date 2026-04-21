@@ -1,5 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export ANSIBLE_EDITOR:nvim
 SETUVAR --export CARGO_HOME:/home/vialrogo/\x2elocal/share/cargo
 SETUVAR --export --path CUDA_CACHE_PATH:/home/vialrogo/\x2ecache/nv
 SETUVAR FZF_DEFAULT_OPTS:\x2d\x2dheight\x2040\x25

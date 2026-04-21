@@ -1,7 +1,7 @@
 {
   "plugins": {
     "everforest": {
-      "rev": "b03a03148c8b34c24c96960b93da9c8883d11f54",
+      "rev": "aeef62ee97872d2557d25904d160ec93a4a355f8",
       "src": "https://github.com/sainnhe/everforest"
     },
     "indent-blankline.nvim": {
@@ -13,11 +13,19 @@
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
     "mini.nvim": {
+<<<<<<< HEAD
       "rev": "2431902e78b76f435542d1e606f08475360068ca",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lspconfig": {
       "rev": "c588db330592fa477a70d2fee6ba20a57194bdc3",
+=======
+      "rev": "5849ef04c32a6a8e55957b946c0a275801d87530",
+      "src": "https://github.com/nvim-mini/mini.nvim"
+    },
+    "nvim-lspconfig": {
+      "rev": "e146efacbafed3789ac568abcc5a981c5decaa58",
+>>>>>>> DANEEL
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-neoclip.lua": {
@@ -25,7 +33,7 @@
       "src": "https://github.com/AckslD/nvim-neoclip.lua"
     },
     "nvim-tree.lua": {
-      "rev": "509962f21ab7289d8dcd28568af539be39a8c01e",
+      "rev": "d277467fc0d1d0e2bca88165a1de6b526f9f6fe8",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
@@ -42,7 +50,11 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "render-markdown.nvim": {
+<<<<<<< HEAD
       "rev": "54d4b5431e9634ee3d8d30784e017239b5b89d41",
+=======
+      "rev": "d67113f11384c0dad96fced2f7b91f1fc811e97f",
+>>>>>>> DANEEL
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "suda.vim": {
@@ -54,7 +66,11 @@
       "src": "https://github.com/jonarrien/telescope-cmdline.nvim"
     },
     "telescope.nvim": {
+<<<<<<< HEAD
       "rev": "48d2656e54d3e3953ae647153ccdaffa50d4d76b",
+=======
+      "rev": "028d9a0695a0cc4cfa893889f8c408ed7ccc8adc",
+>>>>>>> DANEEL
       "src": "https://github.com/nvim-telescope/telescope.nvim"
     },
     "vim-table-mode": {
