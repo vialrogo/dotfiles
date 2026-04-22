@@ -6,7 +6,7 @@ vim.cmd.packadd('nvim.undotree')
 vim.pack.add({
   'https://github.com/dhruvasagar/vim-table-mode',
   'https://github.com/lambdalisue/suda.vim',
-  'https://github.com/sainnhe/everforest',
+  'https://github.com/olimorris/onedarkpro.nvim',
 })
 
 -- Import files
@@ -16,4 +16,4 @@ require("lsp")
 require("autocmds")
 
 -- Theme
-vim.cmd.colorscheme('everforest')
+vim.cmd.colorscheme('onedark_vivid')
