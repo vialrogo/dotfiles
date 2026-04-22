@@ -7,23 +7,23 @@ vim.pack.add({
 
 -- Setup plugin
 require("render-markdown").setup({
-  file_types = { "markdown", "wiki" },
+  file_types = { "markdown" },
   render_modes = true,
   completions = { lsp = { enabled = true } },
   heading = {
     backgrounds = {
-      "RenderMarkdownH4Bg",
+      "RenderMarkdownH1Bg",
       "RenderMarkdownH2Bg",
       "RenderMarkdownH3Bg",
-      "RenderMarkdownH1Bg",
+      "RenderMarkdownH4Bg",
       "RenderMarkdownH5Bg",
       "RenderMarkdownH6Bg",
     },
     foregrounds = {
-      "RenderMarkdownH4",
+      "RenderMarkdownH1",
       "RenderMarkdownH2",
       "RenderMarkdownH3",
-      "RenderMarkdownH1",
+      "RenderMarkdownH4",
       "RenderMarkdownH5",
       "RenderMarkdownH6",
     },
