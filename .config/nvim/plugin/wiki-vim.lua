@@ -1,21 +1,17 @@
 -- Add plugins
 vim.pack.add({
   'https://github.com/lervag/wiki.vim',
-  'https://github.com/lervag/wiki-ft.vim',
 })
 
 -- Global config
 vim.g.wiki_root = "/home/vialrogo/Wiki"
-vim.g.wiki_filetypes = { "wiki" }
+vim.g.wiki_filetypes = { "md" }
 
 -- Autocommands
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "wiki",
+  pattern = "md",
   callback = function()
     vim.cmd("WikiEnable")
     vim.opt_local.wrap = true
   end,
 })
-
--- Language configurations
-vim.treesitter.language.register("markdown", "wiki") -- Force use org rules for wiki files for no error message
