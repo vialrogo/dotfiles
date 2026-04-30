@@ -7,7 +7,6 @@ vim.pack.add({
   'https://github.com/dhruvasagar/vim-table-mode',
   'https://github.com/lambdalisue/suda.vim',
   'https://github.com/olimorris/onedarkpro.nvim',
-
 })
 
 -- Import files

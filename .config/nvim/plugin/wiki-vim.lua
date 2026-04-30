@@ -3,7 +3,7 @@ vim.pack.add({
   'https://github.com/lervag/wiki.vim',
 })
 
--- Global config
+-- Set the root path
 vim.g.wiki_root = "/home/vialrogo/Wiki"
 vim.g.wiki_filetypes = { "md" }
 

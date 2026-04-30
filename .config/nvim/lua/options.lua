@@ -1,9 +1,12 @@
--- Indent behaivour
-vim.opt.tabstop = 2       -- Tab size
-vim.opt.softtabstop = 2   -- Tab size in insert mode
-vim.opt.expandtab = true  -- Use the appropriate number of spaces to insert a <Tab>.
+-- Globaly remove all the markdown styles. This remove the 4 spaces tab mandatory
+vim.g.markdown_recommended_style = 0
 
-vim.opt.shiftwidth = 2    -- Number of spaces to use for each step of (auto)indent.
+-- Indent behaivour
+vim.opt.tabstop = 2       -- how many spaces a <Tab> counts for
+vim.opt.softtabstop = 2   -- spaces inserted when pressing <Tab>
+vim.opt.expandtab = true  -- use spaces instead of real tabs
+
+vim.opt.shiftwidth = 2    -- size of >> << and autoindent
 vim.opt.shiftround = true -- use multiple of shiftwidth when indenting with '<' and '>'
 vim.opt.copyindent = true -- Copy the previous indentation on autoindenting"
 
@@ -61,8 +64,9 @@ vim.opt.concealcursor = "c" -- Set the conseal cursor for full text display in n
 
 
 -- Folds
-vim.opt.foldmethod = "expr"                     -- Set foldmethod to expr for modern treesitter
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- Call the correct expression
+vim.opt.foldmethod = "expr"                          -- Set foldmethod to expr for modern treesitter
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- Call the correct expression
+vim.opt.foldlevelstart = 99                          -- Set the start fold level to all open
 
 
 -- Misc
