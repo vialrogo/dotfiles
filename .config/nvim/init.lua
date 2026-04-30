@@ -17,11 +17,3 @@ require("autocmds")
 
 -- Theme
 vim.cmd.colorscheme('onedark_vivid')
-
---Set the fold to all open.
-vim.api.nvim_create_autocmd("BufWinEnter", {
-  pattern = "*",
-  callback = function()
-    vim.cmd("normal! zR")
-  end,
-})
