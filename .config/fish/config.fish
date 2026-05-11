@@ -2,14 +2,6 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-# Change prompt if I am in a container (for distrobox)
-if test -e /run/.containerenv -o -e /.dockerenv
-  function fish_prompt -d "Write out the prompt"
-    set_color brred
-    printf '[%s] %s%s%s > ' $CONTAINER_ID (set_color $fish_color_cwd) (prompt_pwd) (set_color normal)
-  end
-end
-
 # Change prompt if I am in an SSH session
 if set -q SSH_CONNECTION
   function fish_prompt -d "Write out the SSH prompt"
