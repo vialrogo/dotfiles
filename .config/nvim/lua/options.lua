@@ -57,6 +57,11 @@ vim.opt.virtualedit =
 "block"                                        -- Allows cursor in “non-existent” spaces in block environment.
 vim.opt.guifont = "CaskaydiaCove NF Light:h15" --Gui font
 
+-- Message options
+vim.opt.shortmess:append("W") -- don't show "written" after save
+vim.opt.shortmess:append("A") -- don't show swap file messages
+vim.opt.shortmess:append("c") -- don't show completion messages
+vim.opt.shortmess:append("F") -- don't show file info when editing
 
 -- Conceal
 vim.opt.conceallevel = 2    -- Set de conceal (dynamic replace of _X or \alpha characters).
