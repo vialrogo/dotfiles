@@ -3,6 +3,7 @@ vim.g.mapleader = " "
 
 vim.keymap.set("n", ";", ":")
 vim.keymap.set('i', 'jk', '<Esc>')
+vim.keymap.set('n', 'U', ':redo<CR>')
 
 -- Fast quit
 vim.keymap.set('n', '<Leader>w', ':w<CR>')
