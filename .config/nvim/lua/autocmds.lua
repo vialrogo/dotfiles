@@ -16,11 +16,3 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     vim.fn.winrestview(view)
   end,
 })
-
---Set the fold to all open.
-vim.api.nvim_create_autocmd("BufWinEnter", {
-  pattern = "*",
-  callback = function()
-    vim.cmd("normal! zR")
-  end,
-})
