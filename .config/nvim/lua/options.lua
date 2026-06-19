@@ -69,7 +69,7 @@ vim.opt.concealcursor = "c" -- Set the conseal cursor for full text display in n
 -- Folds
 vim.opt.foldmethod = "expr"                          -- Set foldmethod to expr for modern treesitter
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- Call the correct expression
-vim.opt.foldlevelstart = 99                          -- Set the start fold level to all open
+vim.opt.foldlevel = 99                               -- Set the start fold level to all open
 
 
 -- Misc

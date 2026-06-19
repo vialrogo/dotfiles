@@ -19,3 +19,26 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     vim.fn.winrestview(view)
   end,
 })
+
+-- Options to auto save and load views of the files
+local group = vim.api.nvim_create_augroup("AutoView", { clear = true })
+
+vim.api.nvim_create_autocmd("BufWinLeave", {
+  group = group,
+  callback = function(args)
+    if vim.bo[args.buf].buftype == "" then
+      vim.cmd("silent! mkview")
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  group = group,
+  callback = function(args)
+    if vim.bo[args.buf].buftype == "" then
+      vim.defer_fn(function()
+        pcall(vim.cmd, "silent! loadview")
+      end, 100)
+    end
+  end,
+})
