@@ -65,12 +65,10 @@ vim.opt.shortmess:append("F") -- don't show file info when editing
 vim.opt.conceallevel = 2    -- Set de conceal (dynamic replace of _X or \alpha characters).
 vim.opt.concealcursor = "c" -- Set the conseal cursor for full text display in normal and command mode.
 
-
 -- Folds
 vim.opt.foldmethod = "expr"                          -- Set foldmethod to expr for modern treesitter
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- Call the correct expression
 vim.opt.foldlevel = 99                               -- Set the start fold level to all open
-
 
 -- Misc
 vim.opt.mouse = a              -- Enable the use of the mouse.

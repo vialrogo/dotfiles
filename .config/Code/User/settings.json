@@ -1,0 +1,16 @@
+{
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "gitlens.ai.model": "vscode",
+    "gitlens.ai.vscode.model": "copilot:oswe-vscode-modelD",
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.fontFamily": "'CaskaydiaMono Nerd Font', monospace",
+    "editor.fontSize": 17,
+
+    "vscode-neovim.compositeKeys": {
+        "jk": {
+            "command": "vscode-neovim.escape"
+        }
+    }
+}
