@@ -53,7 +53,7 @@ vim.opt.cmdheight = 0                          -- Hides command line when not in
 vim.opt.cursorline = true                      -- Set the current cursorline highlight
 vim.opt.confirm = true                         -- Confirm before quit
 vim.opt.virtualedit = "block"                  -- Allows cursor in “non-existent” spaces in block environment.
-vim.opt.guifont = "CaskaydiaCove NF Light:h15" --Gui font
+vim.opt.guifont = "CaskaydiaCove NF Light:h14" --Gui font
 
 -- Message options
 vim.opt.shortmess:append("W") -- don't show "written" after save
