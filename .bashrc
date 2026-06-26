@@ -13,10 +13,13 @@ if [ -e  /usr/share/git/completion/git-completion.bash ]; then
   source /usr/share/git/completion/git-completion.bash
 fi
 if [ -e  /usr/share/bash-completion/completions/git ]; then
-  source /usr/share/bash-completion/completions/git 
+  source /usr/share/bash-completion/completions/git
 fi
 if [ -e  /usr/share/git/git-prompt.sh ]; then
   source /usr/share/git/git-prompt.sh
+fi
+if [ -e  /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
+  source /usr/share/git-core/contrib/completion/git-prompt.sh
 fi
 
 # Define default editor
