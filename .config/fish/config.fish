@@ -10,11 +10,11 @@ if set -q SSH_CONNECTION
   end
 end
 
-if type -q exa
-    alias ls "exa -g --icons"
-    alias lt "exa -g --icons --tree"
-    alias ll "exa -l -g --icons"
-    alias la "exa -la -g --icons"
+if type -q eza
+    alias ls "eza -g --icons"
+    alias lt "eza -g --icons --tree"
+    alias ll "eza -l -g --icons"
+    alias la "eza -la -g --icons"
 end
 
 if type -q tmux
@@ -47,11 +47,11 @@ set -Ux CUDA_CACHE_PATH "$XDG_CACHE_HOME/nv"
 set -Ux GNUPGHOME "$XDG_DATA_HOME/gnupg"
 set -Ux GTK2_RC_FILES "$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 set -Ux JUPYTER_CONFIG_DIR "$XDG_CONFIG_HOME/jupyter"
-set -Ux LESSHISTFILE "$XDG_CACHE_HOME/less/history" 
+set -Ux LESSHISTFILE "$XDG_CACHE_HOME/less/history"
 set -Ux ICEAUTHORITY "$XDG_CACHE_HOME/ICEauthority"
 set -Ux MPLAYER_HOME "$XDG_CONFIG_HOME/mplayer"
 set -Ux NODE_REPL_HISTORY "$XDG_DATA_HOME/node_repl_history"
-set -Ux NUGET_PACKAGES "$XDG_CACHE_HOME/NuGetPackages" 
+set -Ux NUGET_PACKAGES "$XDG_CACHE_HOME/NuGetPackages"
 set -Ux _JAVA_OPTIONS "-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
 set -Ux PSQL_HISTORY "$XDG_DATA_HOME/psql_history"
 set -Ux PYLINTHOME "$XDG_CACHE_HOME/pylint"
