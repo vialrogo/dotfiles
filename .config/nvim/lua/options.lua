@@ -49,7 +49,9 @@ vim.opt.winborder = "rounded"                  -- Round the borders
 vim.opt.showmatch = true                       -- When a bracket is inserted, briefly jump to the matching one.
 vim.opt.scrolloff = 2                          -- The number of lines before and after of the cursor position.
 vim.opt.smoothscroll = true                    -- Smooth scroll
-vim.opt.cmdheight = 0                          -- Hides command line when not in use
+if not vim.g.vscode then
+  vim.opt.cmdheight = 0                          -- Hides command line when not in use
+end
 vim.opt.cursorline = true                      -- Set the current cursorline highlight
 vim.opt.confirm = true                         -- Confirm before quit
 vim.opt.virtualedit = "block"                  -- Allows cursor in “non-existent” spaces in block environment.
