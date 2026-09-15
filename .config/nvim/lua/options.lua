@@ -79,3 +79,4 @@ vim.opt.swapfile = false       -- Use modern ways for tracking your changes, for
 vim.opt.fileencoding = "utf-8" -- Default file encoding
 vim.opt.updatetime = 200       -- Controls delay for idle events for faster results
 vim.opt.spelllang = "pt_br"    -- Set the spell language
+vim.opt.autoread = true        -- Reload files changed outside Neovim
