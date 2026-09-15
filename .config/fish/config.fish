@@ -30,6 +30,7 @@ if type -q fzf
   fzf --fish | source
 end
 
+set -gx EDITOR nvim
 set -U fish_greeting ""
 set -Ux TERM "xterm-256color"
 set -Ux PAGER "/usr/bin/most -s"
