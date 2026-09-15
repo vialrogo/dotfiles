@@ -11,10 +11,10 @@ if set -q SSH_CONNECTION
 end
 
 if type -q eza
-    alias ls "eza -g --icons"
-    alias lt "eza -g --icons --tree"
-    alias ll "eza -l -g --icons"
-    alias la "eza -la -g --icons"
+    alias ls "eza -g --icons always"
+    alias lt "eza -g --icons always --tree"
+    alias ll "eza -l -g --icons always"
+    alias la "eza -la -g --icons always"
 end
 
 if type -q tmux
