@@ -1,0 +1,7 @@
+[
+  {
+    "key": "j k",
+    "command": "vscode-neovim.escape",
+    "when": "neovim.mode == 'insert' && editorTextFocus"
+  }
+]

@@ -7,10 +7,4 @@
     "security.workspace.trust.untrustedFiles": "open",
     "editor.fontFamily": "'CaskaydiaMono Nerd Font', monospace",
     "editor.fontSize": 17,
-
-    "vscode-neovim.compositeKeys": {
-        "jk": {
-            "command": "vscode-neovim.escape"
-        }
-    }
 }
