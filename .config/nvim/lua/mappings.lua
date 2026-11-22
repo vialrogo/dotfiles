@@ -45,5 +45,5 @@ vim.keymap.set({ 'i' }, '<leader><S-Tab>', '<C-o><<')
 vim.keymap.set("n", "<leader>u", require("undotree").open)
 
 -- Tab behaivour
-vim.keymap.set("i", "<tab>", function() if vim.fn.pumvisible() == 1 then return "<C-n>" end end)
-vim.keymap.set("i", "<s-tab>", function() if vim.fn.pumvisible() == 1 then return "<C-p>" end end)
+vim.keymap.set("i", "<tab>", function() if vim.fn.pumvisible() == 1 then return "<C-n>" end return "<Tab>" end, { expr = true })
+vim.keymap.set("i", "<s-tab>", function() if vim.fn.pumvisible() == 1 then return "<C-p>" end return "<S-Tab" end, { expr = true })
