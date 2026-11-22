@@ -33,7 +33,10 @@ end
 set -gx EDITOR nvim
 set -U fish_greeting ""
 set -Ux TERM "xterm-256color"
-set -Ux PAGER "/usr/bin/most -s"
+set -gx MOOR "--style=gruvbox --terminal-fg"
+set -gx PAGER "moor"
+set -gx MANPAGER "moor"
+set -gx MANROFFOPT "-c"
 
 #Environmental variables
 set -Ux XDG_DATA_HOME "$HOME/.local/share"
@@ -79,3 +82,4 @@ starship init fish | source
 
 # Created by `pipx` on 2026-01-28 21:58:25
 set PATH $PATH /home/vialrogo/.local/bin
+eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
