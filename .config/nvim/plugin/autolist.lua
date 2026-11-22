@@ -7,22 +7,6 @@ vim.pack.add({
 require("autolist").setup()
 
 -- Keymap configuration
-
--- Tab behaivour
-vim.keymap.set("i", "<tab>", function()
-  if vim.fn.pumvisible() == 1 then
-    return "<C-n>"
-  end
-  return "<Cmd>AutolistTab<CR>"
-end, { expr = true, desc = "Next completion item or indent list" })
-
-vim.keymap.set("i", "<s-tab>", function()
-  if vim.fn.pumvisible() == 1 then
-    return "<C-p>"
-  end
-  return "<Cmd>AutolistShiftTab<CR>"
-end, { expr = true, desc = "Previous completion item or dedent list" })
-
 vim.keymap.set("i", "<CR>", "<CR><cmd>AutolistNewBullet<cr>")
 vim.keymap.set("n", "o", "o<cmd>AutolistNewBullet<cr>")
 vim.keymap.set("n", "O", "O<cmd>AutolistNewBulletBefore<cr>")
