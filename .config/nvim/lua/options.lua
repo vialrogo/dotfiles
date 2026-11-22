@@ -25,7 +25,6 @@ vim.opt.breakindentopt = "shift:2,sbr" -- Define the break options: Two spaces a
 
 -- Status colum behaivor
 vim.opt.number = true             -- Show line numbers
-vim.opt.relativenumber = true     -- Show line numbers relative to the current line
 
 vim.opt.signcolumn = "yes"        -- Controls the left column for signs (git, diagnostics)
 vim.opt.fillchars = { eob = " " } -- Controls filler characters in UI. Makes UI look modern/minimal
